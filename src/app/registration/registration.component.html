@@ -1,0 +1,230 @@
+<div id="background-screen" [@backgroundScreen]="showSerialNumInfo" (click)="hideSerialInfo()"></div>
+<div appTranslate id="registration-main-div">
+    <h1 class="register-content-title">Register Your Product</h1>
+    <div id="choose-language-label">Choose your language</div>
+    <div id="choose-language-label">test</div>
+    <ul class="languages" id="language-switcher">
+        <a [routerLink]="['/de/registration']">
+            <li class="de">
+                <img src="/assets/img/flags/de.png" alt="">
+            </li>
+        </a>
+        <a [routerLink]="['/registration']">
+            <li class="eng selected" (click)="setLanguage('en')">
+                <img src="/assets/img/flags/en.png" alt="">
+            </li>
+        </a>
+        <a [routerLink]="['/fr-ca/registration']">
+            <li class="fr-ca" (click)="setLanguage('fr-ca')">
+                <img src="/assets/img/flags/ca.png" alt="">
+            </li>
+        </a>
+        <a [routerLink]="['/it/registration']">
+            <li class="it" (click)="setLanguage('it')">
+                <img src="/assets/img/flags/it.png" alt="">
+            </li>
+        </a>
+        <a [routerLink]="['/jpn/registration']">
+            <li class="jpn" (click)="setLanguage('jpn')">
+                <img src="/assets/img/flags/ja.png" alt="">
+            </li>
+        </a>
+        <a [routerLink]="['/ko/registration']">
+            <li class="ko" (click)="setLanguage('ko')">
+                <img src="/assets/img/flags/ko.png" alt="">
+            </li>
+        </a>
+        <a [routerLink]="['/spa/registration']">
+            <li class="spa" (click)="setLanguage('spa')">
+                <img src="/assets/img/flags/es.png" alt="">
+            </li>
+        </a>
+        <a [routerLink]="['/zh/registration']">
+            <li class="zh" (click)="setLanguage('zh')">
+                <img src="/assets/img/flags/zh.png" alt="">
+            </li>
+        </a>
+        <a [routerLink]="['/zh-tw/registration']">
+            <li class="zh-tw" (click)="setLanguage('zh-tw')">
+                <img src="/assets/img/flags/tw.png" alt="">
+            </li>
+        </a>
+    </ul>
+<form>
+    <div class="form-group col-half" *ngIf="isElementVisible('first_name')">
+        <label for="ProductRegistrationFirstName" class="control-label">First Name:<span *ngIf="isElementRequired('first_name')">*</span></label>
+        <input name="first_name" [(ngModel)]="inputValueByName['first_name']" [required]="isElementRequired('first_name') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('first_name')}" class="form-control" maxlength="50" type="text" id="ProductRegistrationFirstName">
+        <span class="parsley-errors-list" *ngIf="isElementErrored('first_name')" style="color:red;" id="first_name_error">Please enter your first name.</span>
+    </div>
+
+    <div class="form-group col-half" *ngIf="isElementVisible('last_name')">
+        <label for="ProductRegistrationFirstName" class="control-label">Last Name:<span *ngIf="isElementRequired('last_name')">*</span></label>
+        <input name="last_name" [(ngModel)]="inputValueByName['last_name']" [required]="isElementRequired('last_name') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('last_name')}" class="form-control" maxlength="50" type="text" id="ProductRegistrationFirstName">
+        <span class="parsley-errors-list" *ngIf="isElementErrored('last_name')" style="color:red;" id="last_name_error">Please enter your last name.</span>
+    </div>
+
+    <div class="form-group col-half" *ngIf="isElementVisible('street_address')">
+        <label for="ProductRegistrationFirstName" class="control-label">Street Address:<span *ngIf="isElementRequired('street_address')">*</span></label>
+        <input name="street_address" [(ngModel)]="inputValueByName['street_address']" [required]="isElementRequired('street_address') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('street_address')}" class="form-control" type="text" >
+        <span class="parsley-errors-list" *ngIf="isElementErrored('street_address')" style="color:red;" id="street_address_error">Please enter your street address.</span>
+    </div>
+
+    <div class="form-group col-half" *ngIf="isElementVisible('apt_suite')">
+        <label for="ProductRegistrationFirstName" class="control-label">Apt/Suite:<span *ngIf="isElementRequired('apt_suite')">*</span></label>
+        <input name="apt_suite" [(ngModel)]="inputValueByName['apt_suite']" [required]="isElementRequired('apt_suite') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('apt_suite')}" class="form-control" type="text" >
+        <span class="parsley-errors-list" *ngIf="isElementErrored('apt_suite')" style="color:red;" id="apt_suite_error">Please enter your Apt/Suite.</span>
+    </div>
+
+    <div class="form-group col-half" *ngIf="isElementVisible('city')">
+        <label for="ProductRegistrationFirstName" class="control-label">City:<span *ngIf="isElementRequired('city')">*</span></label>
+        <input name="city" [(ngModel)]="inputValueByName['city']" [required]="isElementRequired('city') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('city')}" class="form-control" type="text">
+        <span class="parsley-errors-list" *ngIf="isElementErrored('city')" style="color:red;" id="city_error">Please enter your city.</span>
+    </div>
+
+    <div class="form-group col-half" *ngIf="isElementVisible('state_province')">
+        <label for="ProductRegistrationFirstName" class="control-label">State/Province:<span *ngIf="isElementRequired('state_province')">*</span></label>
+            <select name="state_province" [(ngModel)]="inputValueByName['state_province']" [required]="isElementRequired('state_province') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('state_province')}" class="col-md-12 form-control" >
+                <option value="{{state.code}}" *ngFor="let state of states">{{state.name}}</option>
+            </select>
+        <span class="parsley-errors-list" *ngIf="isElementErrored('state_province')" style="color:red;" id="state_province_error">Please enter your state or province.</span>
+    </div>
+
+    <div class="form-group col-half" *ngIf="isElementVisible('zip')">
+        <label for="ProductRegistrationFirstName" class="control-label">Zip:<span *ngIf="isElementRequired('zip')">*</span></label>
+        <input name="zip" [(ngModel)]="inputValueByName['zip']" [required]="isElementRequired('zip') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('zip')}" class="form-control" type="text">
+        <span class="parsley-errors-list" *ngIf="isElementErrored('zip')" style="color:red;" id="zip_error">Please enter your zip.</span>
+    </div>
+
+    <div class="form-group col-half" *ngIf="isElementVisible('country')">
+        <label for="ProductRegistrationFirstName" class="control-label">Country:<span *ngIf="isElementRequired('country')">*</span></label>
+            <select name="country" (change)="getCountryFromCountry(inputValueByName['country'])" [(ngModel)]="inputValueByName['country']" [required]="isElementRequired('country') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('country')}" class="col-md-12 form-control">
+        <optgroup label="Choose Country">
+        <option value="{{country.code}}" *ngFor="let country of countries">{{country.name}}</option>
+        </optgroup>
+            </select>
+        <span class="parsley-errors-list" *ngIf="isElementErrored('country')" style="color:red;" id="country_error">Please enter your country.</span>
+    </div>
+
+    <div class="form-group col-half" *ngIf="isElementVisible('email')">
+        <label for="ProductRegistrationFirstName" class="control-label">Email:<span *ngIf="isElementRequired('email')">*</span></label>
+        <input name="email" [(ngModel)]="inputValueByName['email']" [required]="isElementRequired('email') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('email')}" class="form-control" type="email">
+        <span class="parsley-errors-list" *ngIf="isElementErrored('email')" style="color:red;" id="email_error">Please enter your email.</span>
+    </div>
+
+    <div style="display:none;">
+        <input name="email2" [(ngModel)]="inputValueByName[fakeFormName]" type="text">
+    </div>
+
+    <div class="form-group col-half" *ngIf="isElementVisible('phone_number')">
+        <label for="ProductRegistrationFirstName" class="control-label">Phone Number:<span *ngIf="isElementRequired('phone_number')">*</span></label>
+        <input name="phone_number" [(ngModel)]="inputValueByName['phone_number']" [required]="isElementRequired('phone_number') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('phone_number')}" class="form-control" type="tel">
+        <span class="parsley-errors-list" *ngIf="isElementErrored('phone_number')" style="color:red;" id="phone_number_error">Please enter your phone number.</span>
+    </div>
+
+    <div class="form-group col-half">
+        <label for="ProductRegistrationFirstName" class="control-label">Purchase Date:<span>*</span></label>
+            <select name="purchase_month" [(ngModel)]="inputValueByName['purchase_month']" (change)="updateDays()" class="col-md-12 form-control">
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <span>-</span>
+            <select name="purchase_day" [(ngModel)]="inputValueByName['purchase_day']" class="col-md-12 form-control" >
+                <option value="{{day}}" *ngFor="let day of daysInMonth">{{day}}</option>
+            </select>
+            <span>-</span>
+            <select name="purchase_year" [(ngModel)]="inputValueByName['purchase_year']" (change)="updateDays()" class="col-md-12 form-control" >
+                <option value="{{year}}" *ngFor="let year of yearsArray">{{year}}</option>
+            </select>
+    </div>
+
+
+    <div class="form-group col-half" *ngIf="isElementVisible('purchase_place')">
+        <label for="ProductRegistrationFirstName" class="control-label">Purchase Place:<span *ngIf="isElementRequired('purchase_place')">*</span></label>
+            <select name="purchase_place" [(ngModel)]="inputValueByName['purchase_place']" (change)="enableOtherBox()" class="col-md-12 form-control">
+                <option value="Amazon">Amazon</option>
+                <option value="Bed Bath &amp; Beyond">Bed Bath &amp; Beyond</option>
+                <option value="Best Buy">Best Buy</option>
+                <option value="Blendtec.com">Blendtec.com</option>
+                <option value="Costco">Costco</option>
+                <option value="Costco.com">Costco.com</option>
+                <option value="HSN.com">HSN.com</option>
+                <option value="Macy's">Macy's</option>
+                <option value="Sam's Club">Sam's Club</option>
+                <option value="Other Physical Retailer">Other Physical Retailer</option>
+                <option value="Other Online Retailer">Other Online Retailer</option>
+            </select>
+    </div>
+
+    <div class="form-group col-half" *ngIf="isElementVisible('specify_other')">
+        <label for="ProductRegistrationFirstName" class="control-label">Specify Other:<span *ngIf="isElementRequired('specify_other')">*</span></label>
+        <input name="specify_other" [(ngModel)]="inputValueByName['specify_other']" [required]="isElementRequired('specify_other') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('specify_other')}" class="form-control" type="text">
+        <span class="parsley-errors-list" *ngIf="isElementErrored('specify_other')" style="color:red;" id="zip_error">Please specify where it was purchased.</span>
+    </div>
+
+    <div class="form-group col-half">
+        <label for="ProductRegistrationFirstName" class="control-label">Serial Number:<span>*</span></label>
+        <input name="serial_prefix" [(ngModel)]="inputValueByName['serial_prefix']" [required]="isElementRequired('serial_prefix') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('serial_prefix')}" class="form-control" type="text" maxlength="13">
+        <span>-</span>
+        <input name="serial_suffix" [(ngModel)]="inputValueByName['serial_suffix']" [required]="isElementRequired('serial_suffix') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('serial_suffix')}" class="form-control" type="text" maxlength="6">
+        <div class="serial-number-info-wrapper" (click)="showSerialInfo()"><div class="serial-number-info">?</div></div>
+        <span class="parsley-errors-list" *ngIf="isAnElementErrored(['serial_prefix', 'serial_suffix'])" style="color:red;" id="zip_error">Please enter the serial number.</span>
+    </div>
+
+    <div class="checkbox">
+    <label for="ProductRegistrationRecipes">
+    <input name="sendMeStuff" type="checkbox" [(ngModel)]="sendMeStuff">
+    Send me recipes, tips &amp; news!<br>(you can unsubscribe at any time)
+    </label>
+    </div>
+</form>
+
+<div>
+<re-captcha (resolved)="captchaResolved($event)" siteKey="{{publicKey}}"></re-captcha>
+<span class="parsley-errors-list" *ngIf="captchaNotFilled" style="color:red;">Please check the captcha to prove that you're a human.</span>
+</div>
+<div>
+<button (click)="submitRegistration()" class="bt-button-style red-to-gray" tabindex="19" id="submit-registration"><div class="bt-button-text"><span>Register Product</span></div><span class="bt-button-arrow icon icon_arrow"></span></button>
+</div>
+
+
+<div id="whereIsSerialNumber" [@infoState]="showSerialNumInfo">
+<div>
+            <div >
+                <button type="button" (click)="hideSerialInfo()">X</button>
+            </div>
+            <div >
+                <h2 >Where is my serial number</h2>
+            </div>
+            <div>
+                <h3>All Blenders Except The Designer 725</h3>
+                <p class="serial-number-location__explanation">
+                    You can find the serial number on the bottom of your blender base.<span>Example:</span>
+                </p>
+                <img src="//cdn.blendtec.com/images/Support/blender-serial-location.jpg">
+
+                <div>
+                <h3>Designer 725 only</h3>
+                <p>
+                    Hold down the red ‘X’ on your blender, then select ‘Rewards.’ This will display the serial number along with your last reward code.<span>Example:</span>
+                </p>
+
+                <img src="//cdn.blendtec.com/images/Support/blender-serial-location-725.jpg">
+                </div>
+            </div>
+        </div>
+
+</div>
+
+</div>
+
+<button (click)="showInfo()">test</button>

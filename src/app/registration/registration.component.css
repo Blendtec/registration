@@ -1,0 +1,55 @@
+
+.inputRequired{
+	border-color:red;
+	border-style:solid;
+	border-width:1px;
+}
+.serial-number-info-wrapper{
+	border-color:black;
+	border-style:solid;
+	border-width:1px;
+	border-radius:100px;
+	display:inline-block;
+    width: 20px;
+    height: 20px;
+    cursor:pointer;
+    position:relative;
+}
+.serial-number-info{
+    font-size: 16px;
+    position: absolute;
+    top: 2px;
+    left: 7px;
+}
+.serial-number-info-wrapper:hover .serial-number-info{
+	font-size:20px;
+	top:0px;
+	left:6px;
+}
+#registration-main-div{
+
+}
+#whereIsSerialNumber{
+    max-width: 600px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+	position:absolute;
+	z-index:10;
+	background-color:white;
+}
+#background-screen{
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0.5;
+    z-index: 5;
+    background-color: black;
+    top: 0;
+    left: 0;
+}
