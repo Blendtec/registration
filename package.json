@@ -5,11 +5,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "lint": "ng lint --type-check && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test:ci": "ng test"
+    "test:ci": "npm run lint && ng test --single-run --code-coverage"
   },
   "private": true,
   "dependencies": {
