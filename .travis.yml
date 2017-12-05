@@ -1,0 +1,73 @@
+sudo: required
+dist: trusty
+git:
+  depth: 1
+language: node_js
+node_js:
+- '6'
+- '7'
+- stable
+addons:
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+matrix:
+  fast_finish: true
+install:
+- npm install
+before_script:
+- export DBUS_SESSION_BUS_ADDRESS=/dev/null
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+script:
+- npm run test:ci
+- echo $TRAVIS_BRANCH
+- if [ $TRAVIS_BRANCH = 'develop' ]; then npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-stage-client.blendtec.com/registration/ --base-href /pages/stage-recipes/; fi
+- if [ $TRAVIS_BRANCH = 'master' ]; then npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-client.blendtec.com/registration/ --base-href /pages/recipe-test/; fi
+after_success:
+- "./node_modules/.bin/codecov"
+notifications:
+  slack: blendtec:a5Z5i4z3iuWbHHDdlMRSMkiB
+env:
+  global:
+  - secure: EDWE4DtDXApKGxJvEg5GIFtz9JHOQ7yD9HjEHFGQycVUvMoOuf8F7PHov5S56VnETrIUCqGQMdE2bvvNyeTmsFdCS/C2KITU1e84TU/vtoNkpeehKMyzWlAz6n8wTKWNblwhkpfwW5E8Oz1n4FqIiPKQAJzlj4My+qGnuFHpoVgS3sBzFYzUZj5fPNAtjp/rUcOXZ6xFRXy98NS3BPY0BKaGOMzkYn4xTELf233J5SV9ZT/zElbDtEujembEPrydfxnSiS08WuXQI9ZLE76a+5cWPIKDp5aLpYWTvDlX+s/LErhvAmMDECbBKIZRH+dZpO3FV1NEEdHJ5Peyk0JmSIeL+K1ueAUEeUbFlFpxQhtwiR5YePITi3mfTM26uwMumKh+Vgefc2di+TZ7W/lPNr5Zu3nklUm6X8Owj8hcMmfWHlJXBdzJfg7TZE0V571EzC7oZLSbvjRpX/rXBScSMEtMdrgEBEaT2e0rc3PBLSUaQNHcrhAlFGkoUSUSoKpQLY6mbPLJo/5Ax+Ecqi0AwuOsb8ZC13wV15tWSSaXBdN3rdvrirOfgeuhwGsyaJVkebD8ojbFpc0t3tOth11SHADmpl9Hg4SJBBpHYEtf1qe1r73MIHvdGsjjG2ynIhMusC4McsHa3/CF8PRWQ2M6biZ1YMMN/tySMy2d322EUYo=
+  - secure: HxzA9kdfWd2sbCMI7e2KeTAFLeI9DJr/wMNF7Se/pMjgUREB8pA3fP/v1wtMoV1zKTuM84KjsvqDR8U3VA5XBrJOMaOGFnP3lL3N/mxi+A7OUah1Zh1RFC9NyceU4SFtNg4KWfZkntYKXtLcvTFf+I1G+k/R6WtG6XSFRobAGdmrOPeyaE94y4DrNr1kJ6hab9SgGJkwn4gYcHJltxcgV5wfKLhWV1zQ+gfYeGxYTFC3ryr2ArP3QSIbj7OUkpqqzio4NShaQss+g2hMjVdC8kM459T9IfFQj5oOqXqdqG3b8t3khaD9UWXm0KTR+/JoT/IFqQAkk/IXZoKonIKmqfF0ON796Oj6WRK02+CElgzkqnLnhHXBA24cdT5gJ92kBIRSvnYimwaLmXDx5e048Apl4ONg/hvm6BIs28V/GnVz2UJpa8lDSFkNPhWD+leewQ0Rq5CxcN5444qkPSq7+tlMSOXGzt9CNZWglTW9Hq1L8Pa4KTtM8/BEkd+v3y4ilFrdZc8p3xv2StXOSdX4IPVzfdb4k3BKtJHFPbKAu/8Bc0doUNghKTnKN7BoAMvGXSu8djwfYTrBnXVzR6VsQiUhepv6tHigKv7IqOs3Lfuvy793JanwYQ3dv+ONtlWE8YnyX9KTQcVHPfVQSvuDf5xopOYvg+fguXEKSKPgkRE=
+  - secure: pjTxxtpkIOT2MbYMYa/F2Pk873JwULWEl86cImEXLyynOgh93msG8VuehnkiZAqWeUmVI8Sq/OxfxTCI5ZjWjJThelbom1iD7XYVckoCMfIbn2XlfwNZgp6w+PmMANgdMsvUV/T59Bx/6wfoSVBajOSZfAz5RA5fG93MnluisjEXPB7PCCmKTXiSkJsMsl1hhZxw5TW+paKyh+JieRM1GjENAbve8WXeL4rFNnki9AQ6v91fJ1l2rz1Gf6LYNdS+3NKXKZLOeUffu6hg0NGewtmNCvnowfjgPP+3zpu0vEAynrUb17vDB5oAmifYPIWt6BQPQYAshxeewnN+ClKZnCz/pvQMmnGds0pcBi8ReI6HqqajQHc2b6P2rcmwMKVcPj9AKxVPnuyHRTEVtrm4Pnlmb/Jyl7KOJGMNEJw5HvuJJwLL0I7//hk9HPgNpx5NGCH0yy3MkatNWMbL6nGppHopDe1tX4VnrxmUQXzsZCSf3iOvyv89BgcLck/K4rpHWbqhyBJuQDnNnD+vL4Tnuu7tPYC77rAejGyQhkgKOi3dDQS+aT6otXUBdfSQqpv3mAyLIoav7x+yMBCFKwCIKkKI/dUavbPcAFx8fXbqNl4Vvyt+nVCQka9mf1QboCuYPNhoz0LwC+g3eej216iOTnjp6SNDg7BSfjQD77mkODg=
+  - secure: o4NhhEE2I9SlToHPZRkukd7s+Sbaq0ABYvtwQQ1OsrHaCgKeRlMnWS5mqosLJUQJDuTiWrJSkQAQGI/dA4NEAOvdFNzIlSdlVMHGDg/Z3mbo1irms8ZOTXX5gBt65qHlYNHdKDSGLCeCoiS3L5GDUkuYnS1n+qYNx9Put7wdlvZHMuCy4E8EKeXLlIH0r/jEZAOeapNisFfDBjOk/B4c1Fhspc9mLVGG2mu1Qfd9+5nDun6AnLvZosIRWZauud3esLrtE1eX38NqKZ9Jtrh9+9zfmed3vOZ/vgdcQ9GDu44ASzx8yDJ3RoHZCqO2mIk4vRqG5376omWuZoHuNmjPDC1fLoJPJjiqGDUDgAdne4nRytdjD+qZysMxepSFZgB7N0TD2dVgTSs51WgzKr5CMCCmBFt+xfN6ZQAZ/ehWZJ4t2nqPoBhm33a8mOq6HPNYioFto+kYxFdpPdT9znIiFAGxJKab5rSq7X1rAGaf1elVAw4898JfGIbCFpZjxCksrXeti7LpljBrCclNXnCMS42LkpTAbp/Frpwu9cwWYrj7qGuX8p0fYuph1v+ISrmoRqPnGdwBtI2HvD60l0M5yyWnpkduMeHqDrVqaJdo5UHENbPrfdBumJtgyzCHCNPFqh84tHB6yzsWRbHIjkXf+3SVLrC1EYeHMBX6y4haCGM=
+  - secure: tE1JG7OQcIqcBdfyCxDx3v7QaHHkRC+IvycRAqmucv8Nal7RdASOOUXIJujESasqTS0/lOU2qbDGSU+MhccB9G35mFF+astVJPlzDk0LrcwJ17/OjDhivR7JRlydYMQvdo2X/HsAp+i9BfDplcTalYqiqMDJX+pIRPGQXGusovdDvIYdJndNbxHwahVirEbtqTPBKlf7D/s77TEFZBMNKZ5X8OIinH8RzQPB1Tj2wwzQSkhVJUUogdqsPWbJ9Z8HODKRKAM/F2MlhvIKaaPxaMoIzY5Cr77Nj197Rfw6mTAhVFl000ixCDHyckO0swslBP/VSuU2UF4iQVEaGH3o2US/wvP6rnJuwtJ74RWDpuBAh6GcoNHJxeDH2SGmQWRVMKKjrLD+CkqryBUGJ8Wt1fGwpJ/TEiVavWJhl7FCguAqN0y/sCbIhm98k2mWbNaUS/70ggwXDKGnxSV6NiHZqcr9keiFgfTqFlxOVi5arkPHxcxmKEzI29Yyblz+VCMjK5UBx1VrsWboTfQhyMw7deeAXZVKBajAaNSVvO1UZw54OCqRZruhbmpYT2iLfIh1vsMoaxZzXzyiQWifAGVl5p8THBshU1i5uQ7P9Wdm/gtmcOZgz185gDqZo3Wy0pIIEH1ZUhhZRAkXYesRluGm/T0DPUGrAJdkjFJI+jK8cpQ=
+deploy:
+- provider: s3
+  region: us-west-1
+  access_key_id: AKIAIBSHRO4SOJ5PIBSQ
+  secret_access_key:
+    secure: Il9zk3MOxurkDplYAZR5nIb8UwLD1EKc7m8ZMsrOcFU6R8aKhqfQAi02lIPZMgfdFCA+ll3aU3ENRahMhQWsNRL3zmINimaVkTrv91P6Zhp3CvT/fWRTHrKXgUrawI18NOmHEZaoUPY5SWYR2D89ljdf293gRtStmnjU9JdH3HOuDXaAcZ1j5p/oEn8gumn1mZHc2ajJm5RbhqGgtNCiEqP5g/0stKoio8BilHa6yDa/khiSjeVEUb9Os7rP5bumk0IXzALi9noYbCKElJ4JOP+81m9V/zEL5XKrFpT0z5HAwma15lSxdTjh+rO2a+6u0CK/JLuatf1tpz6P3sbHDYKOzDsdsz51DN+XeiLtPn5KE4zqwkWWA2iBzyJIj0OzU110szRYRootOyaitheFjhfrAHwFMaXLzT77/gFhpXPdCjfP7BM02uuUEIATMYZ0uQlrJYkroJh7FXVeixIeQBdno8hvLWV/GY2wAJbG1B0qq7TZ0Mn7fBtVaMdo7lP0kpqn0YCwAuMkGaXskxq/2c1Zg8sPQ6SW1QsrXCifgKjsxRlmK+LDDDbRRK8eWRpbvKVEoGKZ+aglWpJXvx8TS+3k1DpCI0Cj8Iu2Pe11i6TnC+EUULF9rQic+fiHaU1ghpc7UoUaXvRApWRzowxJJHCkTzyF9yNgypYivPFsPbc=
+  bucket: recipe-client.blendtec.com
+  local-dir: dist
+  skip_cleanup: true
+  acl: public_read
+  on:
+    branch: master
+- provider: script
+  skip_cleanup: true
+  script: "./.travis/deploy.sh"
+  on:
+    branch: master
+- provider: s3
+  region: us-west-1
+  access_key_id: AKIAIBSHRO4SOJ5PIBSQ
+  secret_access_key:
+    secure: Il9zk3MOxurkDplYAZR5nIb8UwLD1EKc7m8ZMsrOcFU6R8aKhqfQAi02lIPZMgfdFCA+ll3aU3ENRahMhQWsNRL3zmINimaVkTrv91P6Zhp3CvT/fWRTHrKXgUrawI18NOmHEZaoUPY5SWYR2D89ljdf293gRtStmnjU9JdH3HOuDXaAcZ1j5p/oEn8gumn1mZHc2ajJm5RbhqGgtNCiEqP5g/0stKoio8BilHa6yDa/khiSjeVEUb9Os7rP5bumk0IXzALi9noYbCKElJ4JOP+81m9V/zEL5XKrFpT0z5HAwma15lSxdTjh+rO2a+6u0CK/JLuatf1tpz6P3sbHDYKOzDsdsz51DN+XeiLtPn5KE4zqwkWWA2iBzyJIj0OzU110szRYRootOyaitheFjhfrAHwFMaXLzT77/gFhpXPdCjfP7BM02uuUEIATMYZ0uQlrJYkroJh7FXVeixIeQBdno8hvLWV/GY2wAJbG1B0qq7TZ0Mn7fBtVaMdo7lP0kpqn0YCwAuMkGaXskxq/2c1Zg8sPQ6SW1QsrXCifgKjsxRlmK+LDDDbRRK8eWRpbvKVEoGKZ+aglWpJXvx8TS+3k1DpCI0Cj8Iu2Pe11i6TnC+EUULF9rQic+fiHaU1ghpc7UoUaXvRApWRzowxJJHCkTzyF9yNgypYivPFsPbc=
+  bucket: recipe-stage-client.blendtec.com
+  local-dir: dist
+  skip_cleanup: true
+  acl: public_read
+  on:
+    branch: develop
+- provider: script
+  skip_cleanup: true
+  script: "./.travis/deploy_stage.sh"
+  on:
+    branch: develop
+
