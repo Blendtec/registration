@@ -12,18 +12,18 @@ export class RequestService {
     return Promise.reject(error.message || error);
   }
 
-  submitData(submitUrl : string, data : any, callback = null) {
+  submitData(submitUrl: string, data: any, callback = null) {
 
-	  return this.http.post(submitUrl, data)
-	  		.toPromise()
-	  		.then(response => {
-	  			response = response;
-	  			if (callback !== null && callback.contructor === Function) {
-	  				callback();
-	  			}
+    return this.http.post(submitUrl, data)
+      .toPromise()
+      .then(response => {
+        response = response;
+        if (callback !== null && callback.contructor === Function) {
+          callback();
+        }
 
-	  		})
-	  		.catch(e => this.handleError(e));
+      })
+      .catch(e => this.handleError(e));
 
   }
 

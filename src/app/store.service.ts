@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject }    from 'rxjs/Subject';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class StoreService {
@@ -9,16 +9,16 @@ export class StoreService {
   retrieveLanguage$ = this.language.asObservable();
 
   constructor() {
-  	this.language.next('en');
-   }
+    this.language.next('en');
+  }
 
 
-  passLanguage(data: string){
+  passLanguage(data: string) {
     this.language.next(data);
   }
 
-  getLanguage(){
-  	return this.language.asObservable();
+  getLanguage() {
+    return this.language.asObservable();
   }
 
 }

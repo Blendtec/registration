@@ -19,28 +19,47 @@ declare function require(url: string);
 describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
-  let storeService : StoreService;
-  let storeServiceFixture: ComponentFixture<StoreService>;
-  let el : ElementRef;
-  let cdRef : ChangeDetectorRef;
-  let route : ActivatedRoute;
+  const storeService: StoreService = new StoreService();
+  const storeServiceFixture: ComponentFixture<StoreService> = null;
+  const el: ElementRef = null;
+  const cdRef: ChangeDetectorRef = null;
+  const route: ActivatedRoute = null;
 
-  let testFieldsByCountry = [{"theCountry":"US","language":"en","first_name":{"isRequired":true,"isVisible":true,"regex":"^.{1,50}$"},"last_name":{"isRequired":true,"isVisible":true},"street_address":{"isRequired":false,"isVisible":true},"apt_suite":{"isRequired":false,"isVisible":true},"city":{"isRequired":false,"isVisible":true},"state_province":{"isRequired":false,"isVisible":true},"zip":{"isRequired":false,"isVisible":true,"regex":"[-_\\/0-9]{4,25}"},"country":{"isRequired":false,"isVisible":true},"email":{"isRequired":false,"isVisible":true,"regex":"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"},"phone_number":{"isRequired":false,"isVisible":false,"regex":"^[^a-zA-Z]{7,25}$"},"purchase_month":{"isRequired":false,"isVisible":true},"purchase_day":{"isRequired":false,"isVisible":true},"purchase_year":{"isRequired":false,"isVisible":true},"purchase_place":{"isRequired":false,"isVisible":true},"specify_other":{"isRequired":false,"isVisible":false},"serial_prefix":{"isRequired":false,"isVisible":true,"regex":"^[a-zA-Z0-9]{1,14}$"},"serial_suffix":{"isRequired":false,"isVisible":true,"regex":"^[a-zA-Z0-9]{1,14}$"}}];
+  const testFieldsByCountry = [{ 'theCountry': 'US', 'language': 'en', 'first_name':
+  { 'isRequired': true, 'isVisible': true, 'regex': '^.{1,50}$' }, 'last_name':
+  { 'isRequired': true, 'isVisible': true }, 'street_address':
+  { 'isRequired': false, 'isVisible': true }, 'apt_suite':
+  { 'isRequired': false, 'isVisible': true }, 'city':
+  { 'isRequired': false, 'isVisible': true }, 'state_province':
+  { 'isRequired': false, 'isVisible': true }, 'zip':
+  { 'isRequired': false, 'isVisible': true, 'regex': '[-_\\/0-9]{4,25}' }, 'country':
+  { 'isRequired': false, 'isVisible': true }, 'email':
+  { 'isRequired': false, 'isVisible': true, 'regex':
+  '^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
+  },
+  'phone_number': { 'isRequired': false, 'isVisible': false, 'regex': '^[^a-zA-Z]{7,25}$' },
+  'purchase_month': { 'isRequired': false, 'isVisible': true },
+  'purchase_day': { 'isRequired': false, 'isVisible': true },
+  'purchase_year': { 'isRequired': false, 'isVisible': true },
+  'purchase_place': { 'isRequired': false, 'isVisible': true },
+  'specify_other': { 'isRequired': false, 'isVisible': false },
+  'serial_prefix': { 'isRequired': false, 'isVisible': true, 'regex': '^[a-zA-Z0-9]{1,14}$' },
+  'serial_suffix': { 'isRequired': false, 'isVisible': true, 'regex': '^[a-zA-Z0-9]{1,14}$' } }];
 
-  let testCountries = [{"name": "United States", "code": "US"},{"name": "Canada", "code": "CA"}];
+  const testCountries = [{ 'name': 'United States', 'code': 'US' }, { 'name': 'Canada', 'code': 'CA' }];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegistrationComponent ],
-      imports:[RouterModule.forRoot([]), FormsModule, RecaptchaModule.forRoot(), HttpClientModule, BrowserAnimationsModule],
-      providers: [{provide: APP_BASE_HREF, useValue : '/'},
-      StoreService, RequestService]
+      declarations: [RegistrationComponent],
+      imports: [RouterModule.forRoot([]), FormsModule, RecaptchaModule.forRoot(), HttpClientModule, BrowserAnimationsModule],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' },
+        StoreService, RequestService]
     })
-    .compileComponents();
+      .compileComponents();
 
   }));
 
-  beforeEach( () => {
+  beforeEach(() => {
 
     fixture = TestBed.createComponent(RegistrationComponent);
     component = fixture.componentInstance;
@@ -55,15 +74,15 @@ describe('RegistrationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("expect setLanguage to set the local language", () => {
-    let response = null;
+  it('expect setLanguage to set the local language', () => {
+    const response = null;
 
     component.setLanguage('de');
 
     expect(component.language).toBe('de');
   });
 
-  it("expects a file named fieldsByCountry.json to be within the same directory", () => {
+  it('expects a file named fieldsByCountry.json to be within the same directory', () => {
     let fieldsByCountry = null;
     try {
       fieldsByCountry = require('./fieldsByCountry.json');
@@ -73,7 +92,7 @@ describe('RegistrationComponent', () => {
     expect(fieldsByCountry).not.toBeNull();
   });
 
-  it("expects a file named countries.json to be within the same directory", () => {
+  it('expects a file named countries.json to be within the same directory', () => {
     let countries = null;
     try {
       countries = require('./countries.json');
@@ -83,7 +102,7 @@ describe('RegistrationComponent', () => {
     expect(countries).not.toBeNull();
   });
 
-  it("expects a file named states.json to be within the same directory", () => {
+  it('expects a file named states.json to be within the same directory', () => {
     let states = null;
     try {
       states = require('./states.json');
@@ -93,7 +112,8 @@ describe('RegistrationComponent', () => {
     expect(states).not.toBeNull();
   });
 
-  it("fieldsByCountry.json file should be an array of objects where the objects have at least the properties 'theCountry' and 'language' defined and of type string", () => {
+  it(`fieldsByCountry.json file should be an array of objects where the objects have
+    at least the properties "theCountry" and "language" defined and of type string`, () => {
     let response = null;
     let fieldsByCountry = null;
     try {
@@ -104,7 +124,7 @@ describe('RegistrationComponent', () => {
 
     if (typeof fieldsByCountry === 'object' && fieldsByCountry.constructor === Array) {
       for (let i = 0; i < fieldsByCountry.length; i++) {
-        if (typeof fieldsByCountry[i].language != 'string' || typeof fieldsByCountry[i].theCountry != 'string') {
+        if (typeof fieldsByCountry[i].language !== 'string' || typeof fieldsByCountry[i].theCountry !== 'string') {
           response = 'invalid';
         }
       }
@@ -115,7 +135,8 @@ describe('RegistrationComponent', () => {
     expect(response).toBeNull();
   });
 
-  it("states.json file should be an array of objects where the objects have at least the properties 'name' and 'code' defined and of type string", () => {
+  it(`states.json file should be an array of objects where the objects
+    have at least the properties "name" and "code" defined and of type string`, () => {
     let response = null;
     let fieldsByState = null;
     try {
@@ -126,7 +147,7 @@ describe('RegistrationComponent', () => {
 
     if (typeof fieldsByState === 'object' && fieldsByState.constructor === Array) {
       for (let i = 0; i < fieldsByState.length; i++) {
-        if (typeof fieldsByState[i].name != 'string' || typeof fieldsByState[i].code != 'string') {
+        if (typeof fieldsByState[i].name !== 'string' || typeof fieldsByState[i].code !== 'string') {
           response = 'invalid';
         }
       }
@@ -137,7 +158,8 @@ describe('RegistrationComponent', () => {
     expect(response).toBeNull();
   });
 
-  it("countries.json file should be an array of objects where the objects have at least the properties 'name' and 'code' defined and of type string", () => {
+  it(`countries.json file should be an array of objects where the objects
+    have at least the properties "name" and "code" defined and of type string`, () => {
     let response = null;
     let fieldsByCountry = null;
     try {
@@ -148,7 +170,7 @@ describe('RegistrationComponent', () => {
 
     if (typeof fieldsByCountry === 'object' && fieldsByCountry.constructor === Array) {
       for (let i = 0; i < fieldsByCountry.length; i++) {
-        if (typeof fieldsByCountry[i].name != 'string' || typeof fieldsByCountry[i].code != 'string') {
+        if (typeof fieldsByCountry[i].name !== 'string' || typeof fieldsByCountry[i].code !== 'string') {
           response = 'invalid';
         }
       }
@@ -159,7 +181,7 @@ describe('RegistrationComponent', () => {
     expect(response).toBeNull();
   });
 
-  it("expect getLanguage to return observable which contains the language set by setLanguage", () => {
+  it('expect getLanguage to return observable which contains the language set by setLanguage', () => {
     let response = null;
     let fieldsByCountry = null;
     try {
@@ -169,7 +191,7 @@ describe('RegistrationComponent', () => {
     }
     component.getLanguage().subscribe(out => response = out);
     let testLanguage = null;
-    if (typeof fieldsByCountry[0] != 'undefined' && typeof fieldsByCountry[0].language === 'string') {
+    if (typeof fieldsByCountry[0] !== 'undefined' && typeof fieldsByCountry[0].language === 'string') {
       testLanguage = fieldsByCountry[0].language;
       component.setLanguage(testLanguage);
     }
@@ -177,7 +199,7 @@ describe('RegistrationComponent', () => {
     expect(response).toBe(testLanguage);
   });
 
-  it("getCountryFromLanguage should set the country settings based off of the language", () => {
+  it('getCountryFromLanguage should set the country settings based off of the language', () => {
     let fieldsByCountry = null;
     try {
       fieldsByCountry = require('./fieldsByCountry.json');
@@ -185,7 +207,7 @@ describe('RegistrationComponent', () => {
 
     }
     let testLanguage = null;
-    if (typeof fieldsByCountry[0] != 'undefined' && typeof fieldsByCountry[0].language === 'string') {
+    if (typeof fieldsByCountry[0] !== 'undefined' && typeof fieldsByCountry[0].language === 'string') {
       testLanguage = fieldsByCountry[0].language;
       component.getCountryFromLanguage(testLanguage);
     }
@@ -193,7 +215,7 @@ describe('RegistrationComponent', () => {
     expect(component.currentCountry).toBeDefined();
   });
 
-  it("getCountryFromCountry should set the country settings based off of the country chosen", () => {
+  it('getCountryFromCountry should set the country settings based off of the country chosen', () => {
     let fieldsByCountry = null;
     try {
       fieldsByCountry = require('./fieldsByCountry.json');
@@ -201,7 +223,7 @@ describe('RegistrationComponent', () => {
 
     }
     let testCountry = null;
-    if (typeof fieldsByCountry[0] != 'undefined' && typeof fieldsByCountry[0].theCountry === 'string') {
+    if (typeof fieldsByCountry[0] !== 'undefined' && typeof fieldsByCountry[0].theCountry === 'string') {
       testCountry = fieldsByCountry[0].theCountry;
       component.getCountryFromLanguage(testCountry);
     }
@@ -209,7 +231,7 @@ describe('RegistrationComponent', () => {
     expect(component.currentCountry).toBeDefined();
   });
 
-  it("isElementRequired should tell you whether or not an element is required", () => {
+  it('isElementRequired should tell you whether or not an element is required', () => {
 
     let result = component.isElementRequired('first_name');
     expect(result).toBeTruthy();
@@ -218,7 +240,7 @@ describe('RegistrationComponent', () => {
     expect(result).toBeFalsy();
   });
 
-  it("isElementVisible should tell you whether or not an element is visible", () => {
+  it('isElementVisible should tell you whether or not an element is visible', () => {
 
     let result = component.isElementVisible('first_name');
     expect(result).toBeTruthy();
@@ -227,7 +249,7 @@ describe('RegistrationComponent', () => {
     expect(result).toBeFalsy();
   });
 
-  it("isElementErrored should tell you whether or not an element is errored", () => {
+  it('isElementErrored should tell you whether or not an element is errored', () => {
     let result = component.isElementErrored('first_name');
     expect(result).toBeFalsy();
 
@@ -245,7 +267,7 @@ describe('RegistrationComponent', () => {
 
   });
 
-  it("isAnElementErrored should tell you whether or not one of the elements is errored", () => {
+  it('isAnElementErrored should tell you whether or not one of the elements is errored', () => {
     let result = component.isAnElementErrored(['first_name', 'last_name']);
     expect(result).toBeFalsy();
 
@@ -264,7 +286,7 @@ describe('RegistrationComponent', () => {
 
   });
 
-  it("isOptionSelected should tell you whether or not the current country is the one selected", () => {
+  it('isOptionSelected should tell you whether or not the current country is the one selected', () => {
     let result = component.isOptionSelected('GE');
     expect(result).toBeFalsy();
 
@@ -273,7 +295,7 @@ describe('RegistrationComponent', () => {
   });
 
 
-  it("isAllInfoCorrect should tell you whether or not the fields are filled in correctly", () => {
+  it('isAllInfoCorrect should tell you whether or not the fields are filled in correctly', () => {
     component.submitInfo = true;
     let result = component.isAllInfoCorrect();
     expect(result).toBeFalsy();
@@ -285,17 +307,17 @@ describe('RegistrationComponent', () => {
     expect(result).toBeTruthy();
   });
 
-  it("submitRegistration should recognize you as spammer if fakeFormName is filled in", () => {
+  it('submitRegistration should recognize you as spammer if fakeFormName is filled in', () => {
     component.inputValueByName['first_name'] = 'test';
     component.inputValueByName['last_name'] = 'test';
-    component.captchaResponse = "test";
-    component.inputValueByName[component.fakeFormName] = "example@gmail.com";
+    component.captchaResponse = 'test';
+    component.inputValueByName[component.fakeFormName] = 'example@gmail.com';
 
     component.submitRegistration();
     expect(component.spammer).toBeTruthy();
   });
 
-  it("updateDays should set daysInMonth variable based on the year and month", () => {
+  it('updateDays should set daysInMonth variable based on the year and month', () => {
     component.inputValueByName['purchase_month'] = '02';
     component.inputValueByName['purchase_year'] = '2014';
 
@@ -311,4 +333,3 @@ describe('RegistrationComponent', () => {
   });
 
 });
-//https://jasmine.github.io/2.4/introduction.html

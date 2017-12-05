@@ -10,12 +10,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-  	path: 'registration',
-  	component:RegistrationComponent
+    path: 'registration',
+    component: RegistrationComponent
   },
   {
-  	path: ':lan/registration',
-  	component:RegistrationComponent
+    path: ':lan/registration',
+    component: RegistrationComponent
   }
 ];
 

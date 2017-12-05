@@ -6,8 +6,8 @@ import { RequestService } from './request.service';
 
 describe('RequestService', () => {
 
-	let requestService: RequestService;
-	let httpMock: HttpTestingController;
+  let requestService: RequestService;
+  let httpMock: HttpTestingController;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -28,11 +28,11 @@ describe('RequestService', () => {
   });
 
   it('submitRegistration should post info to url when fakeFormName is not filled in and all info is correct', () => {
-  		console.log(requestService.submitData("fakeURL", {}, function () {
-  			console.log('hello world');
+    console.log(requestService.submitData('fakeURL', {}, function() {
+      console.log('hello world');
 
-  		}));
-     });
+    }));
+  });
 });
 
 

@@ -11,8 +11,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-      imports:[RouterModule.forRoot([])],
-      providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+      imports: [RouterModule.forRoot([])],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     }).compileComponents();
   }));
 
