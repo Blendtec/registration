@@ -24,9 +24,9 @@ before_script:
 script:
 - npm run test:ci
 - echo $TRAVIS_BRANCH
-- if [ $TRAVIS_BRANCH = 'develop' ]; then npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-stage-client.blendtec.com/registration/
+- if [ $TRAVIS_BRANCH = 'develop' ]; then npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-stage-client.blendtec.com/
   --base-href /pages/stage-recipes/; fi
-- if [ $TRAVIS_BRANCH = 'master' ]; then npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-client.blendtec.com/registration/
+- if [ $TRAVIS_BRANCH = 'master' ]; then npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-client.blendtec.com/
   --base-href /pages/recipe-test/; fi
 after_success:
 - "./node_modules/.bin/codecov"
@@ -40,7 +40,7 @@ env:
   - secure: o4NhhEE2I9SlToHPZRkukd7s+Sbaq0ABYvtwQQ1OsrHaCgKeRlMnWS5mqosLJUQJDuTiWrJSkQAQGI/dA4NEAOvdFNzIlSdlVMHGDg/Z3mbo1irms8ZOTXX5gBt65qHlYNHdKDSGLCeCoiS3L5GDUkuYnS1n+qYNx9Put7wdlvZHMuCy4E8EKeXLlIH0r/jEZAOeapNisFfDBjOk/B4c1Fhspc9mLVGG2mu1Qfd9+5nDun6AnLvZosIRWZauud3esLrtE1eX38NqKZ9Jtrh9+9zfmed3vOZ/vgdcQ9GDu44ASzx8yDJ3RoHZCqO2mIk4vRqG5376omWuZoHuNmjPDC1fLoJPJjiqGDUDgAdne4nRytdjD+qZysMxepSFZgB7N0TD2dVgTSs51WgzKr5CMCCmBFt+xfN6ZQAZ/ehWZJ4t2nqPoBhm33a8mOq6HPNYioFto+kYxFdpPdT9znIiFAGxJKab5rSq7X1rAGaf1elVAw4898JfGIbCFpZjxCksrXeti7LpljBrCclNXnCMS42LkpTAbp/Frpwu9cwWYrj7qGuX8p0fYuph1v+ISrmoRqPnGdwBtI2HvD60l0M5yyWnpkduMeHqDrVqaJdo5UHENbPrfdBumJtgyzCHCNPFqh84tHB6yzsWRbHIjkXf+3SVLrC1EYeHMBX6y4haCGM=
   - secure: tE1JG7OQcIqcBdfyCxDx3v7QaHHkRC+IvycRAqmucv8Nal7RdASOOUXIJujESasqTS0/lOU2qbDGSU+MhccB9G35mFF+astVJPlzDk0LrcwJ17/OjDhivR7JRlydYMQvdo2X/HsAp+i9BfDplcTalYqiqMDJX+pIRPGQXGusovdDvIYdJndNbxHwahVirEbtqTPBKlf7D/s77TEFZBMNKZ5X8OIinH8RzQPB1Tj2wwzQSkhVJUUogdqsPWbJ9Z8HODKRKAM/F2MlhvIKaaPxaMoIzY5Cr77Nj197Rfw6mTAhVFl000ixCDHyckO0swslBP/VSuU2UF4iQVEaGH3o2US/wvP6rnJuwtJ74RWDpuBAh6GcoNHJxeDH2SGmQWRVMKKjrLD+CkqryBUGJ8Wt1fGwpJ/TEiVavWJhl7FCguAqN0y/sCbIhm98k2mWbNaUS/70ggwXDKGnxSV6NiHZqcr9keiFgfTqFlxOVi5arkPHxcxmKEzI29Yyblz+VCMjK5UBx1VrsWboTfQhyMw7deeAXZVKBajAaNSVvO1UZw54OCqRZruhbmpYT2iLfIh1vsMoaxZzXzyiQWifAGVl5p8THBshU1i5uQ7P9Wdm/gtmcOZgz185gDqZo3Wy0pIIEH1ZUhhZRAkXYesRluGm/T0DPUGrAJdkjFJI+jK8cpQ=
   matrix:
-    secure: rw135nZ4YN5BLTGKu1sL+r5E9u+xOz7Dxg0GH7l1D0KB50/8D17IPfql0AfLvBc+yB7g/HbKG3xVDbs9XwXOjG0MRZmHF3dqlemxHyURoqLQg7Q1yEtLbc2/zIfaqtrOyN0WxUmSFWFNGz/09K3g24SH3YF4hJ5ztgBumv6YD5N+dPdoH3r9PRrEs+IMSfnQhoHwzJrS47wwymLX2EdeoAGnv0tZxl/64mUvQ/dR4VQImD0dX7G8OuX8pwdumxtEsQEsm+uAHDc9hca1zr2jz+ix2Sj/T2a/zoM0IMmgH3+ydSPc+eS4WHFQlBIIAuK6Qhc9jQJ8Zli1hYIAzL2XKRdkQTirgs0ATDwLeWJ9eyu/F2CjoPoNszgkeQxUyz2yEQqBV4sbxluxElToZcAym1bDqzn+TTPFOVcd934DxjL9Ny+foYj65F6UQMLPfKjiCiOI2lKd9zdGDDnPzfF/tlaazjCUJ8LTvgX9C9XJgAwTHeA8mIFx1n7xrF1SR3HQ1x6ld0tefmR8DtIr08b8rk+Qx0ipWX8vBdrQAA3yIAjU7w8zQxrbyLEwIguvcf/u0R+slH3Dtdzh4Ee+mYVnerV7zkZptHCAd9JemR/nOnMnz1y4tWy7hlCpfktHMYPXAST6eVyMcL07dJXPQqmevFiVUiD5/JorOR6Fk1eFtSA=
+    secure: XSmV9uw0Kw7+fYy2UqMubFk8QIsRrQDfJ9CEXWOqQ1bdi9ZC4eUaHllwrWK6zgwbXn7czrbYS15cr6G1N5TTtj24k0YV9wp2ow9xRSChlQqRNPak4S25HT61oP0pAJNwF08py6x0OXQ42t2JFiGGdkNGptnu0wXSWRUpQaVu2w3Qu+l96s0x/twbr/SqukjZTNUamc8W7DsWlxvSoFASEPKMC6hn5ZFMqE/n21sSmzeP6YwuF/2JMMhTVL6buBHUxqTG1BtSJW3iRmcf7cZzzusYwPXRvlFsPMixxZZbfWqZA1VRQAyawCcjTZs0pD8PmCZS8+9DLhzAelgPq50zAdv4/G2zRWPQ4ZUnw+CYd/wJvzqCXVISD/RM5/Rs1+uyPrWRhUe0PtGl59FRLQmMww+Fwyir0Hg1sE9wUeFEiLqVmg/l1NRbilrSfuICStblftJ68esSWKKqdqsfPMmCo7WdcfHBlQITpZlV36sM5oBjw4wHST6ccJ5pl1W0zHDrTzjYk8pYrBT9TkC7uwIvz3giTm4A5Hnv2Mu1Hs95F31/6HPoBICkiYemaOJ4bgCP/5w4UFK0v/mMHmNwj7YVo1uRsE4rVBFabvF7Xg7qS3LJjxITcmSmPs2wmKvbWcO9rNKFMwfXb2smt5dRrgE9+nlqY0njbbm/Kjttw4afA1I=
 deploy:
 - provider: s3
   region: us-west-1
