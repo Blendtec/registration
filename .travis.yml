@@ -38,7 +38,7 @@ env:
   - secure: BFxp3MO8gtBTxRWRMXajra8zCQJ9P2JOcZ7eqVmI3yzSYzGAIpX2D32zWxSe0HLDssz5v8kJTTP4jfvteDdSDFFosg39RMyJYioDYzaSS4rwf4mpM4KTMnOoogc3aCuWfMgXDjNn5Hql/Qj0mCu092fvUBV4bx++zpK1FDjb5g4JV3zPup/8ITpA+eyfgB8uLedFNmHgD70Qgy2iLNqzafIbW+30vsLhAWXkcetyDJOfNspxamPSLZrVM3vCtDbVHZaFzpmsTnwpHLMIAGqvR1jkNIa1ABNOc4Lyfeo0s+PawOn8BjkUvO3BzEiBirnr8SQc4U6VDtk0G0kHYzWYhtE2+IAUILVMmoKYLv3orlZdv98Ix5N/aGsbP+6UNcfUXaCsHjzE/0WekgK/TVRA+kh8RSbw+ZtxI8Y5iwQC4zCNRNh+AJZ0aAgMPiCZEq4FYm//ofyboARUmrZleCMPa+C5Z2oUWnpNxZWCjiEwGiuweICT2fhZSrwzJPrbBf0lgGylBry7Qae0pCJEvlRmyQnG0Kuo1FXORG/iG4tYAd96/jAqIN2NjIPcIaBrLl4rsARX1U6WsGZOrCJreLOb6ABwHms6p3cJbu0KlEaTYumsKVGxLJBEdqZf3lndSUb6UD0jtE9C18J2o0bSkDZqwmAKaXhGHmB6K+MVPAJ1k6I=
 deploy:
   matrix:
-  - provider: s3
+  - provider: s3-master
     region: us-west-1
     access_key_id: AKIAJLMSNKBUNB4P3L4Q
     secret_access_key:
@@ -54,7 +54,7 @@ deploy:
     script: ""
     on:
       branch: master
-  - provider: s3
+  - provider: s3-stage
     region: us-west-1
     access_key_id: AKIAJLMSNKBUNB4P3L4Q
     secret_access_key:
