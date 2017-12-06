@@ -37,36 +37,25 @@ env:
   - secure: LXyCRkksnLq4bWx8H3B1v+uSl10Xk8Jl0PNw3tG1CNhq3K8B95BNZJ8a3EW8LW4mSnMllRAbMzE3U/cGS+x1AWCN3tdbWwRoBdaMN60qaEZScamHVDDbFde/iDooEtjDkTn9CF2P0F8/RUf+m7q+y3zVo8Y8JlMMFKQa8L0IC9gjlZnp8pqjmadMM0l9NUnSjvB3JWoc0AOuBdWrbW4ZM9cZTQbor2wqJCNiQ/7uoXuP4Zuc7bVJjlgHcWUMsoEzz/h/vUPu6v1rPmfJ50rqYphug3WqOvFr4FCFbxIRHn7J0GAybH0gBa/IBLGA89uriVEK4Yye8aZieIbKc0cgRYu9E2+aqobHGRw1uHzquTn7y76jNEcVkY9uqs9v3qYJ7eGglabOINOlxearET0DxQ/YJAsdBZwBNvscYn2o2HJo0kaIPi7BL+MrdP6wbZnNOfV3WcQ/YCPZVCdHpsFBw2OaQ77Cuy4qDUHNZisKg6SJfSdBHUMNMxZ59rrxL4bvMtWlmQNt2QZdfiwcPHQf9jxXmsvBJp2r+AyfL2gAGx4VidiWZUMtlo3ZT5aUJe8/Hmd+37fbyyYyLluBuWjRMya5knn0AZ95XoWTasrGySHDPPpvl1cxXFIh0m8ASM0MtCKGG/Y6xwAmk3QDtiBaqkxNlgl44fQhtGrSZuL8A4c=
   - secure: BFxp3MO8gtBTxRWRMXajra8zCQJ9P2JOcZ7eqVmI3yzSYzGAIpX2D32zWxSe0HLDssz5v8kJTTP4jfvteDdSDFFosg39RMyJYioDYzaSS4rwf4mpM4KTMnOoogc3aCuWfMgXDjNn5Hql/Qj0mCu092fvUBV4bx++zpK1FDjb5g4JV3zPup/8ITpA+eyfgB8uLedFNmHgD70Qgy2iLNqzafIbW+30vsLhAWXkcetyDJOfNspxamPSLZrVM3vCtDbVHZaFzpmsTnwpHLMIAGqvR1jkNIa1ABNOc4Lyfeo0s+PawOn8BjkUvO3BzEiBirnr8SQc4U6VDtk0G0kHYzWYhtE2+IAUILVMmoKYLv3orlZdv98Ix5N/aGsbP+6UNcfUXaCsHjzE/0WekgK/TVRA+kh8RSbw+ZtxI8Y5iwQC4zCNRNh+AJZ0aAgMPiCZEq4FYm//ofyboARUmrZleCMPa+C5Z2oUWnpNxZWCjiEwGiuweICT2fhZSrwzJPrbBf0lgGylBry7Qae0pCJEvlRmyQnG0Kuo1FXORG/iG4tYAd96/jAqIN2NjIPcIaBrLl4rsARX1U6WsGZOrCJreLOb6ABwHms6p3cJbu0KlEaTYumsKVGxLJBEdqZf3lndSUb6UD0jtE9C18J2o0bSkDZqwmAKaXhGHmB6K+MVPAJ1k6I=
 deploy:
-  matrix:
-  - provider: s3
-    region: us-west-1
-    access_key_id: AKIAJLMSNKBUNB4P3L4Q
-    secret_access_key:
-      secure: pOCpnR4wQ0LgWXQ/zzEpPtE58CU8qCCp4kw1bXy8YVN/+sfBeTNnDY4Bjh953naTrNCwzmx5iqF2TyXVrks7ssx5hZe4jgRFHqZ9bUiE/dGNNCor+X797sNq7jF6AVFCJxfx9ORpsv2S1s/qr295325aGcIIEKx7xGIkbrJPhXLxqfpAufcLAglcbgEWAxS6r3gGUZkinQE4/TVcMb+RFAg6113uIXtMvqtnNvVyLS0VMA+IqkGCvxvdCnl8FS5ycE0eBmzaodNv4QsvD1hh8ue0H9V1xB6XdGcGKt77rjzM9R3qvO5cHIBqZUjlSh88Deac4Xv4oEaD2bUYLBIi+p87XlaLfCZ6zAArDJRbSerJcICNu5L9fCKSpvkI/oOhfKZI4UfnqVLJvBFGlbrrCSSxggyXQ/s2OUf2J/ZoYf8U8PZktYfCMtgD8q+PND7mH7huW3tdeDFms8AjT4W5CCe764K2H8BhbmNM1Kqz4x1uG8K4rDgG7rlCVqi1m13touxyulyrrhq38+VODYcAfRqhHTcKgUXbL2wCGRRnb6FKAkSOJwwPCVRNKo9xl0jW28O3Fr6NHWkdAyl/zWDbOaDRV4tOSTYfdiqmf9PTSMIXftRx6O9PkR3yiT7tNs7JdVGViCdhOlcWuc7ExlyBGtZKIAtd+ZxvU26emzyE2k4=
-    bucket: recipe-client.blendtec.com
-    local-dir: dist
-    skip_cleanup: true
-    acl: public_read
-    on:
-      branch: master
-  - provider: script
-    skip_cleanup: true
-    script: "./.travis/deploy.sh"
-    on:
-      branch: develop
-  - provider: s3
-    region: us-west-1
-    access_key_id: AKIAJLMSNKBUNB4P3L4Q
-    secret_access_key:
-      secure: pOCpnR4wQ0LgWXQ/zzEpPtE58CU8qCCp4kw1bXy8YVN/+sfBeTNnDY4Bjh953naTrNCwzmx5iqF2TyXVrks7ssx5hZe4jgRFHqZ9bUiE/dGNNCor+X797sNq7jF6AVFCJxfx9ORpsv2S1s/qr295325aGcIIEKx7xGIkbrJPhXLxqfpAufcLAglcbgEWAxS6r3gGUZkinQE4/TVcMb+RFAg6113uIXtMvqtnNvVyLS0VMA+IqkGCvxvdCnl8FS5ycE0eBmzaodNv4QsvD1hh8ue0H9V1xB6XdGcGKt77rjzM9R3qvO5cHIBqZUjlSh88Deac4Xv4oEaD2bUYLBIi+p87XlaLfCZ6zAArDJRbSerJcICNu5L9fCKSpvkI/oOhfKZI4UfnqVLJvBFGlbrrCSSxggyXQ/s2OUf2J/ZoYf8U8PZktYfCMtgD8q+PND7mH7huW3tdeDFms8AjT4W5CCe764K2H8BhbmNM1Kqz4x1uG8K4rDgG7rlCVqi1m13touxyulyrrhq38+VODYcAfRqhHTcKgUXbL2wCGRRnb6FKAkSOJwwPCVRNKo9xl0jW28O3Fr6NHWkdAyl/zWDbOaDRV4tOSTYfdiqmf9PTSMIXftRx6O9PkR3yiT7tNs7JdVGViCdhOlcWuc7ExlyBGtZKIAtd+ZxvU26emzyE2k4=
-    bucket: recipe-stage-client.blendtec.com
-    local-dir: dist
-    skip_cleanup: true
-    acl: public_read
-    on:
-      branch: develop
-  - provider: script
-    skip_cleanup: true
-    script: "./.travis/deploy_stage.sh"
-    on:
-      branch: develop
+- provider: s3
+  access_key_id: AKIAJLMSNKBUNB4P3L4Q
+  secret_access_key: &1
+    secure: MO2vCEsQJX6PcELsP2zJ4RGlW3E80lIF7XVQg8yHF2gMt0T8R8ew4Uq2weCVB6iamsh4doNTRuSFZksMsUJ4+V50inMxW/NnYj/6mNf18VtynlntXwMKrH2zbORwv7ZTm+lXj6OCmXCjh3ic0YISFcXjAC4jwE1Ag2cm+XzQRXxYnHcmceu7WV/bgnnw/FogsWa2bNdwLVehYyEsxKveOaVel19bNuFAlA68vacAqp1RJV4vv1elg+nbFMP8bw8ngSo6SYHETMXIy7VXcpAt6ynRA7kiZqqTahAMn9tov3Z5ZY0ecm0OGSoDaX2B+Kh1ArIeWMI0UGh/jEKHP3WWNKEkbmFGprXg3wH3DERF0EIna+t0vWzEpEEtKvqvm/ntW4Dh7HqdIcPybylNq9WtWonIiMIfhu7EqmlzK9uPB8c/FxRJVg08j45v0c+e2IJog9+DBSKA7zh0DLHrfR5wcWzvaJW5rJha5l7O4CntXUOxipJodztw+0bbmi7jmXOVPAUsipVFaomMiXn0HroAOS+WFkxsuaDcJ5y2gAVDa5BfTY66ZuL7SwitCUzU6xuHpBZSBX/Hjx3q8W0Abh/Sd6r/yybWKCPstwiDXrtwvMK2xanZKTuxTaHaqUFVFo49CuTO4Ym004cLzxVG25mSKqh4voZnfWS7OENRW+pnp0w=
+  local_dir: dpl_cd_upload
+  skip_cleanup: true
+  on: &2
+    repo: Blendtec/registration
+    branch: develop
+  bucket: recipe-stage-client.blendtec.com
+- provider: codedeploy
+  access_key_id: AKIAJLMSNKBUNB4P3L4Q
+  secret_access_key: *1
+  bucket: recipe-stage-client.blendtec.com
+  key: ''
+  bundle_type: ''
+  application: registration
+  deployment_group: ''
+  on: *2
+before_deploy:
+- mkdir -p dpl_cd_upload
+- mv dist dpl_cd_upload/''
