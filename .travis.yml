@@ -53,7 +53,7 @@ deploy:
     skip_cleanup: true
     script: "./.travis/deploy.sh"
     on:
-      branch: master
+      branch: develop
   - provider: s3
     region: us-west-1
     access_key_id: AKIAIBSHRO4SOJ5PIBSQ
