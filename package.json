@@ -9,6 +9,7 @@
     "build": "ng build",
     "test": "ng test",
     "e2e": "ng e2e",
+    "build:ci": "npm run env && ng build --aot --prod --deploy-url",
     "test:ci": "npm run lint && ng test --single-run --code-coverage"
   },
   "private": true,
