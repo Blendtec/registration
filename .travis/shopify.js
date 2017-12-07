@@ -4,6 +4,7 @@ var ShopifyAPI = require("shopify-node-api");
 
 var pageId = process.env.SHOPIFY_PAGE_ID;
 var Shopify = new ShopifyAPI({
+    shop: process.env.SHOPIFY_SHOP,
     shopify_api_key: process.env.SHOPIFY_API_KEY,
     access_token: process.env.SHOPIFY_API_PASSWORD
 });
