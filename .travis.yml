@@ -36,39 +36,40 @@ env:
   global:
   - secure: LXyCRkksnLq4bWx8H3B1v+uSl10Xk8Jl0PNw3tG1CNhq3K8B95BNZJ8a3EW8LW4mSnMllRAbMzE3U/cGS+x1AWCN3tdbWwRoBdaMN60qaEZScamHVDDbFde/iDooEtjDkTn9CF2P0F8/RUf+m7q+y3zVo8Y8JlMMFKQa8L0IC9gjlZnp8pqjmadMM0l9NUnSjvB3JWoc0AOuBdWrbW4ZM9cZTQbor2wqJCNiQ/7uoXuP4Zuc7bVJjlgHcWUMsoEzz/h/vUPu6v1rPmfJ50rqYphug3WqOvFr4FCFbxIRHn7J0GAybH0gBa/IBLGA89uriVEK4Yye8aZieIbKc0cgRYu9E2+aqobHGRw1uHzquTn7y76jNEcVkY9uqs9v3qYJ7eGglabOINOlxearET0DxQ/YJAsdBZwBNvscYn2o2HJo0kaIPi7BL+MrdP6wbZnNOfV3WcQ/YCPZVCdHpsFBw2OaQ77Cuy4qDUHNZisKg6SJfSdBHUMNMxZ59rrxL4bvMtWlmQNt2QZdfiwcPHQf9jxXmsvBJp2r+AyfL2gAGx4VidiWZUMtlo3ZT5aUJe8/Hmd+37fbyyYyLluBuWjRMya5knn0AZ95XoWTasrGySHDPPpvl1cxXFIh0m8ASM0MtCKGG/Y6xwAmk3QDtiBaqkxNlgl44fQhtGrSZuL8A4c=
   - secure: BFxp3MO8gtBTxRWRMXajra8zCQJ9P2JOcZ7eqVmI3yzSYzGAIpX2D32zWxSe0HLDssz5v8kJTTP4jfvteDdSDFFosg39RMyJYioDYzaSS4rwf4mpM4KTMnOoogc3aCuWfMgXDjNn5Hql/Qj0mCu092fvUBV4bx++zpK1FDjb5g4JV3zPup/8ITpA+eyfgB8uLedFNmHgD70Qgy2iLNqzafIbW+30vsLhAWXkcetyDJOfNspxamPSLZrVM3vCtDbVHZaFzpmsTnwpHLMIAGqvR1jkNIa1ABNOc4Lyfeo0s+PawOn8BjkUvO3BzEiBirnr8SQc4U6VDtk0G0kHYzWYhtE2+IAUILVMmoKYLv3orlZdv98Ix5N/aGsbP+6UNcfUXaCsHjzE/0WekgK/TVRA+kh8RSbw+ZtxI8Y5iwQC4zCNRNh+AJZ0aAgMPiCZEq4FYm//ofyboARUmrZleCMPa+C5Z2oUWnpNxZWCjiEwGiuweICT2fhZSrwzJPrbBf0lgGylBry7Qae0pCJEvlRmyQnG0Kuo1FXORG/iG4tYAd96/jAqIN2NjIPcIaBrLl4rsARX1U6WsGZOrCJreLOb6ABwHms6p3cJbu0KlEaTYumsKVGxLJBEdqZf3lndSUb6UD0jtE9C18J2o0bSkDZqwmAKaXhGHmB6K+MVPAJ1k6I=
+  - secure: C47fZhurBY4lOEheoJsdN/JlY745AF/wZjXIoi+F++2+DbJHDQe/lRw+BimiSZ+kg31s73y9c0XmXNrmGNn95K4iFjnwIXTAHTQQ5u0p5BlIvDT28sHsxggtBf/UUHrBgKyOas4P287KYDzwbSD/5DuYRfULuGOi0oKIXxbKAkcuZvihcc4/Po1zerA9pNhTQHzweFqzo+RYbqKoPTxGxyMD+Z+Zb0ndyVWE1NRUChfeWjzyGPO6fIz9QU0+1ItmzEL6qM2Z0Gw9czMgYO9jrqCdR0+ZQNwKaCuGkH5cXc8KbSNnlYjygMKzq25EYEqmLMdzpJDDx+REndEZzFt2TrIqjf4LV9icnYcERc/u1xbjypfLGPViYPk1sKHlgZqlF5EB4693Tu3AfBgY6978BCdb5F159oCzGRoM6SNtpRP+vD2iWmam22EKT56CDC7vxdvXqIE6vSXci8Yr2R44rkYZF4JuzO44J4FnN0v0PpU/e1Tc7iRMxE4pEu6YThQrtT3PVJg88jGVHet8Cnmkw1KBEUAA2cCZkC/ES4mTzB4QVhvEnNpo6u1YmFUeXPqmiXVtBgjU3nr7qVk1MXqQX2B/+OCzEmzw3icpmzWjCIP7w8mYzXh5dO4PEuWgHyuLGoOrFkL0yig0JrKXLqT7Ltj7P3mXT4tbC7CjDOVqp2o=
+  - secure: OfdW3QqZIwqQoSnwpj+VewslMGDIbN5yo42ZRPogYjNLnJ7th58gs9w5OUuTwc48mabTXuIcz1I2aOv+3e1xwjtb0tdHWeLA0FiyesfMpQWIckuLfS2W6stajTBQW0cURxdkVfT+iAszMNwVmw8IWezMipSNMYwPmxmJjftnD+sqEaHyC8/XdlvJf6Jy+s94+c5VrgmpOsAPVuqOBe1GC9kSWLCTHgLAAPRCCc9BODLs+JJ2iguLhc+3KxbIkOldKQUGTctftBgVMHvdmDhaFR8fwJhfuzH6go7WBzAO+FSwpVvNkAbXEoS8s4z/h0s+WFnJCVhJbLLxBdq1+8J/LpuRd2ntEol608sPyslHS6JGTIOfXqH3t6EvzXkpxei5cayn9o6tVnQuctx+p8/7pQlVDnLMctYQ+uRGoFip2+0sBiwUzun0l7fyCcfs+dLN1WXUMriuUm1gFFPsPj1WIx0+yfOnL6jAyb1hk1d3P5F14kvIQ95HKTG41GjSipHuRBKmTfXg1s9xZHIuvV16fU58pkfRj7VTvjEcfX/ELhl6QwCj83eUDOSHFsxCkjd+TBpUthlZUOrWZYbOnf4RoLEMxchXCrkGsmXZHWMDqmALARkugqLxyY9YbxsgGu0MeAe8k44vEcyqAkLKlQIT9MI02dSo7IBjbkDV4h7Zhmg=
 deploy:
-  - provider: s3
-    region: us-west-1
-    access_key_id: AKIAJLMSNKBUNB4P3L4Q
-    secret_access_key:
-      secure: MO2vCEsQJX6PcELsP2zJ4RGlW3E80lIF7XVQg8yHF2gMt0T8R8ew4Uq2weCVB6iamsh4doNTRuSFZksMsUJ4+V50inMxW/NnYj/6mNf18VtynlntXwMKrH2zbORwv7ZTm+lXj6OCmXCjh3ic0YISFcXjAC4jwE1Ag2cm+XzQRXxYnHcmceu7WV/bgnnw/FogsWa2bNdwLVehYyEsxKveOaVel19bNuFAlA68vacAqp1RJV4vv1elg+nbFMP8bw8ngSo6SYHETMXIy7VXcpAt6ynRA7kiZqqTahAMn9tov3Z5ZY0ecm0OGSoDaX2B+Kh1ArIeWMI0UGh/jEKHP3WWNKEkbmFGprXg3wH3DERF0EIna+t0vWzEpEEtKvqvm/ntW4Dh7HqdIcPybylNq9WtWonIiMIfhu7EqmlzK9uPB8c/FxRJVg08j45v0c+e2IJog9+DBSKA7zh0DLHrfR5wcWzvaJW5rJha5l7O4CntXUOxipJodztw+0bbmi7jmXOVPAUsipVFaomMiXn0HroAOS+WFkxsuaDcJ5y2gAVDa5BfTY66ZuL7SwitCUzU6xuHpBZSBX/Hjx3q8W0Abh/Sd6r/yybWKCPstwiDXrtwvMK2xanZKTuxTaHaqUFVFo49CuTO4Ym004cLzxVG25mSKqh4voZnfWS7OENRW+pnp0w=
-    bucket: recipe-client.blendtec.com
-    local-dir: dist
-    upload-dir: registration
-    skip_cleanup: true
-    acl: public_read
-    on:
-      branch: master
-  - provider: script
-    skip_cleanup: true
-    script: ""
-    on:
-      branch: master
-  - provider: s3
-    region: us-west-1
-    access_key_id: AKIAJLMSNKBUNB4P3L4Q
-    secret_access_key:
-      secure: MO2vCEsQJX6PcELsP2zJ4RGlW3E80lIF7XVQg8yHF2gMt0T8R8ew4Uq2weCVB6iamsh4doNTRuSFZksMsUJ4+V50inMxW/NnYj/6mNf18VtynlntXwMKrH2zbORwv7ZTm+lXj6OCmXCjh3ic0YISFcXjAC4jwE1Ag2cm+XzQRXxYnHcmceu7WV/bgnnw/FogsWa2bNdwLVehYyEsxKveOaVel19bNuFAlA68vacAqp1RJV4vv1elg+nbFMP8bw8ngSo6SYHETMXIy7VXcpAt6ynRA7kiZqqTahAMn9tov3Z5ZY0ecm0OGSoDaX2B+Kh1ArIeWMI0UGh/jEKHP3WWNKEkbmFGprXg3wH3DERF0EIna+t0vWzEpEEtKvqvm/ntW4Dh7HqdIcPybylNq9WtWonIiMIfhu7EqmlzK9uPB8c/FxRJVg08j45v0c+e2IJog9+DBSKA7zh0DLHrfR5wcWzvaJW5rJha5l7O4CntXUOxipJodztw+0bbmi7jmXOVPAUsipVFaomMiXn0HroAOS+WFkxsuaDcJ5y2gAVDa5BfTY66ZuL7SwitCUzU6xuHpBZSBX/Hjx3q8W0Abh/Sd6r/yybWKCPstwiDXrtwvMK2xanZKTuxTaHaqUFVFo49CuTO4Ym004cLzxVG25mSKqh4voZnfWS7OENRW+pnp0w=
-    bucket: recipe-stage-client.blendtec.com
-    local-dir: dist
-    upload-dir: registration
-    skip_cleanup: true
-    acl: public_read
-    on:
-      branch: develop
-  - provider: script
-    skip_cleanup: true
-    script: ""
-    on:
-      branch: develop
-
+- provider: s3
+  region: us-west-1
+  access_key_id: AKIAJLMSNKBUNB4P3L4Q
+  secret_access_key:
+    secure: MO2vCEsQJX6PcELsP2zJ4RGlW3E80lIF7XVQg8yHF2gMt0T8R8ew4Uq2weCVB6iamsh4doNTRuSFZksMsUJ4+V50inMxW/NnYj/6mNf18VtynlntXwMKrH2zbORwv7ZTm+lXj6OCmXCjh3ic0YISFcXjAC4jwE1Ag2cm+XzQRXxYnHcmceu7WV/bgnnw/FogsWa2bNdwLVehYyEsxKveOaVel19bNuFAlA68vacAqp1RJV4vv1elg+nbFMP8bw8ngSo6SYHETMXIy7VXcpAt6ynRA7kiZqqTahAMn9tov3Z5ZY0ecm0OGSoDaX2B+Kh1ArIeWMI0UGh/jEKHP3WWNKEkbmFGprXg3wH3DERF0EIna+t0vWzEpEEtKvqvm/ntW4Dh7HqdIcPybylNq9WtWonIiMIfhu7EqmlzK9uPB8c/FxRJVg08j45v0c+e2IJog9+DBSKA7zh0DLHrfR5wcWzvaJW5rJha5l7O4CntXUOxipJodztw+0bbmi7jmXOVPAUsipVFaomMiXn0HroAOS+WFkxsuaDcJ5y2gAVDa5BfTY66ZuL7SwitCUzU6xuHpBZSBX/Hjx3q8W0Abh/Sd6r/yybWKCPstwiDXrtwvMK2xanZKTuxTaHaqUFVFo49CuTO4Ym004cLzxVG25mSKqh4voZnfWS7OENRW+pnp0w=
+  bucket: recipe-client.blendtec.com
+  local-dir: dist
+  upload-dir: registration
+  skip_cleanup: true
+  acl: public_read
+  on:
+    branch: master
+- provider: script
+  skip_cleanup: true
+  script: "./.travis/deploy.sh"
+  on:
+    branch: master
+- provider: s3
+  region: us-west-1
+  access_key_id: AKIAJLMSNKBUNB4P3L4Q
+  secret_access_key:
+    secure: MO2vCEsQJX6PcELsP2zJ4RGlW3E80lIF7XVQg8yHF2gMt0T8R8ew4Uq2weCVB6iamsh4doNTRuSFZksMsUJ4+V50inMxW/NnYj/6mNf18VtynlntXwMKrH2zbORwv7ZTm+lXj6OCmXCjh3ic0YISFcXjAC4jwE1Ag2cm+XzQRXxYnHcmceu7WV/bgnnw/FogsWa2bNdwLVehYyEsxKveOaVel19bNuFAlA68vacAqp1RJV4vv1elg+nbFMP8bw8ngSo6SYHETMXIy7VXcpAt6ynRA7kiZqqTahAMn9tov3Z5ZY0ecm0OGSoDaX2B+Kh1ArIeWMI0UGh/jEKHP3WWNKEkbmFGprXg3wH3DERF0EIna+t0vWzEpEEtKvqvm/ntW4Dh7HqdIcPybylNq9WtWonIiMIfhu7EqmlzK9uPB8c/FxRJVg08j45v0c+e2IJog9+DBSKA7zh0DLHrfR5wcWzvaJW5rJha5l7O4CntXUOxipJodztw+0bbmi7jmXOVPAUsipVFaomMiXn0HroAOS+WFkxsuaDcJ5y2gAVDa5BfTY66ZuL7SwitCUzU6xuHpBZSBX/Hjx3q8W0Abh/Sd6r/yybWKCPstwiDXrtwvMK2xanZKTuxTaHaqUFVFo49CuTO4Ym004cLzxVG25mSKqh4voZnfWS7OENRW+pnp0w=
+  bucket: recipe-stage-client.blendtec.com
+  local-dir: dist
+  upload-dir: registration
+  skip_cleanup: true
+  acl: public_read
+  on:
+    branch: develop
+- provider: script
+  skip_cleanup: true
+  script: "./.travis/deploy_stage.sh"
+  on:
+    branch: develop
