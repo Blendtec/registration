@@ -24,10 +24,10 @@ before_script:
 script:
 - npm run test:ci
 - echo $TRAVIS_BRANCH
-- if [ $TRAVIS_BRANCH = 'develop' ]; then npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-stage-client.blendtec.com/
-  --base-href /pages/stage-recipes/registration/; fi
-- if [ $TRAVIS_BRANCH = 'master' ]; then npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-client.blendtec.com/
-  --base-href /pages/recipe-test/; fi
+- if [ $TRAVIS_BRANCH = 'develop' ]; then npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-stage-client.blendtec.com/registration/
+  --base-href /pages/product-registration-stage/; fi
+- if [ $TRAVIS_BRANCH = 'master' ]; then npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-client.blendtec.com/registration/
+  --base-href /pages/product-registration/; fi
 after_success:
 - "./node_modules/.bin/codecov"
 notifications:

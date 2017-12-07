@@ -12,7 +12,7 @@ var Shopify = new ShopifyAPI({
 var indexPagePath = path.join(__dirname, "..", "dist", "index.html");
 fs.readFile(indexPagePath, "utf-8", function (err, data) {
     if (!err) {
-        data = data.replace(/<base\shref=[^>]*>/gi, '<base href="/pages/recipe-test/"/>');
+        data = data.replace(/<base\shref=[^>]*>/gi, '<base href="/pages/product-registration"/>');
         var put_data = {
             page: {
                 body_html: data
