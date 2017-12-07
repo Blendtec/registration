@@ -2,9 +2,8 @@
 <div appTranslate id="registration-main-div">
     <h1 class="register-content-title">Register Your Product</h1>
     <div id="choose-language-label">Choose your language</div>
-    <div id="choose-language-label">test</div>
     <ul class="languages" id="language-switcher">
-        <a [routerLink]="['/de/registration']">
+        <a [routerLink]="['/registration/de']">
             <li class="de">
                 <img src="/assets/img/flags/de.png" alt="">
             </li>
@@ -14,37 +13,37 @@
                 <img src="/assets/img/flags/en.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/fr-ca/registration']">
+        <a [routerLink]="['/registration/fr-ca']">
             <li class="fr-ca" (click)="setLanguage('fr-ca')">
                 <img src="/assets/img/flags/ca.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/it/registration']">
+        <a [routerLink]="['/registration/it']">
             <li class="it" (click)="setLanguage('it')">
                 <img src="/assets/img/flags/it.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/jpn/registration']">
+        <a [routerLink]="['/registration/jpn']">
             <li class="jpn" (click)="setLanguage('jpn')">
                 <img src="/assets/img/flags/ja.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/ko/registration']">
+        <a [routerLink]="['/registration/ko']">
             <li class="ko" (click)="setLanguage('ko')">
                 <img src="/assets/img/flags/ko.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/spa/registration']">
+        <a [routerLink]="['/registration/spa']">
             <li class="spa" (click)="setLanguage('spa')">
                 <img src="/assets/img/flags/es.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/zh/registration']">
+        <a [routerLink]="['/registration/zh']">
             <li class="zh" (click)="setLanguage('zh')">
                 <img src="/assets/img/flags/zh.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/zh-tw/registration']">
+        <a [routerLink]="['/registration/zh-tw']">
             <li class="zh-tw" (click)="setLanguage('zh-tw')">
                 <img src="/assets/img/flags/tw.png" alt="">
             </li>

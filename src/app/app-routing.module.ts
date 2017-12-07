@@ -14,7 +14,7 @@ const routes: Routes = [
     component: RegistrationComponent
   },
   {
-    path: ':lan/registration',
+    path: 'registration/:lan',
     component: RegistrationComponent
   }
 ];
