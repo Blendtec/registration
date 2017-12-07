@@ -44,6 +44,7 @@ deploy:
       secure: MO2vCEsQJX6PcELsP2zJ4RGlW3E80lIF7XVQg8yHF2gMt0T8R8ew4Uq2weCVB6iamsh4doNTRuSFZksMsUJ4+V50inMxW/NnYj/6mNf18VtynlntXwMKrH2zbORwv7ZTm+lXj6OCmXCjh3ic0YISFcXjAC4jwE1Ag2cm+XzQRXxYnHcmceu7WV/bgnnw/FogsWa2bNdwLVehYyEsxKveOaVel19bNuFAlA68vacAqp1RJV4vv1elg+nbFMP8bw8ngSo6SYHETMXIy7VXcpAt6ynRA7kiZqqTahAMn9tov3Z5ZY0ecm0OGSoDaX2B+Kh1ArIeWMI0UGh/jEKHP3WWNKEkbmFGprXg3wH3DERF0EIna+t0vWzEpEEtKvqvm/ntW4Dh7HqdIcPybylNq9WtWonIiMIfhu7EqmlzK9uPB8c/FxRJVg08j45v0c+e2IJog9+DBSKA7zh0DLHrfR5wcWzvaJW5rJha5l7O4CntXUOxipJodztw+0bbmi7jmXOVPAUsipVFaomMiXn0HroAOS+WFkxsuaDcJ5y2gAVDa5BfTY66ZuL7SwitCUzU6xuHpBZSBX/Hjx3q8W0Abh/Sd6r/yybWKCPstwiDXrtwvMK2xanZKTuxTaHaqUFVFo49CuTO4Ym004cLzxVG25mSKqh4voZnfWS7OENRW+pnp0w=
     bucket: recipe-client.blendtec.com
     local-dir: dist
+    upload-dir: registration
     skip_cleanup: true
     acl: public_read
     on:
@@ -60,6 +61,7 @@ deploy:
       secure: MO2vCEsQJX6PcELsP2zJ4RGlW3E80lIF7XVQg8yHF2gMt0T8R8ew4Uq2weCVB6iamsh4doNTRuSFZksMsUJ4+V50inMxW/NnYj/6mNf18VtynlntXwMKrH2zbORwv7ZTm+lXj6OCmXCjh3ic0YISFcXjAC4jwE1Ag2cm+XzQRXxYnHcmceu7WV/bgnnw/FogsWa2bNdwLVehYyEsxKveOaVel19bNuFAlA68vacAqp1RJV4vv1elg+nbFMP8bw8ngSo6SYHETMXIy7VXcpAt6ynRA7kiZqqTahAMn9tov3Z5ZY0ecm0OGSoDaX2B+Kh1ArIeWMI0UGh/jEKHP3WWNKEkbmFGprXg3wH3DERF0EIna+t0vWzEpEEtKvqvm/ntW4Dh7HqdIcPybylNq9WtWonIiMIfhu7EqmlzK9uPB8c/FxRJVg08j45v0c+e2IJog9+DBSKA7zh0DLHrfR5wcWzvaJW5rJha5l7O4CntXUOxipJodztw+0bbmi7jmXOVPAUsipVFaomMiXn0HroAOS+WFkxsuaDcJ5y2gAVDa5BfTY66ZuL7SwitCUzU6xuHpBZSBX/Hjx3q8W0Abh/Sd6r/yybWKCPstwiDXrtwvMK2xanZKTuxTaHaqUFVFo49CuTO4Ym004cLzxVG25mSKqh4voZnfWS7OENRW+pnp0w=
     bucket: recipe-stage-client.blendtec.com
     local-dir: dist
+    upload-dir: registration
     skip_cleanup: true
     acl: public_read
     on:
