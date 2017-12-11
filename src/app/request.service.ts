@@ -24,7 +24,12 @@ export class RequestService {
 
       })
       .catch(e => this.handleError(e));
+  }
 
+  httpGet(submitUrl: string, callback = null) {
+    this.http.get(submitUrl).subscribe(data => {
+      callback(data);
+    });
   }
 
 }
