@@ -1,7 +1,8 @@
 import { Directive, ElementRef, Input, Renderer, OnInit, OnDestroy } from '@angular/core';
-import { RequestService } from './request.service';
 import { StoreService } from './store.service';
 import { Subscription } from 'rxjs/Subscription';
+
+declare function require(url: string);
 
 @Directive({
   selector: '[appTranslate]'
@@ -18,10 +19,7 @@ export class TranslateDirective implements OnInit, OnDestroy {
   urlSub: Subscription;
 
 
-  constructor(public el: ElementRef,
-    renderer: Renderer,
-    private storeService: StoreService,
-    private requestService: RequestService) {
+  constructor(public el: ElementRef, renderer: Renderer, private storeService: StoreService) {
     this.translationToEnglish = {};
     this.translation = {};
   }
@@ -36,38 +34,21 @@ export class TranslateDirective implements OnInit, OnDestroy {
     } else if (this.language !== this.defaultLanguage) {
       try {
         if (typeof this.translation[this.language] === 'undefined') {
-          let self = this;
-          self.requestService.httpGet('/assets/json_settings/translations/' + self.language + '.json', function(out) {
-            self.translation[self.language] = out;
-            if (self.translated) {
-              self.loop_recursively_through_dom(self.el.nativeElement, self.defaultLanguage, function() {
-                self.translated = false;
-                self.lastLanguage = self.language;
-                self.loop_recursively_through_dom(self.el.nativeElement, self.language);
-              });
-            } else {
-              self.loop_recursively_through_dom(self.el.nativeElement, self.language);
-            }
-
-            self.translated = true;
+          this.translation[this.language] = require('./translations/' + this.language + '.json');
+        }
+        if (this.translated) {
+          const self = this;
+          this.loop_recursively_through_dom(this.el.nativeElement, this.defaultLanguage, function() {
+            self.translated = false;
             self.lastLanguage = self.language;
+            self.loop_recursively_through_dom(self.el.nativeElement, self.language);
           });
         } else {
-          if (this.translated) {
-            const self = this;
-            this.loop_recursively_through_dom(this.el.nativeElement, this.defaultLanguage, function() {
-              self.translated = false;
-              self.lastLanguage = self.language;
-              self.loop_recursively_through_dom(self.el.nativeElement, self.language);
-            });
-          } else {
-            this.loop_recursively_through_dom(this.el.nativeElement, this.language);
-          }
-
-          this.translated = true;
-          this.lastLanguage = this.language;
+          this.loop_recursively_through_dom(this.el.nativeElement, this.language);
         }
 
+        this.translated = true;
+        this.lastLanguage = this.language;
       } catch (e) {
       }
     }

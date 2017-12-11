@@ -4,6 +4,8 @@ import { RequestService } from '../request.service';
 import { ActivatedRoute } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
+declare function require(url: string);
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -93,15 +95,9 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     this.setDefaultInputValues();
     const self = this;
     try {
-      this.requestService.httpGet('/assets/json_settings/registration/fieldsByCountry.json', function(out) {
-        self.fieldsByCountry = out;
-      });
-      this.requestService.httpGet('/assets/json_settings/registration/countries.json', function(out) {
-        self.countries = out;
-      });
-      this.requestService.httpGet('/assets/json_settings/registration/states.json', function(out) {
-        self.states = out;
-      });
+        self.fieldsByCountry = require('./fieldsByCountry.json');
+        self.countries = require('./countries.json');
+        self.states = require('./states.json');
     } catch (e) {
       console.log(e);
     }
