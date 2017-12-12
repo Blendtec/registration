@@ -3,17 +3,17 @@
     <h1 class="register-content-title">Register Your Product</h1>
     <div id="choose-language-label">Choose your language</div>
     <ul class="languages" id="language-switcher">
-        <a [routerLink]="['/de']">
+        <a routerLink="/de" routerLinkActive="active">
             <li class="de">
                 <img src="/assets/img/flags/de.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['']">
+        <a routerLink="/en" routerLinkActive="active">
             <li class="eng selected">
                 <img src="/assets/img/flags/en.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/fr-ca']">
+        <a routerLink="/fr-ca" routerLinkActive="active">
             <li class="fr-ca">
                 <img src="/assets/img/flags/ca.png" alt="">
             </li>
