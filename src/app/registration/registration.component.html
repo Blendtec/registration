@@ -3,47 +3,47 @@
     <h1 class="register-content-title">Register Your Product</h1>
     <div id="choose-language-label">Choose your language</div>
     <ul class="languages" id="language-switcher">
-        <a routerLink="/de" routerLinkActive="active">
-            <li class="de">
+        <a href="#de">
+            <li class="de" (click)="setLanguage('de')">
                 <img src="/assets/img/flags/de.png" alt="">
             </li>
         </a>
-        <a routerLink="/en" routerLinkActive="active">
-            <li class="eng selected">
+        <a href="#en">
+            <li class="eng selected" (click)="setLanguage('en')">
                 <img src="/assets/img/flags/en.png" alt="">
             </li>
         </a>
-        <a routerLink="/fr-ca" routerLinkActive="active">
-            <li class="fr-ca">
+        <a href="#fr-ca">
+            <li class="fr-ca" (click)="setLanguage('fr-ca')">
                 <img src="/assets/img/flags/ca.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/it']">
+        <a >
             <li class="it" (click)="setLanguage('it')">
                 <img src="/assets/img/flags/it.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/jpn']">
+        <a >
             <li class="jpn" (click)="setLanguage('jpn')">
                 <img src="/assets/img/flags/ja.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/ko']">
+        <a >
             <li class="ko" (click)="setLanguage('ko')">
                 <img src="/assets/img/flags/ko.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/spa']">
+        <a >
             <li class="spa" (click)="setLanguage('spa')">
                 <img src="/assets/img/flags/es.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/zh']">
+        <a >
             <li class="zh" (click)="setLanguage('zh')">
                 <img src="/assets/img/flags/zh.png" alt="">
             </li>
         </a>
-        <a [routerLink]="['/zh-tw']">
+        <a >
             <li class="zh-tw" (click)="setLanguage('zh-tw')">
                 <img src="/assets/img/flags/tw.png" alt="">
             </li>

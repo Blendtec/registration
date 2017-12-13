@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/en',
-    pathMatch: 'full'
+    component: RegistrationComponent
   },
-  {
+    {
     path: ':lan',
     component: RegistrationComponent
   }

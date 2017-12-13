@@ -3,6 +3,10 @@ import { StoreService } from '../store.service';
 import { RequestService } from '../request.service';
 import { ActivatedRoute } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 declare function require(url: string);
 
@@ -67,6 +71,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private cdRef: ChangeDetectorRef,
     private requestService: RequestService) {
+
   }
 
   setDefaultInputValues() {
@@ -101,7 +106,6 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     } catch (e) {
       console.log(e);
     }
-
 
     this.sendMeStuff = true;
   }
