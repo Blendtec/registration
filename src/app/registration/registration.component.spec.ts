@@ -16,7 +16,7 @@ import { of } from 'rxjs/observable/of';
 
 declare function require(url: string);
 
-xdescribe('RegistrationComponent', () => {
+/*describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
   const storeService: StoreService = new StoreService();
@@ -332,4 +332,4 @@ xdescribe('RegistrationComponent', () => {
 
   });
 
-});
+});*/
