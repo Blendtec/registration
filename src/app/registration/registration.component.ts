@@ -81,7 +81,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
       this.baseImageLocation = winRef.nativeWindow.imageStorage;
     }
     if (winRef.nativeWindow.liveSite) {
-      this.apiLocation = this.liveApiLocation
+      this.apiLocation = this.liveApiLocation;
     }
   }
 

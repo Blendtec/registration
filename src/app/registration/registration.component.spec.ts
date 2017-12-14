@@ -12,6 +12,7 @@ import { RequestService } from '../request.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs/observable/of';
+import { WindowService } from '../window.service';
 
 
 declare function require(url: string);
@@ -53,7 +54,7 @@ describe('RegistrationComponent', () => {
       declarations: [RegistrationComponent],
       imports: [RouterModule.forRoot([]), FormsModule, RecaptchaModule.forRoot(), HttpClientModule, BrowserAnimationsModule],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' },
-        StoreService, RequestService]
+        StoreService, RequestService, WindowService]
     })
       .compileComponents();
 
