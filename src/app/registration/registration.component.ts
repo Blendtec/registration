@@ -64,7 +64,8 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   captchaResponse = null;
   captchaNotFilled = false;
 
-  private registrationApiUrl = 'http://noideawhatiamdoing-1264745870.us-west-1.elb.amazonaws.com/product_registrations/addApi';
+  private baseUrlLocation = '';
+  private registrationApiUrl = '/product_registrations/addApi';
 
   constructor(private storeService: StoreService,
     private el: ElementRef,

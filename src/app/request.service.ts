@@ -13,12 +13,12 @@ export class RequestService {
   }
 
   submitData(submitUrl: string, data: any, callback = null) {
-
-    return this.http.post(submitUrl, data)
+    return this.http.post(submitUrl, data, {responseType: 'text'})
       .toPromise()
       .then(response => {
         response = response;
-        if (callback !== null && callback.contructor === Function) {
+        console.log(response);
+        if (callback.constructor === Function) {
           callback();
         }
 
