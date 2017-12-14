@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { WindowService } from '../window.service';
 
 declare function require(url: string);
 
@@ -71,8 +72,12 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     private el: ElementRef,
     private route: ActivatedRoute,
     private cdRef: ChangeDetectorRef,
-    private requestService: RequestService) {
-
+    private requestService: RequestService,
+    private winRef: WindowService) {
+    console.log(winRef.nativeWindow.imageStorage);
+    if (winRef.nativeWindow.imageStorage) {
+      this.baseUrlLocation = winRef.nativeWindow.imageStorage;
+    }
   }
 
   setDefaultInputValues() {
@@ -267,7 +272,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
       }
       if (!this.spammer) {
         const self = this;
-        this.requestService.submitData(this.registrationApiUrl, postObject, function() {
+        this.requestService.submitData(this.baseUrlLocation + this.registrationApiUrl, postObject, function() {
           self.setDefaultInputValues();
         });
 

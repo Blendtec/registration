@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { APP_BASE_HREF } from '@angular/common';
 import { RequestService } from './request.service';
+import { WindowService } from './window.service';
 
 
 
@@ -29,7 +30,7 @@ import { RequestService } from './request.service';
     BrowserAnimationsModule,
     RecaptchaModule.forRoot()
   ],
-  providers: [StoreService, RequestService],
+  providers: [StoreService, RequestService, WindowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
