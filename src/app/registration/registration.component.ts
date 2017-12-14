@@ -65,7 +65,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   captchaResponse = null;
   captchaNotFilled = false;
 
-  private baseImageLocation = '';
+  baseImageLocation = '';
   private apiLocation = 'http://noideawhatiamdoing-1264745870.us-west-1.elb.amazonaws.com/';
   private liveApiLocation = 'https://www.blendtec.com';
   private registrationApiUrl = '/product_registrations/addApi';
