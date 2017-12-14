@@ -54,7 +54,8 @@ deploy:
     branch: master
 - provider: script
   skip_cleanup: true
-  script: "./.travis/deploy.sh"
+  script: "./.travis/deploy.sh https://s3-us-west-1.amazonaws.com/recipe-client.blendtec.com/registration/
+  --base-href /pages/product-registration/"
   on:
     branch: master
 - provider: s3
@@ -71,6 +72,7 @@ deploy:
     branch: develop
 - provider: script
   skip_cleanup: true
-  script: "./.travis/deploy_stage.sh"
+  script: "./.travis/deploy_stage.sh https://s3-us-west-1.amazonaws.com/recipe-stage-client.blendtec.com/registration/
+  --base-href /pages/product-registration-stage/"
   on:
     branch: develop

@@ -10,11 +10,9 @@ var Shopify = new ShopifyAPI({
 });
 
 var indexPagePath = path.join(__dirname, "..", "dist", "index.html");
-console.log(indexPagePath);
-console.log(path);
 fs.readFile(indexPagePath, "utf-8", function (err, data) {
     if (!err) {
-        data = "<script> window.imageStorage = '"+path+"'; </script>" + data;
+        data = "<script> window.imageStorage = '"+process.argv[2]+"'; </script>" + data;
         data = data.replace(/<base\shref=[^>]*>/gi, '<base href="/pages/product-registration-stage"/>');
 
         var put_data = {
