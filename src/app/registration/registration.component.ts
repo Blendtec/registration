@@ -65,7 +65,9 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   captchaResponse = null;
   captchaNotFilled = false;
 
-  private baseUrlLocation = '';
+  private baseImageLocation = '';
+  private apiLocation = 'http://noideawhatiamdoing-1264745870.us-west-1.elb.amazonaws.com/';
+  private liveApiLocation = 'https://www.blendtec.com';
   private registrationApiUrl = '/product_registrations/addApi';
 
   constructor(private storeService: StoreService,
@@ -74,9 +76,12 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     private cdRef: ChangeDetectorRef,
     private requestService: RequestService,
     private winRef: WindowService) {
-    console.log(winRef.nativeWindow.imageStorage);
+
     if (winRef.nativeWindow.imageStorage) {
-      this.baseUrlLocation = winRef.nativeWindow.imageStorage;
+      this.baseImageLocation = winRef.nativeWindow.imageStorage;
+    }
+    if (winRef.nativeWindow.liveSite) {
+      this.apiLocation = this.liveApiLocation
     }
   }
 
@@ -272,7 +277,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
       }
       if (!this.spammer) {
         const self = this;
-        this.requestService.submitData(this.baseUrlLocation + this.registrationApiUrl, postObject, function() {
+        this.requestService.submitData(this.apiLocation + this.registrationApiUrl, postObject, function() {
           self.setDefaultInputValues();
         });
 
