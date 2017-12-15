@@ -102,7 +102,6 @@
       .registration-thank-you--button:last-of-type {
         margin-bottom: 0px;
         width: 23.72881%;
-        float: left;
         margin-right: 1.69492%; } }
   .registration-thank-you--social-box {
     display: block;
@@ -174,4 +173,7 @@
 }
 .icon:hover svg{
     fill: #58595b;
+}
+.text-max-width{
+    max-width:1200px;
 }

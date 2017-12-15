@@ -211,6 +211,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
 
   registrationDoneTest() {
     this.registrationDone = !this.registrationDone;
+    this.winRef.nativeWindow.scrollTo(0, 0);
   }
 
   setDefaultInputValues() {
@@ -408,6 +409,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
         const self = this;
         self.registrationSubmitting = true;
         this.requestService.submitData(this.apiLocation + this.registrationApiUrl, postObject, function() {
+          self.winRef.nativeWindow.scrollTo(0, 0);
           self.setDefaultInputValues();
           self.registrationSubmitting = false;
           self.registrationError = false;
