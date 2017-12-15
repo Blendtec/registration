@@ -214,6 +214,11 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     this.winRef.nativeWindow.scrollTo(0, 0);
   }
 
+  removeErrorMessage() {
+    this.errorMessage = '';
+    this.registrationError = false;
+  }
+
   setDefaultInputValues() {
     this.inputValueByName = {};
     this.submitInfo = false;

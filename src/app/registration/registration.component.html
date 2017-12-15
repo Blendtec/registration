@@ -1,5 +1,5 @@
 <div id="background-screen" [@backgroundScreen]="showSerialNumInfo" (click)="hideSerialInfo()"></div>
-<div appTranslate id="registration-main-div">
+<div appTranslate id="registration-main-div" style="position:relative;">
 <div id="register" *ngIf="!registrationDone">
     <h1 class="register-content-title">Register Your Product</h1>
     <div id="choose-language-label">Choose your language</div>
@@ -209,11 +209,11 @@
 </div>
 
 </div>
-<div id="registration-success" *ngIf="!registrationError && registrationDone">
+<div id="registration-success" *ngIf="registrationDone">
 
 
 <div class="registration-thank-you">
-<div [@fadeInAnimation]="!registrationError && registrationDone">
+<div [@fadeInAnimation]="registrationDone">
     <h3 class="registration-thank-you--heading">Yay — You're official!</h3>
 
     <p class="registration-thank-you--para">
@@ -379,7 +379,7 @@
 </div>
 
     <div class="registration-thank-you--buttons">
-        <a [@slideInOutAnimationTop]="!registrationError && registrationDone" href="/recipes" id="recipes_div" class="registration-thank-you--button">
+        <a [@slideInOutAnimationTop]="registrationDone" href="/recipes" id="recipes_div" class="registration-thank-you--button">
             <img src="http://cdn.blendtec.com/img/registration/prodreg-btn-recipes.jpg" class="registration-thank-you--button-image" alt="Recipes">         <div class="registration-thank-you--button-content">
                 <h4 id="registration-recipes-thanks" class="registration-thank-you--btn-title">Recipes</h4>
 
@@ -400,7 +400,7 @@
     <div class="svg-action-icon-alternate"></div>
 </i>            </div>
         </a>
-        <a [@slideInOutAnimationTop]="!registrationError && registrationDone" href="/faq" class="registration-thank-you--button">
+        <a [@slideInOutAnimationTop]="registrationDone" href="/faq" class="registration-thank-you--button">
             <img src="http://cdn.blendtec.com/img/registration/prodreg-btn-faq.jpg" class="registration-thank-you--button-image" alt="FAQ's">           <div class="registration-thank-you--button-content">
                 <h4 id="registration-faq-thanks" class="registration-thank-you--btn-title">FAQ's</h4>
 
@@ -421,7 +421,7 @@
     <div class="svg-action-icon-alternate"></div>
 </i>            </div>
         </a>
-        <a [@slideInOutAnimationTop]="!registrationError && registrationDone" href="/support/guides" class="registration-thank-you--button">
+        <a [@slideInOutAnimationTop]="registrationDone" href="/support/guides" class="registration-thank-you--button">
             <img src="http://cdn.blendtec.com/img/registration/prodreg-btn-prodguide.jpg" class="registration-thank-you--button-image" alt="Product Guides">            <div class="registration-thank-you--button-content">
                 <h4 id="registration-guides-thanks" class="registration-thank-you--btn-title">Product Guides</h4>
 
@@ -442,7 +442,7 @@
     <div class="svg-action-icon-alternate"></div>
 </i>            </div>
         </a>
-        <a [@slideInOutAnimationTop]="!registrationError && registrationDone" href="/use-and-care" class="registration-thank-you--button">
+        <a [@slideInOutAnimationTop]="registrationDone" href="/use-and-care" class="registration-thank-you--button">
             <img src="http://cdn.blendtec.com/img/registration/prodreg-btn-usecare.jpg" class="registration-thank-you--button-image" alt="Use &amp; Care">          <div class="registration-thank-you--button-content">
                 <h4 id="registration-usecare-thanks" class="registration-thank-you--btn-title">Use &amp; Care</h4>
 
@@ -472,7 +472,8 @@
 </div>
 <div id="registration-success" *ngIf="registrationError">
 
-    failure message
+<div class="error-message"><div style="width:90%;height:100%;display:inline-block;">{{errorMessage}}</div><div style="display:inline-block;width:10%;cursor:pointer;" (click)="removeErrorMessage()"><span style="position:absolute;top:5px;right:5px;font-family:sans-serif;">X</span></div></div>
+
 </div>
 </div>
 
