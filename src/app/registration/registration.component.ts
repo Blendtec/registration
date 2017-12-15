@@ -28,16 +28,16 @@ export const slideInOutAnimation =
         })),
         transition(':enter', [
             style({
-              marginRight:-1000
+              marginRight: -1000
             }),
 
             animate('1s ease-in-out', style({
-                marginRight:0
+                marginRight: 0
             }))
         ]),
         transition(':leave', [
             animate('1s ease-in-out', style({
-                marginRight:-1000
+                marginRight: -1000
             }))
         ])
     ]);
@@ -49,16 +49,16 @@ export const slideInOutAnimationLeft =
         })),
         transition(':enter', [
             style({
-              marginLeft:-1000
+              marginLeft: -1000
             }),
 
             animate('1s ease-in-out', style({
-                marginLeft:0
+                marginLeft: 0
             }))
         ]),
         transition(':leave', [
             animate('1s ease-in-out', style({
-                marginLeft:-1000
+                marginLeft: -1000
             }))
         ])
     ]);
@@ -69,16 +69,16 @@ export const slideInOutAnimationTop =
         })),
         transition(':enter', [
             style({
-              marginTop:-1000
+              marginTop: -1000
             }),
 
             animate('1s ease-in-out', style({
-                marginTop:0
+                marginTop: 0
             }))
         ]),
         transition(':leave', [
             animate('.5s ease-in-out', style({
-                marginTop:-1000
+                marginTop: -1000
             }))
         ])
     ]);
@@ -89,16 +89,16 @@ export const slideInOutAnimationBottom =
         })),
         transition(':enter', [
             style({
-              marginBottom:-1000
+              marginBottom: -1000
             }),
 
             animate('1s ease-in-out', style({
-                marginBottom:0
+                marginBottom: 0
             }))
         ]),
         transition(':leave', [
             animate('1s ease-in-out', style({
-                marginBottom:-1000
+                marginBottom: -1000
             }))
         ])
     ]);
@@ -109,16 +109,16 @@ export const fadeInAnimation =
         })),
         transition(':enter', [
             style({
-              opacity:0
+              opacity: 0
             }),
 
             animate('1s ease-in-out', style({
-              opacity:1
+              opacity: 1
             }))
         ]),
         transition(':leave', [
             animate('1s ease-in-out', style({
-              opacity:0
+              opacity: 0
             }))
         ])
     ]);
@@ -189,10 +189,6 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   registrationSubmitting = false;
   errorMessage = '';
 
-  registrationDoneTest() {
-    this.registrationDone = !this.registrationDone;
-  }
-
   baseImageLocation = '';
   private apiLocation = 'http://blendtec.test';
   private liveApiLocation = 'https://www.blendtec.com';
@@ -211,6 +207,10 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     if (winRef.nativeWindow.liveSite) {
       this.apiLocation = this.liveApiLocation;
     }
+  }
+
+  registrationDoneTest() {
+    this.registrationDone = !this.registrationDone;
   }
 
   setDefaultInputValues() {
@@ -413,7 +413,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
           self.registrationError = false;
           self.registrationDone = true;
           self.errorMessage = '';
-        }, function(error : string) {
+        }, function(error: string) {
           self.registrationSubmitting = false;
           self.registrationError = true;
           self.registrationDone = false;

@@ -20,7 +20,7 @@ export class RequestService {
         response = response;
         if (callback.constructor === Function && response === 'success') {
           callback();
-        } else if (errorCallback.constructor === Function && response != 'success') {
+        } else if (errorCallback.constructor === Function && response !== 'success') {
           errorCallback(response);
         }
 
