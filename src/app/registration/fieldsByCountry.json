@@ -10,11 +10,11 @@
 			"isRequired":true,
 			"isVisible":true
 		},
-		"street_address":{
+		"address_1":{
 			"isRequired":true,
 			"isVisible":true
 		},
-		"apt_suite":{
+		"address_2":{
 			"isRequired":false,
 			"isVisible":true
 		},
@@ -40,7 +40,7 @@
       "isVisible":true,
       "regex":"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
     },
-    "phone_number":{
+    "phone":{
       "isRequired":true,
       "isVisible":true,
       "regex":"^[^a-zA-Z]{7,25}$"
