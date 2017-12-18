@@ -1,0 +1,9 @@
+{
+  "ignore": [
+    "**/node_modules/**",
+    "**/.travis/**",
+  ],
+  "critics": {
+    "lint": {"engine": "tslint"}
+  }
+}

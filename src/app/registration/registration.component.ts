@@ -2,14 +2,129 @@ import { Component, OnInit, AfterViewInit, ElementRef, ChangeDetectorRef } from 
 import { StoreService } from '../store.service';
 import { RequestService } from '../request.service';
 import { ActivatedRoute } from '@angular/router';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import {
+  AnimationReferenceMetadata,
+  animation,
+  keyframes,
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  useAnimation
+} from '@angular/animations';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { WindowService } from '../window.service';
 
+
 declare function require(url: string);
+
+export const slideInOutAnimation =
+    trigger('slideInOutAnimation', [
+        state('*', style({
+        })),
+        transition(':enter', [
+            style({
+              marginRight: -1000
+            }),
+
+            animate('1s ease-in-out', style({
+                marginRight: 0
+            }))
+        ]),
+        transition(':leave', [
+            animate('1s ease-in-out', style({
+                marginRight: -1000
+            }))
+        ])
+    ]);
+
+
+export const slideInOutAnimationLeft =
+    trigger('slideInOutAnimationLeft', [
+        state('*', style({
+        })),
+        transition(':enter', [
+            style({
+              marginLeft: -1000
+            }),
+
+            animate('1s ease-in-out', style({
+                marginLeft: 0
+            }))
+        ]),
+        transition(':leave', [
+            animate('1s ease-in-out', style({
+                marginLeft: -1000
+            }))
+        ])
+    ]);
+
+export const slideInOutAnimationTop =
+    trigger('slideInOutAnimationTop', [
+        state('*', style({
+        })),
+        transition(':enter', [
+            style({
+              marginTop: -1000
+            }),
+
+            animate('1s ease-in-out', style({
+                marginTop: 0
+            }))
+        ]),
+        transition(':leave', [
+            animate('.5s ease-in-out', style({
+                marginTop: -1000
+            }))
+        ])
+    ]);
+
+export const slideInOutAnimationBottom =
+    trigger('slideInOutAnimationBottom', [
+        state('*', style({
+        })),
+        transition(':enter', [
+            style({
+              marginBottom: -1000
+            }),
+
+            animate('1s ease-in-out', style({
+                marginBottom: 0
+            }))
+        ]),
+        transition(':leave', [
+            animate('1s ease-in-out', style({
+                marginBottom: -1000
+            }))
+        ])
+    ]);
+
+export const fadeInAnimation =
+    trigger('fadeInAnimation', [
+        state('*', style({
+        })),
+        transition(':enter', [
+            style({
+              opacity: 0
+            }),
+
+            animate('1s ease-in-out', style({
+              opacity: 1
+            }))
+        ]),
+        transition(':leave', [
+            animate('1s ease-in-out', style({
+              opacity: 0
+            }))
+        ])
+    ]);
+
+
+
 
 @Component({
   selector: 'app-registration',
@@ -39,7 +154,12 @@ declare function require(url: string);
       })),
       transition('inactive => active', animate('0ms ease-in')),
       transition('active => inactive', animate('0ms ease-out'))
-    ])
+    ]),
+    slideInOutAnimation,
+    slideInOutAnimationLeft,
+    slideInOutAnimationBottom,
+    slideInOutAnimationTop,
+    fadeInAnimation
   ]
 })
 export class RegistrationComponent implements OnInit, AfterViewInit {
@@ -64,9 +184,13 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   publicKey = '6LcWmzIUAAAAADoSNPMqAECfcdIl9Z8B4czc4MjP';
   captchaResponse = null;
   captchaNotFilled = false;
+  registrationError = false;
+  registrationDone = false;
+  registrationSubmitting = false;
+  errorMessage = '';
 
   baseImageLocation = '';
-  private apiLocation = 'http://noideawhatiamdoing-1264745870.us-west-1.elb.amazonaws.com';
+  private apiLocation = 'http://blendtec.test';
   private liveApiLocation = 'https://www.blendtec.com';
   private registrationApiUrl = '/product_registrations/addApi';
 
@@ -83,6 +207,16 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     if (winRef.nativeWindow.liveSite) {
       this.apiLocation = this.liveApiLocation;
     }
+  }
+
+  registrationDoneTest() {
+    this.registrationDone = !this.registrationDone;
+    this.winRef.nativeWindow.scrollTo(0, 0);
+  }
+
+  removeErrorMessage() {
+    this.errorMessage = '';
+    this.registrationError = false;
   }
 
   setDefaultInputValues() {
@@ -272,13 +406,25 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
       this.inputValueByName['source'] = '';
       this.inputValueByName['captcha'] = this.captchaResponse;
       postObject['ProductRegistration'] = this.inputValueByName;
+      postObject['ProductRegistration']['source'] = 'shopify-web';
       if (this.inputValueByName[this.fakeFormName]) {
         this.spammer = true;
       }
       if (!this.spammer) {
         const self = this;
+        self.registrationSubmitting = true;
         this.requestService.submitData(this.apiLocation + this.registrationApiUrl, postObject, function() {
+          self.winRef.nativeWindow.scrollTo(0, 0);
           self.setDefaultInputValues();
+          self.registrationSubmitting = false;
+          self.registrationError = false;
+          self.registrationDone = true;
+          self.errorMessage = '';
+        }, function(error: string) {
+          self.registrationSubmitting = false;
+          self.registrationError = true;
+          self.registrationDone = false;
+          self.errorMessage = error;
         });
 
       } else {

@@ -7,10 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: RegistrationComponent
-  },
-    {
-    path: ':lan',
-    component: RegistrationComponent
   }
 ];
 
