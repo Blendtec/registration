@@ -7,12 +7,12 @@ import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
-import { StoreService } from '../store.service';
-import { RequestService } from '../request.service';
+import { StoreService } from '../services/store.service';
+import { RequestService } from '../services/request.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs/observable/of';
-import { WindowService } from '../window.service';
+import { WindowService } from '../services/window.service';
 
 
 declare function require(url: string);
@@ -86,7 +86,7 @@ describe('RegistrationComponent', () => {
   it('expects a file named fieldsByCountry.json to be within the same directory', () => {
     let fieldsByCountry = null;
     try {
-      fieldsByCountry = require('./fieldsByCountry.json');
+      fieldsByCountry = require('../settings/fieldsByCountry.json');
     } catch (e) {
 
     }
@@ -96,7 +96,7 @@ describe('RegistrationComponent', () => {
   it('expects a file named countries.json to be within the same directory', () => {
     let countries = null;
     try {
-      countries = require('./countries.json');
+      countries = require('../settings/countries.json');
     } catch (e) {
 
     }
@@ -106,7 +106,7 @@ describe('RegistrationComponent', () => {
   it('expects a file named states.json to be within the same directory', () => {
     let states = null;
     try {
-      states = require('./states.json');
+      states = require('../settings/states.json');
     } catch (e) {
 
     }
@@ -118,7 +118,7 @@ describe('RegistrationComponent', () => {
     let response = null;
     let fieldsByCountry = null;
     try {
-      fieldsByCountry = require('./fieldsByCountry.json');
+      fieldsByCountry = require('../settings/fieldsByCountry.json');
     } catch (e) {
 
     }
@@ -141,7 +141,7 @@ describe('RegistrationComponent', () => {
     let response = null;
     let fieldsByState = null;
     try {
-      fieldsByState = require('./states.json');
+      fieldsByState = require('../settings/states.json');
     } catch (e) {
 
     }
@@ -164,7 +164,7 @@ describe('RegistrationComponent', () => {
     let response = null;
     let fieldsByCountry = null;
     try {
-      fieldsByCountry = require('./states.json');
+      fieldsByCountry = require('../settings/states.json');
     } catch (e) {
 
     }
@@ -186,7 +186,7 @@ describe('RegistrationComponent', () => {
     let response = null;
     let fieldsByCountry = null;
     try {
-      fieldsByCountry = require('./fieldsByCountry.json');
+      fieldsByCountry = require('../settings/fieldsByCountry.json');
     } catch (e) {
 
     }
@@ -203,7 +203,7 @@ describe('RegistrationComponent', () => {
   it('getCountryFromLanguage should set the country settings based off of the language', () => {
     let fieldsByCountry = null;
     try {
-      fieldsByCountry = require('./fieldsByCountry.json');
+      fieldsByCountry = require('../settings/fieldsByCountry.json');
     } catch (e) {
 
     }
@@ -219,7 +219,7 @@ describe('RegistrationComponent', () => {
   it('getCountryFromCountry should set the country settings based off of the country chosen', () => {
     let fieldsByCountry = null;
     try {
-      fieldsByCountry = require('./fieldsByCountry.json');
+      fieldsByCountry = require('../settings/fieldsByCountry.json');
     } catch (e) {
 
     }

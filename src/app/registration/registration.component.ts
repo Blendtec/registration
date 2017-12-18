@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ChangeDetectorRef } from '@angular/core';
-import { StoreService } from '../store.service';
-import { RequestService } from '../request.service';
+import { StoreService } from '../services/store.service';
+import { RequestService } from '../services/request.service';
 import { ActivatedRoute } from '@angular/router';
 import {
   AnimationReferenceMetadata,
@@ -17,7 +17,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-import { WindowService } from '../window.service';
+import { WindowService } from '../services/window.service';
+import { CountryService } from '../services/country.service';
 
 
 declare function require(url: string);
@@ -245,9 +246,9 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     this.setDefaultInputValues();
     const self = this;
     try {
-        self.fieldsByCountry = require('./fieldsByCountry.json');
-        self.countries = require('./countries.json');
-        self.states = require('./states.json');
+        self.fieldsByCountry = require('../settings/fieldsByCountry.json');
+        self.countries = require('../settings/countries.json');
+        self.states = require('../settings/states.json');
     } catch (e) {
       console.log(e);
     }
