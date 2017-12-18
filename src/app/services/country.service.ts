@@ -13,7 +13,7 @@ export class CountryService {
   private _inputValueByName: Object;
 
 constructor() {
-	let self = this;
+    const self = this;
     try {
         self._fieldsByCountry = require('../settings/fieldsByCountry.json');
         self._countries = require('../settings/countries.json');
@@ -23,12 +23,12 @@ constructor() {
     }
 }
 
-  get countries() : Object[] {
-  	return this._countries;
+  get countries(): Object[] {
+    return this._countries;
   }
 
-  get states() : Object[] {
-  	return this._states;
+  get states(): Object[] {
+    return this._states;
   }
 
   getCountryFromLanguage(language: string): void {
