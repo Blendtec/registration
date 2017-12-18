@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, Renderer, OnInit, OnDestroy } from '@angular/core';
-import { StoreService } from './store.service';
+import { StoreService } from '../services/store.service';
 import { Subscription } from 'rxjs/Subscription';
 
 declare function require(url: string);
@@ -34,7 +34,7 @@ export class TranslateDirective implements OnInit, OnDestroy {
     } else if (this.language !== this.defaultLanguage) {
       try {
         if (typeof this.translation[this.language] === 'undefined') {
-          this.translation[this.language] = require('./translations/' + this.language + '.json');
+          this.translation[this.language] = require('../translations/' + this.language + '.json');
         }
         if (this.translated) {
           const self = this;

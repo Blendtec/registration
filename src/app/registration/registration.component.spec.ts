@@ -7,12 +7,12 @@ import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
-import { StoreService } from '../store.service';
-import { RequestService } from '../request.service';
+import { StoreService } from '../services/store.service';
+import { RequestService } from '../services/request.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs/observable/of';
-import { WindowService } from '../window.service';
+import { WindowService } from '../services/window.service';
 
 
 declare function require(url: string);
