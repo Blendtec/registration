@@ -33,79 +33,79 @@
             </li>
     </ul>
 <form>
-    <div class="form-group col-half" *ngIf="isElementVisible('first_name')">
-        <label for="ProductRegistrationFirstName" class="control-label">First Name:<span *ngIf="isElementRequired('first_name')">*</span></label>
-        <input name="first_name" [(ngModel)]="inputValueByName['first_name']" [required]="isElementRequired('first_name') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('first_name')}" class="form-control" maxlength="50" type="text" id="ProductRegistrationFirstName">
-        <span class="parsley-errors-list" *ngIf="isElementErrored('first_name')" style="color:red;" id="first_name_error">Please enter your first name.</span>
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('first_name')">
+        <label for="ProductRegistrationFirstName" class="control-label">First Name:<span *ngIf="countryService.isElementRequired('first_name')">*</span></label>
+        <input name="first_name" [(ngModel)]="countryService.inputValueByName['first_name']" [required]="countryService.isElementRequired('first_name') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('first_name', submitInfo)}" class="form-control" maxlength="50" type="text" id="ProductRegistrationFirstName">
+        <span class="parsley-errors-list" *ngIf="countryService.isElementErrored('first_name', submitInfo)" style="color:red;" id="first_name_error">Please enter your first name.</span>
     </div>
 
-    <div class="form-group col-half" *ngIf="isElementVisible('last_name')">
-        <label for="ProductRegistrationFirstName" class="control-label">Last Name:<span *ngIf="isElementRequired('last_name')">*</span></label>
-        <input name="last_name" [(ngModel)]="inputValueByName['last_name']" [required]="isElementRequired('last_name') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('last_name')}" class="form-control" maxlength="50" type="text" id="ProductRegistrationFirstName">
-        <span class="parsley-errors-list" *ngIf="isElementErrored('last_name')" style="color:red;" id="last_name_error">Please enter your last name.</span>
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('last_name')">
+        <label for="ProductRegistrationFirstName" class="control-label">Last Name:<span *ngIf="countryService.isElementRequired('last_name')">*</span></label>
+        <input name="last_name" [(ngModel)]="countryService.inputValueByName['last_name']" [required]="countryService.isElementRequired('last_name') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('last_name', submitInfo)}" class="form-control" maxlength="50" type="text" id="ProductRegistrationFirstName">
+        <span class="parsley-errors-list" *ngIf="countryService.isElementErrored('last_name', submitInfo)" style="color:red;" id="last_name_error">Please enter your last name.</span>
     </div>
 
-    <div class="form-group col-half" *ngIf="isElementVisible('address_1')">
-        <label for="ProductRegistrationFirstName" class="control-label">Street Address:<span *ngIf="isElementRequired('address_1')">*</span></label>
-        <input name="address_1" [(ngModel)]="inputValueByName['address_1']" [required]="isElementRequired('address_1') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('address_1')}" class="form-control" type="text" >
-        <span class="parsley-errors-list" *ngIf="isElementErrored('address_1')" style="color:red;" id="street_address_error">Please enter your street address.</span>
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('address_1')">
+        <label for="ProductRegistrationFirstName" class="control-label">Street Address:<span *ngIf="countryService.isElementRequired('address_1')">*</span></label>
+        <input name="address_1" [(ngModel)]="countryService.inputValueByName['address_1']" [required]="countryService.isElementRequired('address_1') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('address_1', submitInfo)}" class="form-control" type="text" >
+        <span class="parsley-errors-list" *ngIf="countryService.isElementErrored('address_1', submitInfo)" style="color:red;" id="street_address_error">Please enter your street address.</span>
     </div>
 
-    <div class="form-group col-half" *ngIf="isElementVisible('address_2')">
-        <label for="ProductRegistrationFirstName" class="control-label">Apt/Suite:<span *ngIf="isElementRequired('address_2')">*</span></label>
-        <input name="address_2" [(ngModel)]="inputValueByName['address_2']" [required]="isElementRequired('address_2') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('address_2')}" class="form-control" type="text" >
-        <span class="parsley-errors-list" *ngIf="isElementErrored('address_2')" style="color:red;" id="apt_suite_error">Please enter your Apt/Suite.</span>
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('address_2')">
+        <label for="ProductRegistrationFirstName" class="control-label">Apt/Suite:<span *ngIf="countryService.isElementRequired('address_2')">*</span></label>
+        <input name="address_2" [(ngModel)]="countryService.inputValueByName['address_2']" [required]="countryService.isElementRequired('address_2') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('address_2', submitInfo)}" class="form-control" type="text" >
+        <span class="parsley-errors-list" *ngIf="countryService.isElementErrored('address_2', submitInfo)" style="color:red;" id="apt_suite_error">Please enter your Apt/Suite.</span>
     </div>
 
-    <div class="form-group col-half" *ngIf="isElementVisible('city')">
-        <label for="ProductRegistrationFirstName" class="control-label">City:<span *ngIf="isElementRequired('city')">*</span></label>
-        <input name="city" [(ngModel)]="inputValueByName['city']" [required]="isElementRequired('city') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('city')}" class="form-control" type="text">
-        <span class="parsley-errors-list" *ngIf="isElementErrored('city')" style="color:red;" id="city_error">Please enter your city.</span>
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('city')">
+        <label for="ProductRegistrationFirstName" class="control-label">City:<span *ngIf="countryService.isElementRequired('city')">*</span></label>
+        <input name="city" [(ngModel)]="countryService.inputValueByName['city']" [required]="countryService.isElementRequired('city') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('city', submitInfo)}" class="form-control" type="text">
+        <span class="parsley-errors-list" *ngIf="countryService.isElementErrored('city', submitInfo)" style="color:red;" id="city_error">Please enter your city.</span>
     </div>
 
-    <div class="form-group col-half" *ngIf="isElementVisible('state_province')">
-        <label for="ProductRegistrationFirstName" class="control-label">State/Province:<span *ngIf="isElementRequired('state_province')">*</span></label>
-            <select name="state_province" [(ngModel)]="inputValueByName['state_province']" [required]="isElementRequired('state_province') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('state_province')}" class="col-md-12 form-control" >
-                <option value="{{state.code}}" *ngFor="let state of states">{{state.name}}</option>
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('state_province')">
+        <label for="ProductRegistrationFirstName" class="control-label">State/Province:<span *ngIf="countryService.isElementRequired('state_province')">*</span></label>
+            <select name="state_province" [(ngModel)]="countryService.inputValueByName['state_province']" [required]="countryService.isElementRequired('state_province') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('state_province', submitInfo)}" class="col-md-12 form-control" >
+                <option value="{{state.short}}" *ngFor="let state of countryService.stateList">{{state.name}}</option>
             </select>
-        <span class="parsley-errors-list" *ngIf="isElementErrored('state_province')" style="color:red;" id="state_province_error">Please enter your state or province.</span>
+        <span class="parsley-errors-list" *ngIf="countryService.isElementErrored('state_province', submitInfo)" style="color:red;" id="state_province_error">Please enter your state or province.</span>
     </div>
 
-    <div class="form-group col-half" *ngIf="isElementVisible('zip')">
-        <label for="ProductRegistrationFirstName" class="control-label">Zip:<span *ngIf="isElementRequired('zip')">*</span></label>
-        <input name="zip" [(ngModel)]="inputValueByName['zip']" [required]="isElementRequired('zip') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('zip')}" class="form-control" type="text">
-        <span class="parsley-errors-list" *ngIf="isElementErrored('zip')" style="color:red;" id="zip_error">Please enter your zip.</span>
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('zip')">
+        <label for="ProductRegistrationFirstName" class="control-label">Zip:<span *ngIf="countryService.isElementRequired('zip')">*</span></label>
+        <input name="zip" [(ngModel)]="countryService.inputValueByName['zip']" [required]="countryService.isElementRequired('zip') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('zip', submitInfo)}" class="form-control" type="text">
+        <span class="parsley-errors-list" *ngIf="countryService.isElementErrored('zip', submitInfo)" style="color:red;" id="zip_error">Please enter your zip.</span>
     </div>
 
-    <div class="form-group col-half" *ngIf="isElementVisible('country')">
-        <label for="ProductRegistrationFirstName" class="control-label">Country:<span *ngIf="isElementRequired('country')">*</span></label>
-            <select name="country" (change)="getCountryFromCountry(inputValueByName['country'])" [(ngModel)]="inputValueByName['country']" [required]="isElementRequired('country') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('country')}" class="col-md-12 form-control">
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('country')">
+        <label for="ProductRegistrationFirstName" class="control-label">Country:<span *ngIf="countryService.isElementRequired('country')">*</span></label>
+            <select name="country" (change)="countryService.getCountryFromCountry(countryService.inputValueByName['country']); countryService.setUpStatesBasedOnCountry();" [(ngModel)]="countryService.inputValueByName['country']" [required]="countryService.isElementRequired('country') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('country', submitInfo)}" class="col-md-12 form-control">
         <optgroup label="Choose Country">
-        <option value="{{country.code}}" *ngFor="let country of countries">{{country.name}}</option>
+        <option value="{{country.code}}" *ngFor="let country of countryService.countries">{{country.name}}</option>
         </optgroup>
             </select>
-        <span class="parsley-errors-list" *ngIf="isElementErrored('country')" style="color:red;" id="country_error">Please enter your country.</span>
+        <span class="parsley-errors-list" *ngIf="countryService.isElementErrored('country', submitInfo)" style="color:red;" id="country_error">Please enter your country.</span>
     </div>
 
-    <div class="form-group col-half" *ngIf="isElementVisible('email')">
-        <label for="ProductRegistrationFirstName" class="control-label">Email:<span *ngIf="isElementRequired('email')">*</span></label>
-        <input name="email" [(ngModel)]="inputValueByName['email']" [required]="isElementRequired('email') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('email')}" class="form-control" type="email">
-        <span class="parsley-errors-list" *ngIf="isElementErrored('email')" style="color:red;" id="email_error">Please enter your email.</span>
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('email')">
+        <label for="ProductRegistrationFirstName" class="control-label">Email:<span *ngIf="countryService.isElementRequired('email')">*</span></label>
+        <input name="email" [(ngModel)]="countryService.inputValueByName['email']" [required]="countryService.isElementRequired('email') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('email', submitInfo)}" class="form-control" type="email">
+        <span class="parsley-errors-list" *ngIf="countryService.isElementErrored('email', submitInfo)" style="color:red;" id="email_error">Please enter your email.</span>
     </div>
 
     <div style="display:none;">
-        <input name="email2" [(ngModel)]="inputValueByName[fakeFormName]" type="text">
+        <input name="email2" [(ngModel)]="countryService.inputValueByName[fakeFormName]" type="text">
     </div>
 
-    <div class="form-group col-half" *ngIf="isElementVisible('phone')">
-        <label for="ProductRegistrationFirstName" class="control-label">Phone Number:<span *ngIf="isElementRequired('phone')">*</span></label>
-        <input name="phone" [(ngModel)]="inputValueByName['phone']" [required]="isElementRequired('phone') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('phone')}" class="form-control" type="tel">
-        <span class="parsley-errors-list" *ngIf="isElementErrored('phone')" style="color:red;" id="phone_number_error">Please enter your phone number.</span>
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('phone')">
+        <label for="ProductRegistrationFirstName" class="control-label">Phone Number:<span *ngIf="countryService.isElementRequired('phone')">*</span></label>
+        <input name="phone" [(ngModel)]="countryService.inputValueByName['phone']" [required]="countryService.isElementRequired('phone') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('phone', submitInfo)}" class="form-control" type="tel">
+        <span class="parsley-errors-list" *ngIf="countryService.isElementErrored('phone', submitInfo)" style="color:red;" id="phone_number_error">Please enter your phone number.</span>
     </div>
 
     <div class="form-group col-half">
         <label for="ProductRegistrationFirstName" class="control-label">Purchase Date:<span>*</span></label>
-            <select name="purchase_month" [(ngModel)]="inputValueByName['purchase_month']" (change)="updateDays()" class="col-md-12 form-control">
+            <select name="purchase_month" [(ngModel)]="countryService.inputValueByName['purchase_month']" (change)="updateDays()" class="col-md-12 form-control">
                 <option value="01">January</option>
                 <option value="02">February</option>
                 <option value="03">March</option>
@@ -120,19 +120,19 @@
                 <option value="12">December</option>
             </select>
             <span>-</span>
-            <select name="purchase_day" [(ngModel)]="inputValueByName['purchase_day']" class="col-md-12 form-control" >
+            <select name="purchase_day" [(ngModel)]="countryService.inputValueByName['purchase_day']" class="col-md-12 form-control" >
                 <option value="{{day}}" *ngFor="let day of daysInMonth">{{day}}</option>
             </select>
             <span>-</span>
-            <select name="purchase_year" [(ngModel)]="inputValueByName['purchase_year']" (change)="updateDays()" class="col-md-12 form-control" >
+            <select name="purchase_year" [(ngModel)]="countryService.inputValueByName['purchase_year']" (change)="updateDays()" class="col-md-12 form-control" >
                 <option value="{{year}}" *ngFor="let year of yearsArray">{{year}}</option>
             </select>
     </div>
 
 
-    <div class="form-group col-half" *ngIf="isElementVisible('purchase_place')">
-        <label for="ProductRegistrationFirstName" class="control-label">Purchase Place:<span *ngIf="isElementRequired('purchase_place')">*</span></label>
-            <select name="purchase_place" [(ngModel)]="inputValueByName['purchase_place']" (change)="enableOtherBox()" class="col-md-12 form-control">
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('purchase_place')">
+        <label for="ProductRegistrationFirstName" class="control-label">Purchase Place:<span *ngIf="countryService.isElementRequired('purchase_place')">*</span></label>
+            <select name="purchase_place" [(ngModel)]="countryService.inputValueByName['purchase_place']" (change)="enableOtherBox()" class="col-md-12 form-control">
                 <option value="Amazon">Amazon</option>
                 <option value="Bed Bath &amp; Beyond">Bed Bath &amp; Beyond</option>
                 <option value="Best Buy">Best Buy</option>
@@ -147,19 +147,19 @@
             </select>
     </div>
 
-    <div class="form-group col-half" *ngIf="isElementVisible('specify_other')">
-        <label for="ProductRegistrationFirstName" class="control-label">Specify Other:<span *ngIf="isElementRequired('specify_other')">*</span></label>
-        <input name="specify_other" [(ngModel)]="inputValueByName['specify_other']" [required]="isElementRequired('specify_other') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('specify_other')}" class="form-control" type="text">
-        <span class="parsley-errors-list" *ngIf="isElementErrored('specify_other')" style="color:red;" id="zip_error">Please specify where it was purchased.</span>
+    <div class="form-group col-half" *ngIf="countryService.isElementVisible('specify_other')">
+        <label for="ProductRegistrationFirstName" class="control-label">Specify Other:<span *ngIf="countryService.isElementRequired('specify_other')">*</span></label>
+        <input name="specify_other" [(ngModel)]="countryService.inputValueByName['specify_other']" [required]="countryService.isElementRequired('specify_other') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('specify_other', submitInfo)}" class="form-control" type="text">
+        <span class="parsley-errors-list" *ngIf="countryService.isElementErrored('specify_other', submitInfo)" style="color:red;" id="zip_error">Please specify where it was purchased.</span>
     </div>
 
     <div class="form-group col-half">
         <label for="ProductRegistrationFirstName" class="control-label">Serial Number:<span>*</span></label>
-        <input name="serial_prefix" [(ngModel)]="inputValueByName['serial_prefix']" [required]="isElementRequired('serial_prefix') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('serial_prefix')}" class="form-control" type="text" maxlength="13">
+        <input name="serial_prefix" [(ngModel)]="countryService.inputValueByName['serial_prefix']" [required]="countryService.isElementRequired('serial_prefix') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('serial_prefix', submitInfo)}" class="form-control" type="text" maxlength="13">
         <span>-</span>
-        <input name="serial_suffix" [(ngModel)]="inputValueByName['serial_suffix']" [required]="isElementRequired('serial_suffix') ? 'required' : null" [ngClass]="{'inputRequired':isElementErrored('serial_suffix')}" class="form-control" type="text" maxlength="6">
+        <input name="serial_suffix" [(ngModel)]="countryService.inputValueByName['serial_suffix']" [required]="countryService.isElementRequired('serial_suffix') ? 'required' : null" [ngClass]="{'inputRequired':countryService.isElementErrored('serial_suffix', submitInfo)}" class="form-control" type="text" maxlength="6">
         <div class="serial-number-info-wrapper" (click)="showSerialInfo()"><div class="serial-number-info">?</div></div>
-        <span class="parsley-errors-list" *ngIf="isAnElementErrored(['serial_prefix', 'serial_suffix'])" style="color:red;" id="zip_error">Please enter the serial number.</span>
+        <span class="parsley-errors-list" *ngIf="countryService.isAnElementErrored(['serial_prefix', 'serial_suffix'], submitInfo)" style="color:red;" id="zip_error">Please enter the serial number.</span>
     </div>
 
     <div class="checkbox">
