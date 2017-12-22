@@ -10,7 +10,6 @@ export class RegistrationService {
 
   public post(url: string, command: RegistrationCommand): Promise<any> {
     console.log('POSTING TO API', JSON.stringify(command));
-    return Promise.resolve();
-    //return this.http.post(url, command, {responseType: 'text'}).toPromise();
+    return this.http.post(url, command, {responseType: 'text'}).toPromise();
   }
 }

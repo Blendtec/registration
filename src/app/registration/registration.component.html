@@ -201,7 +201,7 @@
       </label>
       <br/>
       <div>
-        <re-captcha (resolved)="registration.get('recaptcha').setValue(true)" siteKey="{{publicKey}}"></re-captcha>
+        <re-captcha (resolved)="registration.get('recaptcha').setValue($event)" siteKey="{{publicKey}}"></re-captcha>
         <span class="parsley-errors-list" *ngIf="registration.get('recaptcha').hasError('required')" style="color:red;">Please check the captcha to prove that you're a human.</span>
       </div>
       <button [disabled]="registration.invalid" type="submit">Register</button>

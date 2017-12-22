@@ -9,5 +9,5 @@ export interface IRegistration {
   serial: ISerial;
   purchase: IPurchase;
   marketingOptIn: boolean;
-  recaptcha: boolean;
+  recaptcha: string;
 }

@@ -10,7 +10,7 @@ export class RegistrationCommand implements IRegistration {
   serial: ISerial;
   purchase: IPurchase;
   marketingOptIn: boolean;
-  recaptcha: boolean;
+  recaptcha: string;
 
   constructor(formData: IRegistration) {
     this.firstName = formData.firstName;
@@ -41,22 +41,26 @@ export class RegistrationCommand implements IRegistration {
 
   public toJSON() {
     return {
-      'first_name': this.firstName,
-      'last_name': this.lastName,
-      'address_1': this.address.one,
-      'address_2': this.address.two,
-      'city': this.address.city,
-      'state_province': this.address.stateProvince,
-      'zip': this.address.zip,
-      'country': this.address.country,
-      'email': this.address.email,
-      'phone': this.address.phone,
-      'purchase_place': this.purchase.place,
-      'specify_other': this.purchase.other,
-      'purchase_date': this.purchase.date,
-      'serial_prefix': this.serial.prefix,
-      'serial_suffix': this.serial.suffix,
-      'marketing_optIn': this.marketingOptIn
+        'ProductRegistration' : {
+          'first_name': this.firstName,
+          'last_name': this.lastName,
+          'address_1': this.address.one,
+          'address_2': this.address.two,
+          'city': this.address.city,
+          'state': this.address.stateProvince,
+          'zip': this.address.zip,
+          'country': this.address.country,
+          'email': this.address.email,
+          'phone': this.address.phone,
+          'purchase_place': this.purchase.place,
+          'specify_other': this.purchase.other,
+          'purchase_date': this.purchase.date.date.year + '-' + this.purchase.date.date.month + '-' + this.purchase.date.date.day,
+          'serial_prefix': this.serial.prefix,
+          'serial_suffix': this.serial.suffix,
+          'wants_offers': this.marketingOptIn,
+          'captcha': this.recaptcha,
+          'source': 'shopify-web'
+      }
     };
   }
 }
