@@ -109,7 +109,9 @@
           <span>State / Province</span>
           <select formControlName="stateProvince">
             <option value="">Select State or Province</option>
-            <option *ngFor="let state of states$ | async | filterBy: ['country']: this.registration.get('address').get('country').value" [ngValue]="state.name">
+            <option
+              *ngFor="let state of states$ | async | filterBy: ['country']: this.registration.get('address').get('country').value"
+              [ngValue]="state.name">
               {{state.name}}
             </option>
           </select>
@@ -140,7 +142,9 @@
           <span>Serial Number</span>
           <input type="text" formControlName="prefix">
           <input type="text" formControlName="suffix">
-          <div class="serial-number-info-wrapper" (click)="showSerialInfo()"><div class="serial-number-info">?</div></div>
+          <div class="serial-number-info-wrapper" (click)="showSerialInfo()">
+            <div class="serial-number-info">?</div>
+          </div>
         </label>
         <br/>
         <div class="parsley-errors-list"
@@ -206,5 +210,10 @@
       </div>
       <button [disabled]="registration.invalid" type="submit">Register</button>
     </form>
+  </div>
+  <div class="errors" *ngIf="!registrationDone && registrationError">
+    <ul>
+      <li>Registration failed please try again later.</li>
+    </ul>
   </div>
 </div>
