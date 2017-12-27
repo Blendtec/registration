@@ -64,7 +64,7 @@ describe('RegistrationComponent', () => {
   describe('onSubmit', () => {
 
     it('should set registration Error to true when registration fails', done => {
-      registrationSvcMock.post.and.returnValue(Promise.reject());
+      registrationSvcMock.post.and.returnValue(Promise.reject('api error'));
 
       component.onSubmit(component.registration)
         .then(() => {
