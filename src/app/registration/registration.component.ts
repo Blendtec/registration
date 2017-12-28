@@ -115,10 +115,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   public onSubmit(formData: any): Promise<void> {
-    console.log('FORM DATA', formData.value);
     return this.registrationService.post(`${this.apiLocation}${this.registrationApiUrl}`, new RegistrationCommand(formData.value))
       .then((data) => {
-        console.log(data);
         this.registration.reset();
       });
   }
