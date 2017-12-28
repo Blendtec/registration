@@ -13,7 +13,7 @@ import {
   StoreService
 } from '../services';
 import { RegistrationCommand, ICountry, IState } from '../models';
-import { APP_CONFIG, AppConfig } from '../config/app-config.module';
+import { APP_CONFIG, AppConfig } from '../config';
 
 
 @Component({

@@ -19,7 +19,7 @@ import { RetailerService } from './services/retailer.service';
 import { MyDatePickerModule } from 'mydatepicker';
 import { StateService } from './services/state.service';
 import { NgPipesModule } from 'ngx-pipes';
-import { AppConfigModule } from './config/app-config.module';
+import { AppConfigModule } from './config';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 

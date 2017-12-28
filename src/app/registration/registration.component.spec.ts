@@ -9,13 +9,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistrationService, RetailerService, WindowService, CountryService, StateService } from '../services';
 import { NgPipesModule } from 'ngx-pipes';
 import { MyDatePickerModule } from 'mydatepicker';
-import { APP_CONFIG, AppConfigModule } from '../config/app-config.module';
+import { APP_CONFIG, AppConfigModule } from '../config';
 
 describe('RegistrationComponent', () => {
 
 
   const registrationSvcMock = jasmine.createSpyObj('RegistrationService', ['post']);
   registrationSvcMock.post.and.returnValue(Promise.resolve());
+
+  const stateSvcMock = jasmine.createSpyObj('StateService', ['getAll$']);
+  stateSvcMock.getAll$.and.returnValue(Promise.resolve());
+
+  const countrySvcMock = jasmine.createSpyObj('CountryService', ['getAll$']);
+  countrySvcMock.getAll$.and.returnValue(Promise.resolve());
+
+  const retailerSvcMock = jasmine.createSpyObj('RetailerService', ['getAll$']);
+  retailerSvcMock.getAll$.and.returnValue(Promise.resolve());
 
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
@@ -33,15 +42,15 @@ describe('RegistrationComponent', () => {
         RecaptchaModule.forRoot()
       ],
       providers: [
-        StoreService,
         FormBuilder,
-        RegistrationService,
         WindowService,
-        RetailerService,
-        CountryService,
-        StateService,
+        StoreService,
+        {provide: RegistrationService, useValue: registrationSvcMock},
+        {provide: RetailerService, useValue: retailerSvcMock},
+        {provide: CountryService, useValue: countrySvcMock},
+        {provide: StateService, useValue: stateSvcMock},
         {provide: APP_BASE_HREF, useValue: '/'},
-        {provide: APP_CONFIG, useValue: {captchaKey: 'testKey'}}
+        {provide: APP_CONFIG, useValue: {s3: 's3Url', captchaKey: 'testKey'}}
       ]
     })
       .compileComponents();
