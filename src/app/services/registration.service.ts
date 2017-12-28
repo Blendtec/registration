@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 import { RegistrationCommand } from '../models';
-import { APP_CONFIG, AppConfig } from '../config/app-config.module';
+import { APP_CONFIG, AppConfig } from '../config';
 
 @Injectable()
 export class RegistrationService {
