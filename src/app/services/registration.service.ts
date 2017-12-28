@@ -9,7 +9,6 @@ export class RegistrationService {
   constructor(private http: HttpClient) { }
 
   public post(url: string, command: RegistrationCommand): Promise<any> {
-    console.log('POSTING TO API', JSON.stringify(command));
     return this.http.post(url, command, {responseType: 'text'}).toPromise();
   }
 }
