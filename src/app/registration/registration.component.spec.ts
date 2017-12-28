@@ -2,19 +2,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistrationComponent } from './registration.component';
 import { APP_BASE_HREF } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { StoreService } from '../services/store.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { RegistrationService, RetailerService, WindowService, CountryService, StateService } from '../services';
 import { NgPipesModule } from 'ngx-pipes';
 import { MyDatePickerModule } from 'mydatepicker';
-import { AppRoutingModule } from '../app-routing.module';
-import { APP_CONFIG, APP_DI_CONFIG, AppConfigModule } from '../config/app-config.module';
-
-declare function require(url: string);
+import { APP_CONFIG, AppConfigModule } from '../config/app-config.module';
 
 describe('RegistrationComponent', () => {
 
@@ -30,8 +25,6 @@ describe('RegistrationComponent', () => {
       declarations: [RegistrationComponent],
       imports: [
         AppConfigModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
         FormsModule,
         HttpClientModule,
         MyDatePickerModule,
