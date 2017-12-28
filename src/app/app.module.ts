@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { SuccessComponent } from './success/success.component';
 import { TranslateDirective } from './directives/translate.directive';
 import { StoreService } from './services/store.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +28,8 @@ import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
   declarations: [
     AppComponent,
     RegistrationComponent,
-    TranslateDirective
+    TranslateDirective,
+    SuccessComponent
   ],
   imports: [
     AppConfigModule,

@@ -5,18 +5,36 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { APP_BASE_HREF } from '@angular/common';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
+import { RegistrationComponent } from './registration/registration.component';
+import { SuccessComponent } from './success/success.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgPipesModule } from 'ngx-pipes';
+import { MyDatePickerModule } from 'mydatepicker';
+import { RecaptchaModule } from 'ng-recaptcha';
+import { StoreService } from './services/store.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        RegistrationComponent,
+        SuccessComponent
       ],
       imports: [
         RouterModule.forRoot([]),
-        NgHttpLoaderModule
+        NgHttpLoaderModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MyDatePickerModule,
+        NgPipesModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        RecaptchaModule.forRoot()
       ],
-      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }, FormBuilder, StoreService]
     }).compileComponents();
   }));
 
