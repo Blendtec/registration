@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiHost: 'http://www.blendtec.test',
+  apiHost: 'http://blendtec.test',
   s3: 'https://s3-us-west-1.amazonaws.com/data.blendtec.com',
   registrationEndpoint: 'product_registrations/addApi',
   captchaKey: '6LcWmzIUAAAAADoSNPMqAECfcdIl9Z8B4czc4MjP'

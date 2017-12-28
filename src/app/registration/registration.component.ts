@@ -79,6 +79,10 @@ export class RegistrationComponent implements OnInit {
     this.showSerialNumInfo = 'inactive';
   }
 
+  registrationComplete(): void {
+    this.storeService.passState('done');
+  }
+
   private createForm(): void {
     this.registration = this.formBuilder.group({
       firstName: ['', [Validators.required]],
@@ -112,6 +116,7 @@ export class RegistrationComponent implements OnInit {
       .then(() => {
         this.registrationDone = true;
         this.registration.reset();
+        this.registrationComplete();
       })
       .catch(() => { this.registrationError = true; });
   }
