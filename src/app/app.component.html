@@ -1,2 +1,3 @@
-
-<router-outlet></router-outlet>
+<spinner backgroundColor="#ff0000" spinner="sk-chasing-dots"></spinner>
+<app-registration *ngIf="!appState"></app-registration>
+<app-success *ngIf="appState"></app-success>

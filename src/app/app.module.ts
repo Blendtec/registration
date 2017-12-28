@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { SuccessComponent } from './success/success.component';
 import { TranslateDirective } from './directives/translate.directive';
 import { StoreService } from './services/store.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,8 @@ import { RetailerService } from './services/retailer.service';
 import { MyDatePickerModule } from 'mydatepicker';
 import { StateService } from './services/state.service';
 import { NgPipesModule } from 'ngx-pipes';
+import { AppConfigModule } from './config/app-config.module';
+import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 
 
@@ -25,15 +28,18 @@ import { NgPipesModule } from 'ngx-pipes';
   declarations: [
     AppComponent,
     RegistrationComponent,
-    TranslateDirective
+    TranslateDirective,
+    SuccessComponent
   ],
   imports: [
+    AppConfigModule,
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     MyDatePickerModule,
+    NgHttpLoaderModule,
     NgPipesModule,
     ReactiveFormsModule,
     RecaptchaModule.forRoot()

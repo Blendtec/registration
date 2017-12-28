@@ -2,17 +2,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistrationComponent } from './registration.component';
 import { APP_BASE_HREF } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { StoreService } from '../services/store.service';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationService, RetailerService, WindowService, CountryService, StateService } from '../services';
 import { NgPipesModule } from 'ngx-pipes';
 import { MyDatePickerModule } from 'mydatepicker';
-
-declare function require(url: string);
+import { APP_CONFIG, AppConfigModule } from '../config/app-config.module';
 
 describe('RegistrationComponent', () => {
 
@@ -26,15 +23,16 @@ describe('RegistrationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RegistrationComponent],
-      imports: [RouterModule.forRoot([]),
-        ReactiveFormsModule,
-        NgPipesModule,
+      imports: [
+        AppConfigModule,
         FormsModule,
-        MyDatePickerModule,
-        RecaptchaModule.forRoot(),
         HttpClientModule,
-        BrowserAnimationsModule],
-      providers: [{provide: APP_BASE_HREF, useValue: '/'},
+        MyDatePickerModule,
+        NgPipesModule,
+        ReactiveFormsModule,
+        RecaptchaModule.forRoot()
+      ],
+      providers: [
         StoreService,
         FormBuilder,
         RegistrationService,
@@ -42,7 +40,8 @@ describe('RegistrationComponent', () => {
         RetailerService,
         CountryService,
         StateService,
-        {provide: RegistrationService, useValue: registrationSvcMock}
+        {provide: APP_BASE_HREF, useValue: '/'},
+        {provide: APP_CONFIG, useValue: {captchaKey: 'testKey'}}
       ]
     })
       .compileComponents();
@@ -59,6 +58,10 @@ describe('RegistrationComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should set captchaKey from config', () => {
+      expect(component.captchaKey).toEqual('testKey');
   });
 
   describe('onSubmit', () => {
