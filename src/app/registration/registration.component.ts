@@ -4,17 +4,21 @@ import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/observable/throw';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OtherPurchasePlaceValidator, RecaptchaValidator } from '../validators';
-import { RetailerService, CountryService, WindowService, StateService, RegistrationService, StoreService } from '../services';
-import { RegistrationCommand, ICountry, IState  } from '../models';
-
-
-declare function require(url: string);
+import {
+  RetailerService,
+  CountryService,
+  WindowService,
+  StateService,
+  RegistrationService,
+  StoreService
+} from '../services';
+import { RegistrationCommand, ICountry, IState } from '../models';
 
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css'],
+  styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
   language: string;
@@ -22,10 +26,8 @@ export class RegistrationComponent implements OnInit {
   fakeFormName = 'email2'; // if a form with this name is submitted then it will not submit.
   spammer = false;
   publicKey = '6LcWmzIUAAAAADoSNPMqAECfcdIl9Z8B4czc4MjP';
-  captchaResponse = null;
   registrationError = false;
   registrationDone = false;
-  registrationSubmitting = false;
   errorMessage = '';
 
   baseImageLocation = '';
@@ -47,7 +49,7 @@ export class RegistrationComponent implements OnInit {
               private winRef: WindowService,
               private countryService: CountryService,
               private stateService: StateService,
-              private retailerService: RetailerService)  {
+              private retailerService: RetailerService) {
 
     if (winRef.nativeWindow.imageStorage) {
       this.baseImageLocation = winRef.nativeWindow.imageStorage;
@@ -58,11 +60,6 @@ export class RegistrationComponent implements OnInit {
     this.retailers$ = retailerService.getAll$();
     this.countries$ = countryService.getAll$();
     this.states$ = stateService.getAll$();
-  }
-
-  removeErrorMessage() {
-    this.errorMessage = '';
-    this.registrationError = false;
   }
 
   ngOnInit() {
@@ -116,9 +113,11 @@ export class RegistrationComponent implements OnInit {
 
   public onSubmit(formData: any): Promise<void> {
     return this.registrationService.post(`${this.apiLocation}${this.registrationApiUrl}`, new RegistrationCommand(formData.value))
-      .then((data) => {
+      .then(() => {
+        this.registrationDone = true;
         this.registration.reset();
-      });
+      })
+      .catch(() => { this.registrationError = true; });
   }
 }
 
