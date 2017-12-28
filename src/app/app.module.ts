@@ -19,6 +19,7 @@ import { MyDatePickerModule } from 'mydatepicker';
 import { StateService } from './services/state.service';
 import { NgPipesModule } from 'ngx-pipes';
 import { AppConfigModule } from './config/app-config.module';
+import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 
 
@@ -36,6 +37,7 @@ import { AppConfigModule } from './config/app-config.module';
     FormsModule,
     HttpClientModule,
     MyDatePickerModule,
+    NgHttpLoaderModule,
     NgPipesModule,
     ReactiveFormsModule,
     RecaptchaModule.forRoot()

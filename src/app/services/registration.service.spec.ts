@@ -13,7 +13,7 @@ describe('RegistrationService', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        AppConfigModule
+        AppConfigModule,
       ],
       providers: [
         RegistrationService
