@@ -18,6 +18,7 @@ import { RetailerService } from './services/retailer.service';
 import { MyDatePickerModule } from 'mydatepicker';
 import { StateService } from './services/state.service';
 import { NgPipesModule } from 'ngx-pipes';
+import { AppConfigModule } from './config/app-config.module';
 
 
 
@@ -28,6 +29,7 @@ import { NgPipesModule } from 'ngx-pipes';
     TranslateDirective
   ],
   imports: [
+    AppConfigModule,
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,

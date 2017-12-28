@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/observable/throw';
@@ -13,6 +13,7 @@ import {
   StoreService
 } from '../services';
 import { RegistrationCommand, ICountry, IState } from '../models';
+import { APP_CONFIG, AppConfig } from '../config/app-config.module';
 
 
 @Component({
@@ -25,15 +26,11 @@ export class RegistrationComponent implements OnInit {
   showSerialNumInfo = 'inactive';
   fakeFormName = 'email2'; // if a form with this name is submitted then it will not submit.
   spammer = false;
-  publicKey = '6LcWmzIUAAAAADoSNPMqAECfcdIl9Z8B4czc4MjP';
+  captchaKey: string;
   registrationError = false;
   registrationDone = false;
-  errorMessage = '';
 
   baseImageLocation = '';
-  private apiLocation = 'http://blendtec.test';
-  private liveApiLocation = 'https://www.blendtec.com';
-  private registrationApiUrl = '/product_registrations/addApi';
 
   public registration: FormGroup;
   public retailers$: Observable<any[]>;
@@ -49,14 +46,13 @@ export class RegistrationComponent implements OnInit {
               private winRef: WindowService,
               private countryService: CountryService,
               private stateService: StateService,
-              private retailerService: RetailerService) {
+              private retailerService: RetailerService,
+              @Inject(APP_CONFIG) private config: AppConfig) {
 
     if (winRef.nativeWindow.imageStorage) {
       this.baseImageLocation = winRef.nativeWindow.imageStorage;
     }
-    if (winRef.nativeWindow.liveSite) {
-      this.apiLocation = this.liveApiLocation;
-    }
+    this.captchaKey = config.captchaKey;
     this.retailers$ = retailerService.getAll$();
     this.countries$ = countryService.getAll$();
     this.states$ = stateService.getAll$();
@@ -112,7 +108,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   public onSubmit(formData: any): Promise<void> {
-    return this.registrationService.post(`${this.apiLocation}${this.registrationApiUrl}`, new RegistrationCommand(formData.value))
+    return this.registrationService.post(new RegistrationCommand(formData.value))
       .then(() => {
         this.registrationDone = true;
         this.registration.reset();

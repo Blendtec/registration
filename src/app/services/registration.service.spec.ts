@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { RegistrationService } from './registration.service';
+import { AppConfigModule } from '../config/app-config.module';
 
 
 describe('RegistrationService', () => {
@@ -11,7 +12,8 @@ describe('RegistrationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        AppConfigModule
       ],
       providers: [
         RegistrationService
