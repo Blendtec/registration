@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { APP_BASE_HREF } from '@angular/common';
+import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -11,7 +12,10 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-      imports: [RouterModule.forRoot([])],
+      imports: [
+        RouterModule.forRoot([]),
+        NgHttpLoaderModule
+      ],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     }).compileComponents();
   }));
