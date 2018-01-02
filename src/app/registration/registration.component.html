@@ -1,99 +1,70 @@
 <div appTranslate id="registration-main-div" style="position:relative;">
   <div id="register" *ngIf="!registrationDone">
-    <h1 class="register-content-title">Register Your Product</h1>
-    <div id="choose-language-label">Choose your language</div>
-    <ul class="languages" id="language-switcher">
-      <li class="de clickable" (click)="setLanguage('de')">
-        <img src="{{baseImageLocation}}/assets/img/flags/de.png" alt="">
-      </li>
-      <li class="eng selected clickable" (click)="setLanguage('en')">
-        <img src="{{baseImageLocation}}/assets/img/flags/en.png" alt="">
-      </li>
-      <li class="fr-ca clickable" (click)="setLanguage('fr-ca')">
-        <img src="{{baseImageLocation}}/assets/img/flags/ca.png" alt="">
-      </li>
-      <li class="it clickable" (click)="setLanguage('it')">
-        <img src="{{baseImageLocation}}/assets/img/flags/it.png" alt="">
-      </li>
-      <li class="jpn clickable" (click)="setLanguage('jpn')">
-        <img src="{{baseImageLocation}}/assets/img/flags/ja.png" alt="">
-      </li>
-      <li class="ko clickable" (click)="setLanguage('ko')">
-        <img src="{{baseImageLocation}}/assets/img/flags/ko.png" alt="">
-      </li>
-      <li class="spa clickable" (click)="setLanguage('spa')">
-        <img src="{{baseImageLocation}}/assets/img/flags/es.png" alt="">
-      </li>
-      <li class="zh clickable" (click)="setLanguage('zh')">
-        <img src="{{baseImageLocation}}/assets/img/flags/zh.png" alt="">
-      </li>
-      <li class="zh-tw clickable" (click)="setLanguage('zh-tw')">
-        <img src="{{baseImageLocation}}/assets/img/flags/tw.png" alt="">
-      </li>
-    </ul>
+    <h1 class="register-content-title">{{'HEADING.REGISTER_PRODUCT' | translate}}</h1>
+    <app-country-select></app-country-select>
     <form novalidate (ngSubmit)="onSubmit(registration)" [formGroup]="registration">
       <label>
-        <span>First Name</span>
+        <span>{{'LABEL.FIRST_NAME' | translate}}</span>
         <input type="text" formControlName="firstName">
       </label>
       <br/>
       <div class="parsley-errors-list"
            *ngIf="registration.get('firstName').hasError('required') && registration.get('firstName').touched">
-        First Name is required
+        {{'VALIDATION.REQUIRED_FIRST_NAME' | translate}}
       </div>
 
       <label>
-        <span>Last Name</span>
+        <span>{{'LABEL.LAST_NAME' | translate}}</span>
         <input type="text" formControlName="lastName">
       </label>
       <br/>
       <div class="parsley-errors-list"
            *ngIf="registration.get('lastName').hasError('required') && registration.get('lastName').touched">
-        Last Name is required
+        {{'VALIDATION.REQUIRED_LAST_NAME' | translate}}
       </div>
       <br/>
       <div formGroupName="address">
         <label>
-          <span>Street Address</span>
+          <span>{{'LABEL.ADDRESS' | translate}}</span>
           <input type="text" formControlName="one">
         </label>
         <br/>
         <div class="parsley-errors-list"
              *ngIf="registration.get('address').get('one').hasError('required') && registration.get('address').get('one').touched">
-          Address One is required
+          {{'VALIDATION.REQUIRED_ADDRESS' | translate}}
         </div>
         <br/>
         <label>
-          <span>Apt/Suite</span>
+          <span>{{'LABEL.ADDRESS_TWO' | translate}}</span>
           <input type="text" formControlName="two">
         </label>
         <br/>
         <label>
-          <span>City</span>
+          <span>{{'LABEL.CITY' | translate}}</span>
           <input type="text" formControlName="city">
         </label>
         <br/>
         <div class="parsley-errors-list"
              *ngIf="registration.get('address').get('city').hasError('required') && registration.get('address').get('city').touched">
-          City is required
+          {{'VALIDATION.REQUIRED_CITY' | translate}}
         </div>
         <br/>
 
 
         <label>
-          <span>Zip Code</span>
+          <span>{{'LABEL.ZIP' | translate}}</span>
           <input type="text" formControlName="zip">
         </label>
         <br/>
         <div class="parsley-errors-list"
              *ngIf="registration.get('address').get('zip').hasError('required') && registration.get('address').get('zip').touched">
-          Zip Code is required
+          {{'VALIDATION.REQUIRED_ZIP' | translate}}
         </div>
         <br/>
         <label>
-          <span>Country</span>
+          <span>{{'LABEL.COUNTRY' | translate}}</span>
           <select formControlName="country">
-            <option value="">Select Country</option>
+            <option value="">{{'OPTION.COUNTRY' | translate}}</option>
             <option *ngFor="let country of countries$ | async" [ngValue]="country.code">
               {{country.name}}
             </option>
@@ -102,11 +73,11 @@
         <br/>
         <div class="parsley-errors-list"
              *ngIf="registration.get('address').get('country').hasError('required') && registration.get('address').get('country').touched">
-          Country is required
+          {{'VALIDATION.REQUIRED_COUNTRY' | translate}}
         </div>
         <br/>
         <label>
-          <span>State / Province</span>
+          <span>{{'LABEL.STATE' | translate}}</span>
           <select formControlName="stateProvince">
             <option value="">Select State or Province</option>
             <option
@@ -119,27 +90,27 @@
         <br/>
         <div class="parsley-errors-list"
              *ngIf="registration.get('address').get('stateProvince').hasError('required') && registration.get('address').get('stateProvince').touched">
-          State is required
+          {{'VALIDATION.REQUIRED_STATE' | translate}}
         </div>
         <br/>
         <label>
-          <span>Email</span>
+          <span>{{'LABEL.EMAIL' | translate}}</span>
           <input type="text" formControlName="email">
         </label>
         <br/>
         <div class="parsley-errors-list"
              *ngIf="(registration.get('address').get('email').hasError('required')  ||  registration.get('address').get('email').hasError('email')) && registration.get('address').get('email').touched">
-          Valid email address is required
+          {{'VALIDATION.REQUIRED_EMAIL' | translate}}
         </div>
         <br/>
         <label>
-          <span>Phone Number</span>
+          <span>{{'LABEL.PHONE' | translate}}</span>
           <input type="text" formControlName="phone">
         </label>
       </div>
       <div formGroupName="serial">
         <label>
-          <span>Serial Number</span>
+          <span>{{'LABEL.SERIAL' | translate}}</span>
           <input type="text" formControlName="prefix">
           <input type="text" formControlName="suffix">
           <div class="serial-number-info-wrapper" (click)="showSerialInfo()">
@@ -149,11 +120,11 @@
         <br/>
         <div class="parsley-errors-list"
              *ngIf="registration.get('serial').get('prefix').hasError('required') && registration.get('serial').get('prefix').touched">
-          Serial prefix is required
+          {{'VALIDATION.REQUIRED_PREFIX' | translate}}
         </div>
         <div class="parsley-errors-list"
              *ngIf="registration.get('serial').get('suffix').hasError('required') && registration.get('serial').get('suffix').touched">
-          Serial suffix is required
+          {{'VALIDATION.REQUIRED_SUFFIX' | translate}}
         </div>
         <br/>
 
@@ -161,46 +132,31 @@
       <div formGroupName="purchase">
 
         <label>
-          <span>Date of Purchase</span>
+          <span>{{'LABEL.PURCHASE_DATE' | translate}}</span>
           <my-date-picker name="date" [options]="dateOptions" formControlName="date"></my-date-picker>
         </label>
         <div class="parsley-errors-list"
              *ngIf="registration.get('purchase').get('date').hasError('required') && registration.get('purchase').get('date').touched">
-          Purchase date is required
+          {{'VALIDATION.REQUIRED_PURCHASE_DATE' | translate}}
         </div>
         <label>
-          <span>Purchase Place</span>
+          <span>{{'LABEL.PURCHASE_PLACE' | translate}}</span>
           <select formControlName="place">
-            <option value="">Select Location</option>
+            <option value="">{{'OPTION.LOCATION' | translate}}</option>
             <option *ngFor="let retailer of retailers$ | async" [ngValue]="retailer.name">
               {{retailer.name}}
             </option>
           </select>
         </label>
         <br/>
-        <div class="parsley-errors-list"
-             *ngIf="registration.get('purchase').get('place').hasError('required') && registration.get('purchase').get('place').touched">
-          Purchase place is required
-        </div>
-        <div
-          [hidden]="registration.get('purchase').get('place').value && registration.get('purchase').get('place').value.indexOf('Other') === -1">
-          <label>
-            <span>Other</span>
-            <input type="text" formControlName="other">
-          </label>
-          <br/>
-          <div class="parsley-errors-list"
-               *ngIf="registration.get('purchase').hasError('required') &&
-                registration.get('purchase').get('other').touched &&
-                registration.get('purchase').get('place').touched &&
-                registration.get('purchase').get('place').valid">
-            Other is required
-          </div>
-        </div>
+        <label>
+          <span>{{'LABEL.PURCHASE_PLACE_OTHER' | translate}}</span>
+          <input type="text" formControlName="other">
+        </label>
 
       </div>
       <label>
-        <span>Send me recipes, tips &amp; news!<br>(you can unsubscribe at any time)</span>
+        <span>{{'LABEL.NEWSLETTER' | translate}}<br/>{{'LABEL.NEWSLETTER_NOTICE' | translate}}</span>
         <input type="checkbox" formControlName="marketingOptIn">
       </label>
       <br/>
@@ -208,12 +164,12 @@
         <re-captcha (resolved)="registration.get('recaptcha').setValue($event)" siteKey="{{captchaKey}}"></re-captcha>
         <span class="parsley-errors-list" *ngIf="registration.get('recaptcha').hasError('required')" style="color:red;">Please check the captcha to prove that you're a human.</span>
       </div>
-      <button [disabled]="registration.invalid" type="submit">Register</button>
+      <button [disabled]="registration.invalid" type="submit">{{'BUTTON.REGISTER' | translate}}</button>
     </form>
   </div>
   <div class="errors" *ngIf="!registrationDone && registrationError">
     <ul>
-      <li>Registration failed please try again later.</li>
+      <li>{{'ERROR.REGISTRATION_FAILED' | translate}}</li>
     </ul>
   </div>
 </div>

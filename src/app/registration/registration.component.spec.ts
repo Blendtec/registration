@@ -10,6 +10,7 @@ import { RegistrationService, RetailerService, WindowService, CountryService, St
 import { NgPipesModule } from 'ngx-pipes';
 import { MyDatePickerModule } from 'mydatepicker';
 import { APP_CONFIG, AppConfigModule } from '../config';
+import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 describe('RegistrationComponent', () => {
 
@@ -39,7 +40,8 @@ describe('RegistrationComponent', () => {
         MyDatePickerModule,
         NgPipesModule,
         ReactiveFormsModule,
-        RecaptchaModule.forRoot()
+        RecaptchaModule.forRoot(),
+        TranslateModule
       ],
       providers: [
         FormBuilder,
@@ -50,7 +52,7 @@ describe('RegistrationComponent', () => {
         {provide: CountryService, useValue: countrySvcMock},
         {provide: StateService, useValue: stateSvcMock},
         {provide: APP_BASE_HREF, useValue: '/'},
-        {provide: APP_CONFIG, useValue: {s3: 's3Url', captchaKey: 'testKey'}}
+        {provide: APP_CONFIG, useValue: {s3: 's3Url', captchaKey: 'testKey'}},
       ]
     })
       .compileComponents();

@@ -2,7 +2,6 @@ import { TestBed, async } from '@angular/core/testing';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { APP_BASE_HREF } from '@angular/common';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 import { RegistrationComponent } from './registration/registration.component';
@@ -14,6 +13,9 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { StoreService } from './services/store.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { CountrySelectComponent } from './directives/country-select/country-select.component';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -21,7 +23,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         RegistrationComponent,
-        SuccessComponent
+        SuccessComponent,
+        CountrySelectComponent,
       ],
       imports: [
         RouterModule.forRoot([]),
@@ -32,9 +35,13 @@ describe('AppComponent', () => {
         NgPipesModule,
         BrowserModule,
         BrowserAnimationsModule,
-        RecaptchaModule.forRoot()
+        RecaptchaModule.forRoot(),
+        TranslateModule
       ],
-      providers: [{ provide: APP_BASE_HREF, useValue: '/' }, FormBuilder, StoreService]
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' },
+        { provide: TranslateService, useValue: {} },
+        FormBuilder, StoreService]
     }).compileComponents();
   }));
 
