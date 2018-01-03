@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/observable/throw';
@@ -14,6 +14,8 @@ import {
 } from '../services';
 import { RegistrationCommand, ICountry, IState } from '../models';
 import { APP_CONFIG, AppConfig } from '../config';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs/Subscription';
 
 
 @Component({
@@ -22,16 +24,10 @@ import { APP_CONFIG, AppConfig } from '../config';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  language: string;
   showSerialNumInfo = 'inactive';
-  fakeFormName = 'email2'; // if a form with this name is submitted then it will not submit.
-  spammer = false;
-  captchaKey: string;
-  registrationError = false;
-  registrationDone = false;
 
-  baseImageLocation = '';
-
+  public registrationError = false;
+  public registrationDone = false;
   public registration: FormGroup;
   public retailers$: Observable<any[]>;
   public countries$: Observable<ICountry[]>;
@@ -39,19 +35,18 @@ export class RegistrationComponent implements OnInit {
   public dateOptions: any = {
     dateFormat: 'mm-dd-yyyy'
   };
+  public captchaKey: string;
+
+  private langSub: Subscription;
 
   constructor(private storeService: StoreService,
               private formBuilder: FormBuilder,
               private registrationService: RegistrationService,
-              private winRef: WindowService,
               private countryService: CountryService,
               private stateService: StateService,
               private retailerService: RetailerService,
               @Inject(APP_CONFIG) private config: AppConfig) {
 
-    if (winRef.nativeWindow.imageStorage) {
-      this.baseImageLocation = winRef.nativeWindow.imageStorage;
-    }
     this.captchaKey = config.captchaKey;
     this.retailers$ = retailerService.getAll$();
     this.countries$ = countryService.getAll$();
@@ -62,21 +57,8 @@ export class RegistrationComponent implements OnInit {
     this.createForm();
   }
 
-  setLanguage(lan): void {
-    this.language = lan;
-    this.storeService.passLanguage(this.language);
-  }
-
-  getLanguage() {
-    return this.storeService.getLanguage();
-  }
-
   showSerialInfo(): void {
     this.showSerialNumInfo = 'active';
-  }
-
-  hideSerialInfo(): void {
-    this.showSerialNumInfo = 'inactive';
   }
 
   registrationComplete(): void {
@@ -92,7 +74,7 @@ export class RegistrationComponent implements OnInit {
         two: ['', []],
         city: ['', [Validators.required]],
         zip: ['', [Validators.required]],
-        country: [this.language || 'US', [Validators.required]],
+        country: ['US', [Validators.required]],
         stateProvince: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
         phone: ['', [Validators.required]]
@@ -102,7 +84,7 @@ export class RegistrationComponent implements OnInit {
         suffix: ['', [Validators.required]]
       }),
       purchase: this.formBuilder.group({
-        place: ['', [Validators.required]],
+        place: ['', []],
         other: ['', []],
         date: ['', [Validators.required]]
       }, {validator: OtherPurchasePlaceValidator}),

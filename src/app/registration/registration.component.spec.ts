@@ -10,6 +10,8 @@ import { RegistrationService, RetailerService, WindowService, CountryService, St
 import { NgPipesModule } from 'ngx-pipes';
 import { MyDatePickerModule } from 'mydatepicker';
 import { APP_CONFIG, AppConfigModule } from '../config';
+import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { CountrySelectComponent } from '../directives/country-select/country-select.component';
 
 describe('RegistrationComponent', () => {
 
@@ -26,12 +28,39 @@ describe('RegistrationComponent', () => {
   const retailerSvcMock = jasmine.createSpyObj('RetailerService', ['getAll$']);
   retailerSvcMock.getAll$.and.returnValue(Promise.resolve());
 
+  const registrationFormMock = {
+    value: {
+      firstName: '',
+      lastName: '',
+      marketingOptIn: true,
+      recaptcha: '',
+      address: {
+        one: '',
+        two: '',
+        city: '',
+        state: '',
+        zip: '',
+        country: '',
+        email: '',
+        phone: ''
+      },
+      purchase: {
+        place: '',
+        other: ''
+      },
+      serial: {
+        prefix: '',
+        suffix: ''
+      }
+    }
+  };
+
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RegistrationComponent],
+      declarations: [RegistrationComponent, CountrySelectComponent],
       imports: [
         AppConfigModule,
         FormsModule,
@@ -39,7 +68,8 @@ describe('RegistrationComponent', () => {
         MyDatePickerModule,
         NgPipesModule,
         ReactiveFormsModule,
-        RecaptchaModule.forRoot()
+        RecaptchaModule.forRoot(),
+        TranslateModule
       ],
       providers: [
         FormBuilder,
@@ -49,8 +79,9 @@ describe('RegistrationComponent', () => {
         {provide: RetailerService, useValue: retailerSvcMock},
         {provide: CountryService, useValue: countrySvcMock},
         {provide: StateService, useValue: stateSvcMock},
+        {provide: TranslateService, useValue: {} },
         {provide: APP_BASE_HREF, useValue: '/'},
-        {provide: APP_CONFIG, useValue: {s3: 's3Url', captchaKey: 'testKey'}}
+        {provide: APP_CONFIG, useValue: {s3: 's3Url', captchaKey: 'testKey'}},
       ]
     })
       .compileComponents();
@@ -61,7 +92,6 @@ describe('RegistrationComponent', () => {
 
     fixture = TestBed.createComponent(RegistrationComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
 
   });
 
@@ -76,9 +106,9 @@ describe('RegistrationComponent', () => {
   describe('onSubmit', () => {
 
     it('should set registration Error to true when registration fails', done => {
-      registrationSvcMock.post.and.returnValue(Promise.reject('api error'));
+     registrationSvcMock.post.and.callFake(() => Promise.reject(''));
 
-      component.onSubmit(component.registration)
+      component.onSubmit(registrationFormMock)
         .then(() => {
           expect(component.registrationError).toBe(true);
           done();
