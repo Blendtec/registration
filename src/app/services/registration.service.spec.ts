@@ -3,6 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { RegistrationService } from './registration.service';
 import { AppConfigModule } from '../config';
+import { TranslateService } from '@ngx-translate/core';
 
 
 describe('RegistrationService', () => {

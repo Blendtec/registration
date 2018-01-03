@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { WindowService } from '../../services/window.service';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './country-select.component.html',
   styleUrls: ['./country-select.component.css']
 })
-export class CountrySelectComponent implements OnInit {
+export class CountrySelectComponent {
 
 
   public baseImageLocation = '';
@@ -20,9 +20,6 @@ export class CountrySelectComponent implements OnInit {
 
   public setLanguage(code: string): void {
     this.translate.use(code);
-  }
-
-  ngOnInit() {
   }
 
 }

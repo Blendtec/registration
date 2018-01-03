@@ -15,6 +15,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CountrySelectComponent } from './directives/country-select/country-select.component';
+import { StateService } from './services/state.service';
 
 
 describe('AppComponent', () => {
@@ -41,7 +42,7 @@ describe('AppComponent', () => {
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' },
         { provide: TranslateService, useValue: {} },
-        FormBuilder, StoreService]
+        FormBuilder, StoreService, StateService]
     }).compileComponents();
   }));
 
