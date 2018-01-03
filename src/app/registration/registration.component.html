@@ -31,7 +31,10 @@
         <img src="{{baseImageLocation}}/assets/img/flags/tw.png" alt="">
       </li>
     </ul>
+
     <form novalidate (ngSubmit)="onSubmit(registration)" [formGroup]="registration">
+    <div class="grid">
+    <div class="grid__item large--one-half medium--one-half">
       <label>
         <span>First Name</span>
         <input type="text" formControlName="firstName">
@@ -137,6 +140,8 @@
           <input type="text" formControlName="phone">
         </label>
       </div>
+      </div>
+    <div class="grid__item large--one-half medium--one-half">
       <div formGroupName="serial">
         <label>
           <span>Serial Number</span>
@@ -209,6 +214,8 @@
         <span class="parsley-errors-list" *ngIf="registration.get('recaptcha').hasError('required')" style="color:red;">Please check the captcha to prove that you're a human.</span>
       </div>
       <button [disabled]="registration.invalid" type="submit">Register</button>
+      </div>
+    </div>
     </form>
   </div>
   <div class="errors" *ngIf="!registrationDone && registrationError">
