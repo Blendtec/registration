@@ -25,6 +25,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CountrySelectComponent } from './directives/country-select/country-select.component';
 import { AppConfig } from './config/models/app-config.interface';
 import { APP_CONFIG } from './config/app-config.module';
+import { StatesValidator } from './validators/has-states.validator';
 
 export function HttpLoaderFactory(http: HttpClient, config: AppConfig) {
   return new TranslateHttpLoader(http, `${config.bucket}/assets/i18n/`, '.json');
@@ -35,7 +36,7 @@ export function HttpLoaderFactory(http: HttpClient, config: AppConfig) {
     AppComponent,
     RegistrationComponent,
     SuccessComponent,
-    CountrySelectComponent,
+    CountrySelectComponent
   ],
   imports: [
     AppConfigModule,
@@ -57,7 +58,15 @@ export function HttpLoaderFactory(http: HttpClient, config: AppConfig) {
       }
     })
   ],
-  providers: [StoreService, RegistrationService, WindowService, CountryService, RetailerService, FormBuilder, StateService, TranslatePipe],
+  providers: [StoreService,
+    RegistrationService,
+    WindowService,
+    CountryService,
+    RetailerService,
+    FormBuilder,
+    StateService,
+    TranslatePipe],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
