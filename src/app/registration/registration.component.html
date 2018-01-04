@@ -84,7 +84,7 @@
             <option value="">Select State or Province</option>
             <option
               *ngFor="let state of states$ | async | filterBy: ['country']: this.registration.get('address').get('country').value"
-              [ngValue]="state.name">
+              [disabled]="states$?.length > 0" [ngValue]="state.name">
               {{state.name}}
             </option>
           </select>

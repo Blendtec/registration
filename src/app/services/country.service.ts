@@ -11,7 +11,7 @@ export class CountryService {
 
   constructor(private http: HttpClient, @Inject(APP_CONFIG) private config: AppConfig) {}
 
-public getAll$(): Observable<ICountry[]> {
+  public getAll$(): Observable<ICountry[]> {
     return this.http.get<ICountry[]>(`${this.config.s3}/${this._resource}`);
-}
+  }
 }

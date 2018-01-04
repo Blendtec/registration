@@ -7,15 +7,14 @@ import { OtherPurchasePlaceValidator, RecaptchaValidator } from '../validators';
 import {
   RetailerService,
   CountryService,
-  WindowService,
   StateService,
   RegistrationService,
   StoreService
 } from '../services';
-import { RegistrationCommand, ICountry, IState } from '../models';
+import { RegistrationCommand, ICountry } from '../models';
 import { APP_CONFIG, AppConfig } from '../config';
-import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs/Subscription';
+import { StatesValidator } from '../validators/has-states.validator';
+import { Subject } from 'rxjs/Subject';
 
 
 @Component({
@@ -23,7 +22,7 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent implements OnInit, OnDestroy {
   showSerialNumInfo = 'inactive';
 
   public registrationError = false;
@@ -36,8 +35,7 @@ export class RegistrationComponent implements OnInit {
     dateFormat: 'mm-dd-yyyy'
   };
   public captchaKey: string;
-
-  private langSub: Subscription;
+  private unsubscribe: Subject<void> = new Subject();
 
   constructor(private storeService: StoreService,
               private formBuilder: FormBuilder,
@@ -55,6 +53,11 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
+  }
+
+
+  ngOnDestroy() {
+    this.unsubscribe.next();
   }
 
   showSerialInfo(): void {
@@ -75,7 +78,7 @@ export class RegistrationComponent implements OnInit {
         city: ['', [Validators.required]],
         zip: ['', [Validators.required]],
         country: ['US', [Validators.required]],
-        stateProvince: ['', [Validators.required]],
+        stateProvince: ['', []],
         email: ['', [Validators.required, Validators.email]],
         phone: ['', [Validators.required]]
       }),
@@ -91,6 +94,14 @@ export class RegistrationComponent implements OnInit {
       marketingOptIn: ['', []],
       recaptcha: [false, [RecaptchaValidator]]
     });
+
+    this.registration.get('address.stateProvince').setAsyncValidators(StatesValidator.createValidator(this.stateService));
+
+    this.registration
+      .get('address.country')
+      .valueChanges
+      .takeUntil(this.unsubscribe)
+      .subscribe(() => this.registration.get('address.stateProvince').updateValueAndValidity());
   }
 
   public onSubmit(formData: any): Promise<void> {
@@ -100,7 +111,9 @@ export class RegistrationComponent implements OnInit {
         this.registration.reset();
         this.registrationComplete();
       })
-      .catch(() => { this.registrationError = true; });
+      .catch(() => {
+        this.registrationError = true;
+      });
   }
 }
 
