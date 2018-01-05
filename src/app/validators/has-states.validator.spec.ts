@@ -1,5 +1,6 @@
 import { StatesValidator } from './has-states.validator';
 import { Observable } from 'rxjs/Observable';
+
 describe('HasStatesValidator', () => {
 
   let validator: Function;
