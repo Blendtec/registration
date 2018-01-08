@@ -1,10 +1,7 @@
 {
   "HEADING": {
-    "REGISTER_PRODUCT": "Register your product",
-    "CHOOSE_LANGUAGE": "Choose your language"
   },
   "CONTENT": {
-    "USA": "United States"
   },
   "LABEL": {
     "FIRST_NAME": "Nome",
@@ -20,14 +17,9 @@
     "SERIAL": "Numero di serie",
     "PURCHASE_DATE": "Data Di Acquisto",
     "PURCHASE_PLACE": "Luogo di acquisto",
-    "PURCHASE_PLACE_OTHER": "Altro (specificare)",
-    "NEWSLETTER": "Send me recipes, tips & News",
-    "NEWSLETTER_NOTICE": "You can unsubscribe at any time"
+    "PURCHASE_PLACE_OTHER": "Altro (specificare)"
   },
   "OPTION": {
-    "STATE": "Select State",
-    "COUNTRY": "Select Country",
-    "LOCATION": "Select Location"
   },
   "BUTTON": {
     "REGISTER": "Registra il mio prodotto"

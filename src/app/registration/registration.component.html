@@ -82,8 +82,8 @@
             <div class="grid__item small--one-half medium--one-half large--one-half">
               <label class="hidden-label">{{'LABEL.LAST_NAME' | translate}}</label>
               <input class="input-full"
-                [ngClass]="{error: registration.get('lastName').hasError('required') && registration.get('lastName').touched}"
-                placeholder="{{'LABEL.LAST_NAME' | translate}}" type="text"
+                     [ngClass]="{error: registration.get('lastName').hasError('required') && registration.get('lastName').touched}"
+                     placeholder="{{'LABEL.LAST_NAME' | translate}}" type="text"
                      formControlName="lastName">
             </div>
           </div>
@@ -157,20 +157,20 @@
 
           <div formGroupName="serial">
             <div class="grid">
-              <div class="grid__item small--one-half medium--one-half large--one-half">
+              <div class="grid__item small--one-third medium--one-third large--one-third">
 
                 <label class="hidden-label">{{'LABEL.SERIAL' | translate}}</label>
-                <input class="input-half input-serial-prefix" placeholder="{{'LABEL.SERIAL' | translate}}" type="text"
-                       [ngClass]="{error: registration.get('serial.prefix').hasError('required') && registration.get('serial.prefix').touched}"
+                <input class="input-full input-serial-prefix" placeholder="{{'LABEL.SERIAL' | translate}}" type="text"
+                       [ngClass]="{error:registration.get('serial.prefix').hasError('required') && registration.get('serial.prefix').touched}"
                        formControlName="prefix">
               </div>
-              <div class="grid__item small--one-half medium--one-half large--one-half">
-                <input class="input-half input-serial-suffix" type="text"
+              <div class="grid__item small--one-third medium--one-third large--one-third">
+                <input class="input-full input-serial-suffix" type="text"
                        [ngClass]="{error: registration.get('serial.suffix').hasError('required') && registration.get('serial.suffix').touched}"
                        formControlName="suffix">
-                <div class="serial-number-info-wrapper" (click)="showSerialInfo()">
-                  <div class="serial-number-info">?</div>
-                </div>
+              </div>
+              <div class="grid__item small--one-third medium--one-third large--one-third">
+                <app-serial-modal></app-serial-modal>
               </div>
             </div>
           </div>
@@ -207,7 +207,8 @@
               </div>
             </div>
             <div class="grid__item large--one-half">
-              <button id="registration-submit--btn" name="button" class="step__footer__continue-btn btn" [disabled]="registration.invalid"
+              <button id="registration-submit--btn" name="button" class="step__footer__continue-btn btn"
+                      [disabled]="registration.invalid"
                       type="submit">
                 {{'BUTTON.REGISTER' | translate}}
               </button>
@@ -220,3 +221,4 @@
     </form>
   </div>
 </div>
+

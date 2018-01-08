@@ -1,0 +1,16 @@
+<i class="fa fa-question-circle" aria-hidden="true" (click)="show()"></i>
+<div (click)="hide()" class="exit-intent-overlay" [ngClass]="{show: showing === true}">
+  <section class="exit-intent inline-subscribe  ">
+    <div class="display-table-cell exit-intent__content">
+      <h2 class="exit-intent-header">{{'HEADING.SERIAL_WHERE' | translate}}</h2>
+      <h3>{{'HEADING.ALL_EXCEPT_725' | translate}}</h3>
+      <p>{{'CONTENT.SERIAL_LOCATION_ALL' | translate}}</p>
+      <img id="helper_image" src="//cdn.blendtec.com/images/Support/blender-serial-location.jpg">
+      <hr>
+      <h3>{{'HEADING.DESIGNER_725' | translate}}</h3>
+      <p>{{'CONTENT.SERIAL_LOCATION_725' | translate}}</p>
+      <img src="//cdn.blendtec.com/images/Support/blender-serial-location-725.jpg">
+      <button (click)="hide()" class="btn one-whole">{{'BUTTON.OK' | translate}}</button>
+    </div>
+  </section>
+</div>

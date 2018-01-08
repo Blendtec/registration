@@ -1,10 +1,12 @@
 {
   "HEADING": {
-    "REGISTER_PRODUCT": "Register your product",
-    "CHOOSE_LANGUAGE": "Choose your language"
+    "DESIGNER_725": "仅限设计师（Designer）725型号",
+    "SERIAL_WHERE": "我的序列号在哪里？",
+    "ALL_EXCEPT_725": "除设计师（Designer）725型号外的其他所有料理机"
   },
   "CONTENT": {
-    "USA": "United States"
+    "SERIAL_LOCATION_ALL": "序列号位于电机基座底部。例如",
+    "SERIAL_LOCATION_725": "按住红色的“X”，然后选择'Rewards'。屏幕将显示序列号和最新的奖励代码。"
   },
   "LABEL": {
     "FIRST_NAME": "名",
@@ -20,15 +22,9 @@
     "SERIAL": "序号",
     "PURCHASE_DATE": "购买日期",
     "PURCHASE_PLACE": "购买地点",
-    "PURCHASE_PLACE_OTHER": "详列其他",
-    "NEWSLETTER": "Send me recipes, tips & News",
-    "NEWSLETTER_NOTICE": "You can unsubscribe at any time"
+    "PURCHASE_PLACE_OTHER": "详列其他"
   },
-  "OPTION": {
-    "STATE": "Select State",
-    "COUNTRY": "Select Country",
-    "LOCATION": "Select Location"
-  },
+  "OPTION": {},
   "BUTTON": {
     "REGISTER": "注册我的产品"
   },

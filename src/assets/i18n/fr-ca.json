@@ -1,10 +1,15 @@
 {
   "HEADING": {
     "REGISTER_PRODUCT": "ENREGISTRER PRODUIT",
-    "CHOOSE_LANGUAGE": "Choisissez votre langue"
+    "CHOOSE_LANGUAGE": "Choisissez votre langue",
+    "DESIGNER_725": "Designer 725 only",
+    "SERIAL_WHERE": "Où est mon numéro de série ?",
+    "ALL_EXCEPT_725": "Pour tous les mélangeurs, à l’exception du modèle Designer 725"
   },
   "CONTENT": {
-    "USA": "United States"
+    "USA": "United States",
+    "SERIAL_LOCATION_ALL": "Le numéro de série se trouve en dessous de la base du mélangeur.",
+    "SERIAL_LOCATION_725": "Hold down the red ‘X’ on your blender, then select ‘Rewards.’ This will display the serial number along with your last reward code."
   },
   "LABEL": {
     "FIRST_NAME": "Prénom",

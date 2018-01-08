@@ -25,6 +25,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CountrySelectComponent } from './directives/country-select/country-select.component';
 import { AppConfig } from './config/models/app-config.interface';
 import { APP_CONFIG } from './config/app-config.module';
+import { SerialModalComponent } from './directives/serial-modal.component/serial-modal.component';
 
 export function HttpLoaderFactory(http: HttpClient, config: AppConfig) {
   return new TranslateHttpLoader(http, `${config.assets}/i18n/`, '.json');
@@ -35,7 +36,8 @@ export function HttpLoaderFactory(http: HttpClient, config: AppConfig) {
     AppComponent,
     RegistrationComponent,
     SuccessComponent,
-    CountrySelectComponent
+    CountrySelectComponent,
+    SerialModalComponent
   ],
   imports: [
     AppConfigModule,

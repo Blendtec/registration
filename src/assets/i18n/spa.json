@@ -1,10 +1,13 @@
 {
   "HEADING": {
-    "REGISTER_PRODUCT": "Register your product",
-    "CHOOSE_LANGUAGE": "Choose your language"
+    "DESIGNER_725": "Solamente Designer 725",
+    "SERIAL_WHERE": "Where is my Serial Number",
+    "ALL_EXCEPT_725": "All Blenders Except the Designer 725"
   },
   "CONTENT": {
-    "USA": "United States"
+    "USA": "United States",
+    "SERIAL_LOCATION_ALL": "Puede encontrar el número de serie en la parte inferior de la base de la licuadora.",
+    "SERIAL_LOCATION_725": "Mantenga presionada la “X” roja en su licuadora y después seleccione “Premios”. Esto mostrará su número de serie junto con su último código de premios."
   },
   "LABEL": {
     "FIRST_NAME": "NOMBRE",
@@ -20,14 +23,9 @@
     "SERIAL": "Número de Serie",
     "PURCHASE_DATE": "FECHADECOMPRA",
     "PURCHASE_PLACE": "LUGAR DE COMPRA",
-    "PURCHASE_PLACE_OTHER": "ESPECIFIQUE LUGAR DE COMPRA",
-    "NEWSLETTER": "Send me recipes, tips & News",
-    "NEWSLETTER_NOTICE": "You can unsubscribe at any time"
+    "PURCHASE_PLACE_OTHER": "ESPECIFIQUE LUGAR DE COMPRA"
   },
   "OPTION": {
-    "STATE": "Select State",
-    "COUNTRY": "Select Country",
-    "LOCATION": "Select Location"
   },
   "BUTTON": {
     "REGISTER": "Registro Del Producto"
@@ -46,6 +44,5 @@
     "REQUIRED_PURCHASE_DATE": "Purchase Date is required"
   },
   "ERROR": {
-    "REGISTRATION_FAILED": "Registration failed please try again later"
   }
 }

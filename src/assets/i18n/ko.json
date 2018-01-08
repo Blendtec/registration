@@ -1,10 +1,15 @@
 {
   "HEADING": {
     "REGISTER_PRODUCT": "구입하신 제품을 등록하세요",
-    "CHOOSE_LANGUAGE": "Choose your language"
+    "CHOOSE_LANGUAGE": "Choose your language",
+    "DESIGNER_725": "Designer 725 모델의 경우",
+    "SERIAL_WHERE": "일련 번호는 어디에 있죠?",
+    "ALL_EXCEPT_725": "모든 블렌더 모델 (Designer 725 모델 제외)"
   },
   "CONTENT": {
-    "USA": "United States"
+    "USA": "United States",
+    "SERIAL_LOCATION_ALL": "아래 보시는 바와 같이 블렌더 기기 바닥 면에서 일련 번호를 찾을 수 있습니",
+    "SERIAL_LOCATION_725": "블렌더의 빨간 'X' 버튼을 계속 누르신 후, 'Rewards'(리워드)를 선택하세요. 아래와 같이 최근에 받으신 리워드 코드와 함께 일련 번호가 표시됩니"
   },
   "LABEL": {
     "FIRST_NAME": "이름",
