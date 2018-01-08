@@ -1,0 +1,51 @@
+{
+  "HEADING": {
+    "REGISTER_PRODUCT": "구입하신 제품을 등록하세요",
+    "CHOOSE_LANGUAGE": "Choose your language"
+  },
+  "CONTENT": {
+    "USA": "United States"
+  },
+  "LABEL": {
+    "FIRST_NAME": "이름",
+    "LAST_NAME": "성",
+    "ADDRESS": "주소",
+    "ADDRESS_TWO": "아파트/건물 번호 및 호수",
+    "CITY": "시/군",
+    "ZIP": "우편번호",
+    "COUNTRY": "국가",
+    "STATE": "도/광역시/특별시",
+    "EMAIL": "이메일",
+    "PHONE": "전화번호",
+    "SERIAL": "일련 번호",
+    "PURCHASE_DATE": "구입 날짜",
+    "PURCHASE_PLACE": "구입 장소",
+    "PURCHASE_PLACE_OTHER": "기타 명시",
+    "NEWSLETTER": "Send me recipes, tips & News",
+    "NEWSLETTER_NOTICE": "You can unsubscribe at any time"
+  },
+  "OPTION": {
+    "STATE": "Select State",
+    "COUNTRY": "Select Country",
+    "LOCATION": "Select Location"
+  },
+  "BUTTON": {
+    "REGISTER": "제품 등록하기"
+  },
+  "VALIDATION": {
+    "REQUIRED_FIRST_NAME": "First Name is required",
+    "REQUIRED_LAST_NAME": "Last Name is required",
+    "REQUIRED_ADDRESS": "Address is required",
+    "REQUIRED_CITY": "City is required",
+    "REQUIRED_ZIP": "Zipcode is required",
+    "REQUIRED_COUNTRY": "Country is required",
+    "REQUIRED_STATE": "State is required",
+    "REQUIRED_EMAIL": "Valid Email is required",
+    "REQUIRED_PREFIX": "Serial prefix is required",
+    "REQUIRED_SUFFIX": "Serial suffix is required",
+    "REQUIRED_PURCHASE_DATE": "Purchase Date is required"
+  },
+  "ERROR": {
+    "REGISTRATION_FAILED": "Registration failed please try again later"
+  }
+}

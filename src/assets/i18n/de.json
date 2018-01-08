@@ -1,0 +1,51 @@
+{
+  "HEADING": {
+    "REGISTER_PRODUCT": "Registrieren Sie Ihr Produkt",
+    "CHOOSE_LANGUAGE": "Wähle deine Sprache"
+  },
+  "CONTENT": {
+    "USA": "Vereinigte Staaten"
+  },
+  "LABEL": {
+    "FIRST_NAME": "Vorname",
+    "LAST_NAME": "Nachname",
+    "ADDRESS": "Anschrift",
+    "ADDRESS_TWO": "Whg.",
+    "CITY": "Ort",
+    "ZIP": "Postleitzahl",
+    "COUNTRY": "Land",
+    "STATE": "Bundesstaat",
+    "EMAIL": "E-Mail-Adresse",
+    "PHONE": "Telefon",
+    "SERIAL": "Seriennummer",
+    "PURCHASE_DATE": "Kaufdatum",
+    "PURCHASE_PLACE": "Kaufort",
+    "PURCHASE_PLACE_OTHER": "Andere angeben",
+    "NEWSLETTER": "Send me recipes, tips & News",
+    "NEWSLETTER_NOTICE": "You can unsubscribe at any time"
+  },
+  "OPTION": {
+    "STATE": "Select State",
+    "COUNTRY": "Select Country",
+    "LOCATION": "Select Location"
+  },
+  "BUTTON": {
+    "REGISTER": "Produkt registrieren"
+  },
+  "VALIDATION": {
+    "REQUIRED_FIRST_NAME": "First Name is required",
+    "REQUIRED_LAST_NAME": "Last Name is required",
+    "REQUIRED_ADDRESS": "Address is required",
+    "REQUIRED_CITY": "City is required",
+    "REQUIRED_ZIP": "Zipcode is required",
+    "REQUIRED_COUNTRY": "Country is required",
+    "REQUIRED_STATE": "State is required",
+    "REQUIRED_EMAIL": "Valid Email is required",
+    "REQUIRED_PREFIX": "Serial prefix is required",
+    "REQUIRED_SUFFIX": "Serial suffix is required",
+    "REQUIRED_PURCHASE_DATE": "Purchase Date is required"
+  },
+  "ERROR": {
+    "REGISTRATION_FAILED": "Registration failed please try again later"
+  }
+}

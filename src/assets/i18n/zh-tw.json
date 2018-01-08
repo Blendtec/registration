@@ -1,0 +1,51 @@
+{
+  "HEADING": {
+    "REGISTER_PRODUCT": "Register your product",
+    "CHOOSE_LANGUAGE": "Choose your language"
+  },
+  "CONTENT": {
+    "USA": "United States"
+  },
+  "LABEL": {
+    "FIRST_NAME": "名",
+    "LAST_NAME": "姓",
+    "ADDRESS": "地址",
+    "ADDRESS_TWO": "門牌號",
+    "CITY": "市",
+    "ZIP": "郵編",
+    "COUNTRY": "國家",
+    "STATE": "省",
+    "EMAIL": "電子郵箱",
+    "PHONE": "電話",
+    "SERIAL": "序號",
+    "PURCHASE_DATE": "購買日期",
+    "PURCHASE_PLACE": "購買地點",
+    "PURCHASE_PLACE_OTHER": "詳列其他",
+    "NEWSLETTER": "Send me recipes, tips & News",
+    "NEWSLETTER_NOTICE": "You can unsubscribe at any time"
+  },
+  "OPTION": {
+    "STATE": "Select State",
+    "COUNTRY": "Select Country",
+    "LOCATION": "Select Location"
+  },
+  "BUTTON": {
+    "REGISTER": "註冊我的產品"
+  },
+  "VALIDATION": {
+    "REQUIRED_FIRST_NAME": "First Name is required",
+    "REQUIRED_LAST_NAME": "Last Name is required",
+    "REQUIRED_ADDRESS": "Address is required",
+    "REQUIRED_CITY": "City is required",
+    "REQUIRED_ZIP": "Zipcode is required",
+    "REQUIRED_COUNTRY": "Country is required",
+    "REQUIRED_STATE": "State is required",
+    "REQUIRED_EMAIL": "Valid Email is required",
+    "REQUIRED_PREFIX": "Serial prefix is required",
+    "REQUIRED_SUFFIX": "Serial suffix is required",
+    "REQUIRED_PURCHASE_DATE": "Purchase Date is required"
+  },
+  "ERROR": {
+    "REGISTRATION_FAILED": "Registration failed please try again later"
+  }
+}

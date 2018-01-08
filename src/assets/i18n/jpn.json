@@ -1,0 +1,51 @@
+{
+  "HEADING": {
+    "REGISTER_PRODUCT": "ブレンドテックをご購入くださり誠にありがとうございます。",
+    "CHOOSE_LANGUAGE": "Choose your language"
+  },
+  "CONTENT": {
+    "USA": "United States"
+  },
+  "LABEL": {
+    "FIRST_NAME": "<漢字> 姓",
+    "LAST_NAME": "名",
+    "ADDRESS": "郵便番号 <半角数字>",
+    "ADDRESS_TWO": "市町村区郡",
+    "CITY": "それ以降の住所",
+    "ZIP": "それ以降の住所",
+    "COUNTRY": "国",
+    "STATE": "市町村区郡",
+    "EMAIL": "E メールアドレス",
+    "PHONE": "電話番号",
+    "SERIAL": "シリアル番号 (例: XXXX-123456)",
+    "PURCHASE_DATE": "ご購入日",
+    "PURCHASE_PLACE": "ご購入先",
+    "PURCHASE_PLACE_OTHER": "オンラインの販売店名",
+    "NEWSLETTER": "Send me recipes, tips & News",
+    "NEWSLETTER_NOTICE": "You can unsubscribe at any time"
+  },
+  "OPTION": {
+    "STATE": "Select State",
+    "COUNTRY": "Select Country",
+    "LOCATION": "Select Location"
+  },
+  "BUTTON": {
+    "REGISTER": "登録する"
+  },
+  "VALIDATION": {
+    "REQUIRED_FIRST_NAME": "First Name is required",
+    "REQUIRED_LAST_NAME": "Last Name is required",
+    "REQUIRED_ADDRESS": "Address is required",
+    "REQUIRED_CITY": "City is required",
+    "REQUIRED_ZIP": "Zipcode is required",
+    "REQUIRED_COUNTRY": "Country is required",
+    "REQUIRED_STATE": "State is required",
+    "REQUIRED_EMAIL": "Valid Email is required",
+    "REQUIRED_PREFIX": "Serial prefix is required",
+    "REQUIRED_SUFFIX": "Serial suffix is required",
+    "REQUIRED_PURCHASE_DATE": "Purchase Date is required"
+  },
+  "ERROR": {
+    "REGISTRATION_FAILED": "Registration failed please try again later"
+  }
+}

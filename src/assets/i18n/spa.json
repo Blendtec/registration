@@ -1,0 +1,51 @@
+{
+  "HEADING": {
+    "REGISTER_PRODUCT": "Register your product",
+    "CHOOSE_LANGUAGE": "Choose your language"
+  },
+  "CONTENT": {
+    "USA": "United States"
+  },
+  "LABEL": {
+    "FIRST_NAME": "NOMBRE",
+    "LAST_NAME": "APELLIDOS",
+    "ADDRESS": "DIRECCIÓN POSTAL",
+    "ADDRESS_TWO": "Apt/Suite",
+    "CITY": "CIUDAD",
+    "ZIP": "CÓDIGO POSTAL",
+    "COUNTRY": "PAÍS",
+    "STATE": "ESTADO/PROVINCIA",
+    "EMAIL": "CORREO ELECTRONICO",
+    "PHONE": "TELÉFONO",
+    "SERIAL": "Número de Serie",
+    "PURCHASE_DATE": "FECHADECOMPRA",
+    "PURCHASE_PLACE": "LUGAR DE COMPRA",
+    "PURCHASE_PLACE_OTHER": "ESPECIFIQUE LUGAR DE COMPRA",
+    "NEWSLETTER": "Send me recipes, tips & News",
+    "NEWSLETTER_NOTICE": "You can unsubscribe at any time"
+  },
+  "OPTION": {
+    "STATE": "Select State",
+    "COUNTRY": "Select Country",
+    "LOCATION": "Select Location"
+  },
+  "BUTTON": {
+    "REGISTER": "Registro Del Producto"
+  },
+  "VALIDATION": {
+    "REQUIRED_FIRST_NAME": "First Name is required",
+    "REQUIRED_LAST_NAME": "Last Name is required",
+    "REQUIRED_ADDRESS": "Address is required",
+    "REQUIRED_CITY": "City is required",
+    "REQUIRED_ZIP": "Zipcode is required",
+    "REQUIRED_COUNTRY": "Country is required",
+    "REQUIRED_STATE": "State is required",
+    "REQUIRED_EMAIL": "Valid Email is required",
+    "REQUIRED_PREFIX": "Serial prefix is required",
+    "REQUIRED_SUFFIX": "Serial suffix is required",
+    "REQUIRED_PURCHASE_DATE": "Purchase Date is required"
+  },
+  "ERROR": {
+    "REGISTRATION_FAILED": "Registration failed please try again later"
+  }
+}
