@@ -23,7 +23,6 @@ import { Subject } from 'rxjs/Subject';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit, OnDestroy {
-  showSerialNumInfo = 'inactive';
 
   public registrationError = false;
   public registrationDone = false;
@@ -60,10 +59,6 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.unsubscribe.next();
-  }
-
-  showSerialInfo(): void {
-    this.showSerialNumInfo = 'active';
   }
 
   registrationComplete(): void {

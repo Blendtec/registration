@@ -1,10 +1,15 @@
 {
   "HEADING": {
     "REGISTER_PRODUCT": "Registrieren Sie Ihr Produkt",
-    "CHOOSE_LANGUAGE": "Wähle deine Sprache"
+    "CHOOSE_LANGUAGE": "Wähle deine Sprache",
+    "DESIGNER_725": "Nur Designer 725",
+    "SERIAL_WHERE": "Wo finde ich die Seriennummer?",
+    "ALL_EXCEPT_725": "Alle Blender außer dem Designer 725"
   },
   "CONTENT": {
-    "USA": "Vereinigte Staaten"
+    "USA": "Vereinigte Staaten",
+    "SERIAL_LOCATION_ALL": "Sie können ihre Seriennummer auf der Unterseite des Blenders finden",
+    "SERIAL_LOCATION_725": "Halten Sie ihren Finger auf dem roten 'X' auf ihrem Blender und wählen dann 'Belohnungsprogramm'. Ihre Seriennummer zusammen mit ihrem letzten Belohnungscode."
   },
   "LABEL": {
     "FIRST_NAME": "Vorname",

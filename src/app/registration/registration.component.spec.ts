@@ -10,8 +10,9 @@ import { RegistrationService, RetailerService, WindowService, CountryService, St
 import { NgPipesModule } from 'ngx-pipes';
 import { MyDatePickerModule } from 'mydatepicker';
 import { APP_CONFIG, AppConfigModule } from '../config';
-import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CountrySelectComponent } from '../directives/country-select/country-select.component';
+import { SerialModalComponent } from '../directives/serial-modal.component/serial-modal.component';
 
 describe('RegistrationComponent', () => {
 
@@ -60,7 +61,7 @@ describe('RegistrationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RegistrationComponent, CountrySelectComponent],
+      declarations: [RegistrationComponent, CountrySelectComponent, SerialModalComponent],
       imports: [
         AppConfigModule,
         FormsModule,

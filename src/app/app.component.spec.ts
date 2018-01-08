@@ -17,6 +17,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CountrySelectComponent } from './directives/country-select/country-select.component';
 import { StateService } from './services/state.service';
 import { Observable } from 'rxjs/Observable';
+import { SerialModalComponent } from './directives/serial-modal.component/serial-modal.component';
 
 
 describe('AppComponent', () => {
@@ -35,6 +36,7 @@ describe('AppComponent', () => {
         RegistrationComponent,
         SuccessComponent,
         CountrySelectComponent,
+        SerialModalComponent,
       ],
       imports: [
         RouterModule.forRoot([]),

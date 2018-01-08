@@ -1,10 +1,15 @@
 {
   "HEADING": {
     "REGISTER_PRODUCT": "ブレンドテックをご購入くださり誠にありがとうございます。",
-    "CHOOSE_LANGUAGE": "Choose your language"
+    "CHOOSE_LANGUAGE": "Choose your language",
+    "DESIGNER_725": "Designer 725",
+    "SERIAL_WHERE": "シリアル番号はどこにありますか？",
+    "ALL_EXCEPT_725": "Designer 725 以外のブレンダーはシリアル番号が"
   },
   "CONTENT": {
-    "USA": "United States"
+    "USA": "United States",
+    "SERIAL_LOCATION_ALL": "モーターベース裏のシール（赤枠部分）に記載されています。",
+    "SERIAL_LOCATION_725": "Hold down the red ‘X’ on your blender, then select ‘Rewards.’ This will display the serial number along with your last reward code."
   },
   "LABEL": {
     "FIRST_NAME": "<漢字> 姓",

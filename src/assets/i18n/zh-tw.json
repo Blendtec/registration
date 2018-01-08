@@ -1,10 +1,7 @@
 {
   "HEADING": {
-    "REGISTER_PRODUCT": "Register your product",
-    "CHOOSE_LANGUAGE": "Choose your language"
   },
   "CONTENT": {
-    "USA": "United States"
   },
   "LABEL": {
     "FIRST_NAME": "名",
@@ -20,15 +17,9 @@
     "SERIAL": "序號",
     "PURCHASE_DATE": "購買日期",
     "PURCHASE_PLACE": "購買地點",
-    "PURCHASE_PLACE_OTHER": "詳列其他",
-    "NEWSLETTER": "Send me recipes, tips & News",
-    "NEWSLETTER_NOTICE": "You can unsubscribe at any time"
+    "PURCHASE_PLACE_OTHER": "詳列其他"
   },
-  "OPTION": {
-    "STATE": "Select State",
-    "COUNTRY": "Select Country",
-    "LOCATION": "Select Location"
-  },
+  "OPTION": {},
   "BUTTON": {
     "REGISTER": "註冊我的產品"
   },
@@ -46,6 +37,5 @@
     "REQUIRED_PURCHASE_DATE": "Purchase Date is required"
   },
   "ERROR": {
-    "REGISTRATION_FAILED": "Registration failed please try again later"
   }
 }

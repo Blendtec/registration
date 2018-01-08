@@ -1,10 +1,15 @@
 {
   "HEADING": {
     "REGISTER_PRODUCT": "Register your product",
-    "CHOOSE_LANGUAGE": "Choose your language"
+    "CHOOSE_LANGUAGE": "Choose your language",
+    "DESIGNER_725": "Designer 725",
+    "SERIAL_WHERE": "Where is my Serial Number",
+    "ALL_EXCEPT_725": "All Blenders Except the Designer 725"
   },
   "CONTENT": {
-    "USA": "United States"
+    "USA": "United States",
+    "SERIAL_LOCATION_ALL": "You can find the serial number on the bottom of your blender base.",
+    "SERIAL_LOCATION_725": "Hold down the red ‘X’ on your blender, then select ‘Rewards.’ This will display the serial number along with your last reward code."
   },
   "LABEL": {
     "FIRST_NAME": "First Name",
@@ -30,6 +35,7 @@
     "LOCATION": "Select Location"
   },
   "BUTTON": {
+    "OK": "OK",
     "REGISTER": "Register Product"
   },
   "VALIDATION": {
