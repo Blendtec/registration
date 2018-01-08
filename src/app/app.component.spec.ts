@@ -16,10 +16,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CountrySelectComponent } from './directives/country-select/country-select.component';
 import { StateService } from './services/state.service';
+import { Observable } from 'rxjs/Observable';
 
 
 describe('AppComponent', () => {
+
+  let storeServiceMock: StoreService;
+
   beforeEach(async(() => {
+
+    const storeSvc = jasmine.createSpyObj('StoreService', ['retrieveState$']);
+    storeSvc.retrieveState$.and.returnValue(Observable.of({}));
+    storeServiceMock = storeSvc;
+
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
@@ -42,7 +51,8 @@ describe('AppComponent', () => {
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' },
         { provide: TranslateService, useValue: {} },
-        FormBuilder, StoreService, StateService]
+        { provide: StoreService, useValue: storeServiceMock },
+        FormBuilder, StateService]
     }).compileComponents();
   }));
 

@@ -1,177 +1,222 @@
-<div class="registration-form" *ngIf="!registrationDone">
-  <h1 class="register-content-title">{{'HEADING.REGISTER_PRODUCT' | translate}}</h1>
-  <app-country-select></app-country-select>
-  <form novalidate (ngSubmit)="onSubmit(registration)" [formGroup]="registration" class="animate-floating-labels">
-    <div class="errors">
-      <ul>
-        <li *ngIf="registration.get('firstName').hasError('required') && registration.get('firstName').touched">
-          {{'VALIDATION.REQUIRED_FIRST_NAME' | translate}}
-        </li>
-        <li *ngIf="registration.get('lastName').hasError('required') && registration.get('lastName').touched">
-          {{'VALIDATION.REQUIRED_LAST_NAME' | translate}}
-        </li>
-        <li
-          *ngIf="registration.get('address').get('one').hasError('required') && registration.get('address').get('one').touched">
-          {{'VALIDATION.REQUIRED_ADDRESS' | translate}}
-        </li>
-        <li
-          *ngIf="registration.get('address').get('city').hasError('required') && registration.get('address').get('city').touched">
-          {{'VALIDATION.REQUIRED_CITY' | translate}}
-        </li>
-        <li
-          *ngIf="registration.get('address').get('zip').hasError('required') && registration.get('address').get('zip').touched">
-          {{'VALIDATION.REQUIRED_ZIP' | translate}}
-        </li>
-        <li
-          *ngIf="registration.get('address').get('country').hasError('required') && registration.get('address').get('country').touched">
-          {{'VALIDATION.REQUIRED_COUNTRY' | translate}}
-        </li>
-        <li
-          *ngIf="registration.get('address').get('stateProvince').hasError('required') && registration.get('address').get('stateProvince').touched">
-          {{'VALIDATION.REQUIRED_STATE' | translate}}
-        </li>
-        <li
-          *ngIf="(registration.get('address').get('email').hasError('required')  ||  registration.get('address').get('email').hasError('email')) && registration.get('address').get('email').touched">
-          {{'VALIDATION.REQUIRED_EMAIL' | translate}}
-        </li>
-        <li *ngIf="!registrationDone && registrationError">{{'ERROR.REGISTRATION_FAILED' | translate}}</li>
-      </ul>
-    </div>
-    <div class="grid">
-      <div class="grid__item large--one-half medium--one-half">
-        <div class="field-set">
-          <div class="field field--show-floating-label field--half">
-            <div class="field__input-wrapper">
-              <label class="field__label field__label--visible">{{'LABEL.FIRST_NAME' | translate}}</label>
-              <input class="field__input" type="text" formControlName="firstName">
+<div class="grid--full text-max-width">
+  <div class="registration-form form-vertical" *ngIf="!registrationDone">
+    <h1>{{'HEADING.REGISTER_PRODUCT' | translate}}</h1>
+    <app-country-select></app-country-select>
+    <form novalidate (ngSubmit)="onSubmit(registration)" [formGroup]="registration" class="animate-floating-labels">
+      <!-- TODO - more elegant solution to massive if -->
+      <div class="errors" *ngIf="registration.touched &&
+    (
+      registration.get('firstName').hasError('required') && registration.get('firstName').touched ||
+      registration.get('lastName').hasError('required') && registration.get('lastName').touched ||
+      registration.get('address.one').hasError('required') && registration.get('address.one').touched ||
+      registration.get('address.city').hasError('required') && registration.get('address.city').touched ||
+      registration.get('address.zip').hasError('required') && registration.get('address.zip').touched ||
+      registration.get('address.country').hasError('required') && registration.get('address.country').touched ||
+      registration.get('address.stateProvince').hasError('required') && registration.get('address.stateProvince').touched ||
+      registration.get('address.email').hasError('required') && registration.get('address.email').touched ||
+      registration.get('serial.prefix').hasError('required') && registration.get('serial.prefix').touched ||
+      registration.get('serial.suffix').hasError('required') && registration.get('serial.suffix').touched ||
+      registration.get('purchase.date').hasError('required') && registration.get('purchase.date').touched ||
+      !registrationDone && registrationError
+      )"
+      >
+        <ul>
+          <li *ngIf="registration.get('firstName').hasError('required') && registration.get('firstName').touched">
+            {{'VALIDATION.REQUIRED_FIRST_NAME' | translate}}
+          </li>
+          <li *ngIf="registration.get('lastName').hasError('required') && registration.get('lastName').touched">
+            {{'VALIDATION.REQUIRED_LAST_NAME' | translate}}
+          </li>
+          <li
+            *ngIf="registration.get('address.one').hasError('required') && registration.get('address.one').touched">
+            {{'VALIDATION.REQUIRED_ADDRESS' | translate}}
+          </li>
+          <li
+            *ngIf="registration.get('address.city').hasError('required') && registration.get('address.city').touched">
+            {{'VALIDATION.REQUIRED_CITY' | translate}}
+          </li>
+          <li
+            *ngIf="registration.get('address.zip').hasError('required') && registration.get('address.zip').touched">
+            {{'VALIDATION.REQUIRED_ZIP' | translate}}
+          </li>
+          <li
+            *ngIf="registration.get('address.country').hasError('required') && registration.get('address.country').touched">
+            {{'VALIDATION.REQUIRED_COUNTRY' | translate}}
+          </li>
+          <li
+            *ngIf="registration.get('address.stateProvince').hasError('required') && registration.get('address.stateProvince').touched">
+            {{'VALIDATION.REQUIRED_STATE' | translate}}
+          </li>
+          <li
+            *ngIf="(registration.get('address.email').hasError('required')  ||  registration.get('address.email').hasError('email')) && registration.get('address').get('email').touched">
+            {{'VALIDATION.REQUIRED_EMAIL' | translate}}
+          </li>
+          <li
+            *ngIf="registration.get('serial.prefix').hasError('required') && registration.get('serial.prefix').touched">
+            {{'VALIDATION.REQUIRED_PREFIX' | translate}}
+          </li>
+          <li
+            *ngIf="registration.get('serial.suffix').hasError('required') && registration.get('serial.suffix').touched">
+            {{'VALIDATION.REQUIRED_SUFFIX' | translate}}
+          </li>
+          <li
+            *ngIf="registration.get('purchase.date').hasError('required') && registration.get('purchase.date').touched">
+            {{'VALIDATION.REQUIRED_PURCHASE_DATE' | translate}}
+          </li>
+          <li *ngIf="!registrationDone && registrationError">{{'ERROR.REGISTRATION_FAILED' | translate}}</li>
+        </ul>
+      </div>
+      <div class="grid">
+        <div class="grid__item large--one-half medium--one-half">
+
+
+          <div class="grid">
+            <div class="grid__item small--one-half medium--one-half large--one-half">
+
+              <label class="hidden-label">{{'LABEL.FIRST_NAME' | translate}}</label>
+              <input class="input-full"
+                     [ngClass]="{error: registration.get('firstName').hasError('required') && registration.get('firstName').touched}"
+                     placeholder="{{'LABEL.FIRST_NAME' | translate}}" type="text"
+                     formControlName="firstName">
+            </div>
+            <div class="grid__item small--one-half medium--one-half large--one-half">
+              <label class="hidden-label">{{'LABEL.LAST_NAME' | translate}}</label>
+              <input class="input-full"
+                [ngClass]="{error: registration.get('lastName').hasError('required') && registration.get('lastName').touched}"
+                placeholder="{{'LABEL.LAST_NAME' | translate}}" type="text"
+                     formControlName="lastName">
             </div>
           </div>
-          <div class="field field--show-floating-label field--half">
-            <div class="field__input-wrapper">
-              <label class="field__label field__label--visible">{{'LABEL.LAST_NAME' | translate}}</label>
-              <input class="field__input" type="text" formControlName="lastName">
-            </div>
-          </div>
+
+
           <div formGroupName="address">
-          <div class="field field--show-floating-label">
-            <div class="field__input-wrapper">
-              <label class="field__label field__label--visible">{{'LABEL.ADDRESS' | translate}}</label>
-              <input class="field__input" type="text" formControlName="one">
-            </div>
-          </div>
-            <div class="field field--show-floating-label">
-              <div class="field__input-wrapper">
-                <label class="field__label field__label--visible">{{'LABEL.ADDRESS_TWO' | translate}}</label>
-                <input class="field__input" type="text" formControlName="two">
+
+            <label class="hidden-label">{{'LABEL.ADDRESS' | translate}}</label>
+            <input class="input-full" placeholder="{{'LABEL.ADDRESS' | translate}}" type="text"
+                   [ngClass]="{error: registration.get('address.one').hasError('required') && registration.get('address.one').touched}"
+                   formControlName="one">
+            <div class="grid">
+              <div class="grid__item small--one-half medium--one-half large--one-half">
+                <label class="hidden-label">{{'LABEL.ADDRESS_TWO' | translate}}</label>
+                <input class="input-full" placeholder="{{'LABEL.ADDRESS_TWO' | translate}}" type="text"
+                       [ngClass]="{error: registration.get('address.two').hasError('required') && registration.get('address.two').touched}"
+                       formControlName="two">
+              </div>
+              <div class="grid__item small--one-half medium--one-half large--one-half">
+                <label class="hidden-label"> {{'LABEL.CITY' | translate}}</label>
+                <input type="text" class="input-full" placeholder="{{'LABEL.CITY' | translate}}"
+                       [ngClass]="{error: registration.get('address.city').hasError('required') && registration.get('address.city').touched}"
+                       formControlName="city">
               </div>
             </div>
 
-            <label>
-              <span>{{'LABEL.CITY' | translate}}</span>
-              <input type="text" formControlName="city">
-            </label>
-            <label>
-              <span>{{'LABEL.ZIP' | translate}}</span>
-              <input type="text" formControlName="zip">
-            </label>
-            <br/>
-            <label>
-              <span>{{'LABEL.COUNTRY' | translate}}</span>
-              <select formControlName="country">
-                <option value="">{{'OPTION.COUNTRY' | translate}}</option>
-                <option *ngFor="let country of countries$ | async" [ngValue]="country.code">
-                  {{country.name}}
-                </option>
-              </select>
-            </label>
-            <br/>
-            <label>
-              <span>{{'LABEL.STATE' | translate}}</span>
-              <select formControlName="stateProvince">
-                <option value="">Select State or Province</option>
-                <option
-                  *ngFor="let state of states$ | async | filterBy: ['country']: this.registration.get('address').get('country').value"
-                  [disabled]="states$?.length > 0" [ngValue]="state.name">
-                  {{state.name}}
-                </option>
-              </select>
-            </label>
-            <br/>
-            <label>
-              <span>{{'LABEL.EMAIL' | translate}}</span>
-              <input type="text" formControlName="email">
-            </label>
-            <br/>
-            <label>
-              <span>{{'LABEL.PHONE' | translate}}</span>
-              <input type="text" formControlName="phone">
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="grid__item large--one-half medium--one-half">
-        <div formGroupName="serial">
-          <label>
-            <span>{{'LABEL.SERIAL' | translate}}</span>
-            <input type="text" formControlName="prefix">
-            <input type="text" formControlName="suffix">
-            <div class="serial-number-info-wrapper" (click)="showSerialInfo()">
-              <div class="serial-number-info">?</div>
+            <div class="grid">
+              <div class="grid__item small--one-half medium--one-half large--one-half">
+                <label class="hidden-label">{{'LABEL.STATE' | translate}}</label>
+                <select class="input-full"
+                        [ngClass]="{error: registration.get('address.stateProvince').hasError('required') && registration.get('address.stateProvince').touched}"
+                        formControlName="stateProvince">
+                  <option value="">{{'OPTION.STATE' | translate}}</option>
+                  <option
+                    *ngFor="let state of states$ | async | filterBy: ['country']: this.registration.get('address.country').value"
+                    [disabled]="states$?.length > 0" [ngValue]="state.name">
+                    {{state.name}}
+                  </option>
+                </select>
+              </div>
+              <div class="grid__item small--one-half medium--one-half large--one-half">
+                <label class="hidden-label">{{'LABEL.ZIP' | translate}}</label>
+                <input type="text" class="input-full" placeholder="{{'LABEL.ZIP' | translate}}"
+                       [ngClass]="{error: registration.get('address.zip').hasError('required') && registration.get('address.zip').touched}"
+                       formControlName="zip">
+              </div>
             </div>
-          </label>
-          <br/>
-          <div class="parsley-errors-list"
-               *ngIf="registration.get('serial').get('prefix').hasError('required') && registration.get('serial').get('prefix').touched">
-            {{'VALIDATION.REQUIRED_PREFIX' | translate}}
-          </div>
-          <div class="parsley-errors-list"
-               *ngIf="registration.get('serial').get('suffix').hasError('required') && registration.get('serial').get('suffix').touched">
-            {{'VALIDATION.REQUIRED_SUFFIX' | translate}}
-          </div>
-          <br/>
 
+            <label class="hidden-label">{{'LABEL.COUNTRY' | translate}}</label>
+            <select class="input-full"
+                    [ngClass]="{error: registration.get('address.country').hasError('required') && registration.get('address.country').touched}"
+                    formControlName="country">
+              <option value="">{{'OPTION.COUNTRY' | translate}}</option>
+              <option *ngFor="let country of countries$ | async" [ngValue]="country.code">
+                {{country.name}}
+              </option>
+            </select>
+
+            <label class="hidden-label">{{'LABEL.EMAIL' | translate}}</label>
+            <input class="input-full" placeholder="{{'LABEL.EMAIL' | translate}}" type="text"
+                   [ngClass]="{error: registration.get('address.email').hasError('required') && registration.get('address.email').touched}"
+                   formControlName="email">
+
+            <label class="hidden-label">{{'LABEL.PHONE' | translate}}</label>
+            <input class="input-full" placeholder="{{'LABEL.PHONE' | translate}}" type="text"
+                   [ngClass]="{error: registration.get('address.phone').hasError('required') && registration.get('address.phone').touched}"
+                   formControlName="phone">
+          </div>
         </div>
-        <div formGroupName="purchase">
+        <div class="grid__item large--one-half medium--one-half">
 
-          <label>
-            <span>{{'LABEL.PURCHASE_DATE' | translate}}</span>
-            <my-date-picker name="date" [options]="dateOptions" formControlName="date"></my-date-picker>
-          </label>
-          <div class="parsley-errors-list"
-               *ngIf="registration.get('purchase').get('date').hasError('required') && registration.get('purchase').get('date').touched">
-            {{'VALIDATION.REQUIRED_PURCHASE_DATE' | translate}}
+          <div formGroupName="serial">
+            <div class="grid">
+              <div class="grid__item small--one-half medium--one-half large--one-half">
+
+                <label class="hidden-label">{{'LABEL.SERIAL' | translate}}</label>
+                <input class="input-half input-serial-prefix" placeholder="{{'LABEL.SERIAL' | translate}}" type="text"
+                       [ngClass]="{error: registration.get('serial.prefix').hasError('required') && registration.get('serial.prefix').touched}"
+                       formControlName="prefix">
+              </div>
+              <div class="grid__item small--one-half medium--one-half large--one-half">
+                <input class="input-half input-serial-suffix" type="text"
+                       [ngClass]="{error: registration.get('serial.suffix').hasError('required') && registration.get('serial.suffix').touched}"
+                       formControlName="suffix">
+                <div class="serial-number-info-wrapper" (click)="showSerialInfo()">
+                  <div class="serial-number-info">?</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <label>
-            <span>{{'LABEL.PURCHASE_PLACE' | translate}}</span>
-            <select formControlName="place">
-              <option value="">{{'OPTION.LOCATION' | translate}}</option>
+
+
+          <div formGroupName="purchase">
+            <label>{{'LABEL.PURCHASE_DATE' | translate}}</label>
+            <my-date-picker class="input-full" name="date" [options]="dateOptions"
+                            [ngClass]="{error: registration.get('purchase.date').hasError('required') && registration.get('purchase.date').touched}"
+                            formControlName="date"></my-date-picker>
+
+            <label class="hidden-label">{{'LABEL.PURCHASE_PLACE' | translate}}</label>
+            <select class="input-full"
+                    [ngClass]="{error: registration.get('purchase.place').hasError('required') && registration.get('purchase.place').touched}"
+                    formControlName="place">
+              <option value="">{{'LABEL.PURCHASE_PLACE' | translate}}</option>
               <option *ngFor="let retailer of retailers$ | async" [ngValue]="retailer.name">
                 {{retailer.name}}
               </option>
             </select>
-          </label>
-          <br/>
-          <label>
-            <span>{{'LABEL.PURCHASE_PLACE_OTHER' | translate}}</span>
-            <input type="text" formControlName="other">
-          </label>
+            <label class="hidden-label">{{'LABEL.PURCHASE_PLACE_OTHER' | translate}}</label>
+            <input class="input-full" placeholder="{{'LABEL.PURCHASE_PLACE_OTHER' | translate}}" type="text"
+                   formControlName="other">
+          </div>
+          <input type="checkbox" formControlName="marketingOptIn">
+          <label class="inline">{{'LABEL.NEWSLETTER' | translate}} ({{'LABEL.NEWSLETTER_NOTICE' | translate}})</label>
+
+
+          <div class="grid">
+            <div class="grid__item large--one-half">
+              <div class="captcha-input">
+                <re-captcha (resolved)="registration.get('recaptcha').setValue($event)"
+                            siteKey="{{captchaKey}}"></re-captcha>
+              </div>
+            </div>
+            <div class="grid__item large--one-half">
+              <button id="registration-submit--btn" name="button" class="step__footer__continue-btn btn" [disabled]="registration.invalid"
+                      type="submit">
+                {{'BUTTON.REGISTER' | translate}}
+              </button>
+            </div>
+          </div>
+
 
         </div>
-        <label>
-          <span>{{'LABEL.NEWSLETTER' | translate}}<br/>{{'LABEL.NEWSLETTER_NOTICE' | translate}}</span>
-          <input type="checkbox" formControlName="marketingOptIn">
-        </label>
-        <br/>
-        <div>
-          <re-captcha (resolved)="registration.get('recaptcha').setValue($event)"
-                      siteKey="{{captchaKey}}"></re-captcha>
-          <span class="parsley-errors-list" *ngIf="registration.get('recaptcha').hasError('required')"
-                style="color:red;">Please check the captcha to prove that you're a human.</span>
-        </div>
-        <button name="button" class="step__footer__continue-btn btn" [disabled]="registration.invalid" type="submit">
-          {{'BUTTON.REGISTER' | translate}}
-        </button>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>

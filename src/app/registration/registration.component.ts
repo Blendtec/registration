@@ -32,7 +32,9 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   public countries$: Observable<ICountry[]>;
   public states$: Observable<any[]>;
   public dateOptions: any = {
-    dateFormat: 'mm-dd-yyyy'
+    dateFormat: 'mm-dd-yyyy',
+    indicateInvalidDate: true,
+    showClearDateBtn: false
   };
   public captchaKey: string;
   private unsubscribe: Subject<void> = new Subject();
@@ -93,6 +95,19 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       }, {validator: OtherPurchasePlaceValidator}),
       marketingOptIn: ['', []],
       recaptcha: [false, [RecaptchaValidator]]
+    });
+
+    const now = new Date();
+    this.registration.patchValue({
+      purchase: {
+        date: {
+          date: {
+            year: now.getFullYear(),
+            month: now.getMonth() + 1,
+            day: now.getDate()
+          }
+        }
+      }
     });
 
     this.registration.get('address.stateProvince').setAsyncValidators(StatesValidator.createValidator(this.stateService));

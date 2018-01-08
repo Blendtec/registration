@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StoreService } from './services';
 import { Subscription } from 'rxjs/Subscription';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs/Subject';
 
 
 @Component({
@@ -11,8 +12,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'app';
-  appStateSub: Subscription;
   appState: string;
+  private destroy$: Subject<boolean> = new Subject<boolean>();
 
 
   constructor(private storeService: StoreService, private translate: TranslateService) {
@@ -22,13 +23,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.translate.setDefaultLang('en');
     this.translate.use('en');
 
-    this.appStateSub = this.storeService.retrieveState$
-      .subscribe(data => {
-        this.appState = data;
-        });
+    this.storeService.retrieveState$
+      .takeUntil(this.destroy$)
+      .subscribe(data => this.appState = data);
   }
 
   ngOnDestroy() {
-    // this.appStateSub.unsubscribe();
+    this.destroy$.next();
   }
 }

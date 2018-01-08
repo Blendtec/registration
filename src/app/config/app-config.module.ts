@@ -10,6 +10,7 @@ export const APP_DI_CONFIG: AppConfig = {
   registrationEndpoint: environment.registrationEndpoint,
   captchaKey: environment.captchaKey,
   s3: environment.s3,
+  assets: environment.assets,
   bucket: environment.bucket
 };
 
