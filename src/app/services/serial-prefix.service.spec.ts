@@ -41,7 +41,7 @@ describe('SerialPrefixService', () => {
         done();
       });
 
-    const request = httpMock.expectOne('http://blendtec.test/api/prefixes.json');
+    const request = httpMock.expectOne('http://blendtec.test/api/products/prefixes.json');
     request.flush([
       'ABCDEFG',
       'TTBB'
