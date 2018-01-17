@@ -47,7 +47,7 @@
     "REQUIRED_COUNTRY": "Country is required",
     "REQUIRED_STATE": "State is required",
     "REQUIRED_EMAIL": "Valid Email is required",
-    "REQUIRED_PREFIX": "Serial prefix is required",
+    "REQUIRED_PREFIX": "Valid serial prefix is required",
     "REQUIRED_SUFFIX": "Serial suffix is required",
     "REQUIRED_PURCHASE_DATE": "Purchase Date is required"
   },

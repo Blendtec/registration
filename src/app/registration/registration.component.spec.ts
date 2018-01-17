@@ -13,6 +13,7 @@ import { APP_CONFIG, AppConfigModule } from '../config';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CountrySelectComponent } from '../directives/country-select/country-select.component';
 import { SerialModalComponent } from '../directives/serial-modal.component/serial-modal.component';
+import { SerialPrefixService } from '../services/serial-prefix.service';
 
 describe('RegistrationComponent', () => {
 
@@ -81,6 +82,7 @@ describe('RegistrationComponent', () => {
         {provide: CountryService, useValue: countrySvcMock},
         {provide: StateService, useValue: stateSvcMock},
         {provide: TranslateService, useValue: {} },
+        {provide: SerialPrefixService, useValue: {} },
         {provide: APP_BASE_HREF, useValue: '/'},
         {provide: APP_CONFIG, useValue: {s3: 's3Url', captchaKey: 'testKey'}},
       ]

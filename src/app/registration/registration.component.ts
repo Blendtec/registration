@@ -15,6 +15,8 @@ import { RegistrationCommand, ICountry } from '../models';
 import { APP_CONFIG, AppConfig } from '../config';
 import { StatesValidator } from '../validators/has-states.validator';
 import { Subject } from 'rxjs/Subject';
+import { SerialPrefixValidator } from '../validators/serial-prefix.validator';
+import { SerialPrefixService } from '../services/serial-prefix.service';
 
 
 @Component({
@@ -44,6 +46,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
               private countryService: CountryService,
               private stateService: StateService,
               private retailerService: RetailerService,
+              private serialPrefixService: SerialPrefixService,
               @Inject(APP_CONFIG) private config: AppConfig) {
 
     this.captchaKey = config.captchaKey;
@@ -106,6 +109,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     });
 
     this.registration.get('address.stateProvince').setAsyncValidators(StatesValidator.createValidator(this.stateService));
+    this.registration.get('serial.prefix').setAsyncValidators(SerialPrefixValidator.createValidator(this.serialPrefixService));
 
     this.registration
       .get('address.country')
