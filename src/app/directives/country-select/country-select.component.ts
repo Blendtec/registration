@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { WindowService } from '../../services/window.service';
+import { Component, Inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { APP_CONFIG } from '../../config';
+import { AppConfig } from '../../config/models';
 
 @Component({
   selector: 'app-country-select',
@@ -12,10 +13,8 @@ export class CountrySelectComponent {
 
   public baseImageLocation = '';
 
-  constructor(winRef: WindowService, private translate: TranslateService) {
-    if (winRef.nativeWindow.imageStorage) {
-      this.baseImageLocation = winRef.nativeWindow.imageStorage;
-    }
+  constructor(private translate: TranslateService, @Inject(APP_CONFIG) private config: AppConfig) {
+      this.baseImageLocation = config.assets;
   }
 
   public setLanguage(code: string): void {
