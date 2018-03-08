@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { APP_BASE_HREF } from '@angular/common';
-import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 import { RegistrationComponent } from './registration/registration.component';
 import { SuccessComponent } from './success/success.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -40,7 +39,6 @@ describe('AppComponent', () => {
       ],
       imports: [
         RouterModule.forRoot([]),
-        NgHttpLoaderModule,
         FormsModule,
         ReactiveFormsModule,
         MyDatePickerModule,
