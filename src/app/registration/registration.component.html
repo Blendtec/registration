@@ -1,6 +1,5 @@
-<div class="grid--full text-max-width">
+<div class="grid__item">
   <div class="registration-form form-vertical" *ngIf="!registrationDone">
-    <h1>{{'HEADING.REGISTER_PRODUCT' | translate}}</h1>
     <app-country-select></app-country-select>
     <form novalidate (ngSubmit)="onSubmit(registration)" [formGroup]="registration" class="animate-floating-labels">
       <!-- TODO - more elegant solution to massive if -->
