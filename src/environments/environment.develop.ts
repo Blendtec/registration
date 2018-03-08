@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiHost: 'https://www.blendtec.com',
+  apiHost: 'https://old.blendtec.com',
   registrationEndpoint: 'product_registrations/addApi',
   bucket: 'https://s3-us-west-1.amazonaws.com/apps.develop.blendtec.com/product-registration',
   s3: 'https://s3-us-west-1.amazonaws.com/data.blendtec.com',
