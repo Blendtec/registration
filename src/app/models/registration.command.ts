@@ -23,7 +23,7 @@ export class RegistrationCommand implements IRegistration {
       two: formData.address.two,
       city: formData.address.city,
       stateProvince: formData.address.stateProvince,
-      zip: formData.address.stateProvince,
+      zip: formData.address.zip,
       country: formData.address.country,
       email: formData.address.email,
       phone: formData.address.phone
