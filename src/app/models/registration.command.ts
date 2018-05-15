@@ -53,7 +53,9 @@ export class RegistrationCommand implements IRegistration {
           'phone': this.address.phone,
           'purchasePlace': this.purchase.place,
           'purchaseOther': this.purchase.other,
-          'purchaseDate': new Date(this.purchase.date.date.year + '-' + this.purchase.date.date.month + '-' + this.purchase.date.date.day).toISOString(),
+          'purchaseDate': new Date(this.purchase.date.date.year + '-'
+           + this.purchase.date.date.month + '-'
+           + this.purchase.date.date.day).toISOString(),
           'serialPrefix': this.serial.prefix,
           'serialSuffix': this.serial.suffix,
           'wantsOffers': this.marketingOptIn,
