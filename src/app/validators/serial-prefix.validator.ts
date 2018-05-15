@@ -12,6 +12,6 @@ export class SerialPrefixValidator {
     /* tslint:disable */
     return (control: AbstractControl): Observable<{ [key: string]: boolean }> => serialPrefixService
       .getAll$()
-      .map(prefixes => prefixes.some(p => p === control.value.toUpperCase()) ? null : {required: true});
+      .map(prefixes => prefixes.some(p => p['prefix'] === control.value.toUpperCase()) ? null : {required: true});
   }
 }

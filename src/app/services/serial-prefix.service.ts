@@ -7,7 +7,7 @@ import { APP_CONFIG, AppConfig } from '../config';
 @Injectable()
 export class SerialPrefixService {
 
-  private _resource = 'products/prefixes.json';
+  private _resource = 'serial-numbers/prefixes';
   private _cache: string[];
 
   constructor(private http: HttpClient, @Inject(APP_CONFIG) private config: AppConfig) {}
@@ -16,7 +16,7 @@ export class SerialPrefixService {
     if (this._cache) {
       return Observable.of(this._cache);
     } else {
-      return this.http.get<string[]>(`${this.config.apiHost}/api/${this._resource}`)
+      return this.http.get<string[]>(`${this.config.apiHost}/${this._resource}`)
         .do(vals => this._cache = vals);
     }
   }
