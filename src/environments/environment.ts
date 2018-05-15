@@ -5,10 +5,10 @@
 
 export const environment = {
   production: false,
-  apiHost: 'http://blendtec.test',
+  apiHost: 'http://localhost:3000',
   s3: 'https://s3-us-west-1.amazonaws.com/data.blendtec.com',
   bucket: 'https://s3-us-west-1.amazonaws.com/apps.dev.blendtec.com/registration',
   assets: 'assets',
-  registrationEndpoint: 'product_registrations/addApi',
+  registrationEndpoint: 'product-registration',
   captchaKey: '6LcWmzIUAAAAADoSNPMqAECfcdIl9Z8B4czc4MjP'
 };
