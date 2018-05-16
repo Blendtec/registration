@@ -66,7 +66,10 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   registrationComplete(): void {
     this.storeService.passState('done');
-    this.storeService.passState('done');
+    const self = this;
+    setTimeout(() => {
+      self.storeService.passState('done');
+    }, 500);
   }
 
   private createForm(): void {
