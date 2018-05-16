@@ -65,6 +65,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   }
 
   registrationComplete(): void {
+    console.log('got here');
     this.storeService.passState('done');
   }
 
