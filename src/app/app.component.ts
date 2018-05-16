@@ -25,7 +25,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.storeService.retrieveState$
       .takeUntil(this.destroy$)
-      .subscribe(data => this.appState = data);
+      .subscribe(data => {
+        console.log('got here 3');
+        this.appState = data;
+      });
   }
 
   ngOnDestroy() {

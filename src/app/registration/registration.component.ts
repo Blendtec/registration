@@ -66,7 +66,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   registrationComplete(): void {
     this.storeService.passState('done');
-    this.onSubmit(null);
+        console.log('got here 1');
   }
 
   private createForm(): void {
@@ -124,6 +124,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     return this.registrationService.post(new RegistrationCommand(formData.value))
       .then(() => {
         self.registrationDone = true;
+        console.log('got here');
         self.registrationComplete();
         self.registration.reset();
       })
