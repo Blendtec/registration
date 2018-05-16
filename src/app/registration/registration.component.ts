@@ -122,8 +122,8 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     return this.registrationService.post(new RegistrationCommand(formData.value))
       .then(() => {
         this.registrationDone = true;
-        this.registration.reset();
         this.registrationComplete();
+        this.registration.reset();
       })
       .catch(() => {
         this.registrationError = true;
