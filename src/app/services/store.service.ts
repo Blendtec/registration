@@ -24,7 +24,6 @@ export class StoreService {
   }
 
   passState(data: string) {
-    console.log('got here service');
     this.state.next(data);
   }
 
