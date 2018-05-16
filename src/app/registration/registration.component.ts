@@ -66,10 +66,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   registrationComplete(): void {
     this.storeService.passState('done');
-    const self = this;
-    setTimeout(() => {
-      self.storeService.passState('done');
-    }, 500);
+    this.onSubmit(null);
   }
 
   private createForm(): void {
@@ -123,14 +120,15 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(formData: any): Promise<void> {
+    const self = this;
     return this.registrationService.post(new RegistrationCommand(formData.value))
       .then(() => {
-        this.registrationDone = true;
-        this.registrationComplete();
-        this.registration.reset();
+        self.registrationDone = true;
+        self.registrationComplete();
+        self.registration.reset();
       })
       .catch(() => {
-        this.registrationError = true;
+        self.registrationError = true;
       });
   }
 }
