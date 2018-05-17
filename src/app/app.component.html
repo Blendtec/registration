@@ -1,2 +1,2 @@
-<app-registration *ngIf="!appState"></app-registration>
-<app-success *ngIf="appState"></app-success>
+<app-registration *ngIf="appState !== 'done'"></app-registration>
+<app-success *ngIf="appState === 'done'"></app-success>
