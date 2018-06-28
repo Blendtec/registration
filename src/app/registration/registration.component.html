@@ -1,4 +1,4 @@
-<div class="grid__item">
+<div class="registration-wrapper">
   <div class="registration-form form-vertical" *ngIf="!registrationDone">
     <app-country-select></app-country-select>
     <form novalidate (ngSubmit)="onSubmit(registration)" [formGroup]="registration" class="animate-floating-labels">
