@@ -1,4 +1,4 @@
-<div class="grid__item">
+<div class="registration-wrapper">
   <div class="registration-form form-vertical" *ngIf="!registrationDone">
     <app-country-select></app-country-select>
     <form novalidate (ngSubmit)="onSubmit(registration)" [formGroup]="registration" class="animate-floating-labels">
@@ -156,19 +156,19 @@
 
           <div formGroupName="serial">
             <div class="grid">
-              <div class="grid__item small--one-third medium--one-third large--one-third">
+              <div class="grid__item small--two-fifths medium--two-fifths large--two-fifths">
 
                 <label class="hidden-label">{{'LABEL.SERIAL' | translate}}</label>
                 <input class="input-full input-serial-prefix" placeholder="{{'LABEL.SERIAL' | translate}}" type="text"
                        [ngClass]="{error:registration.get('serial.prefix').hasError('required') && registration.get('serial.prefix').touched}"
                        formControlName="prefix">
               </div>
-              <div class="grid__item small--one-third medium--one-third large--one-third">
+              <div class="grid__item small--two-fifths medium--two-fifths large--two-fifths">
                 <input class="input-full input-serial-suffix" type="text"
                        [ngClass]="{error: registration.get('serial.suffix').hasError('required') && registration.get('serial.suffix').touched}"
                        formControlName="suffix">
               </div>
-              <div class="grid__item small--one-third medium--one-third large--one-third">
+              <div class="grid__item small--one-fifth medium--one-fifth large--one-fifth">
                 <app-serial-modal></app-serial-modal>
               </div>
             </div>
