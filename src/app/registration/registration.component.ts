@@ -92,7 +92,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
         date: ['', [Validators.required]]
       }, {validator: OtherPurchasePlaceValidator}),
       marketingOptIn: ['', []],
-      recaptcha: [false, [RecaptchaValidator]]
+      recaptcha: ['d', [RecaptchaValidator]]
     });
 
     const now = new Date();
@@ -120,11 +120,12 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   public onSubmit(formData: any): Promise<void> {
     const self = this;
+    console.log(formData.value);
     return this.registrationService.post(new RegistrationCommand(formData.value))
       .then(() => {
-        self.registrationDone = true;
-        self.registrationComplete();
-        self.registration.reset();
+        //self.registrationDone = true;
+        //self.registrationComplete();
+        //self.registration.reset();
       })
       .catch(() => {
         self.registrationError = true;
