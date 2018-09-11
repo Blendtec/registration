@@ -5,7 +5,7 @@ const orderForm = Object.freeze({
                 elementConfig: {
                     type: 'text',
                     placeholder_key: 'FIRST_NAME',
-                    errorMessage_key: 'REQUIRED_FIRST_NAME'
+                    errormessage_key: 'REQUIRED_FIRST_NAME'
                 },
                 value: '',
                 validation: {
@@ -20,7 +20,7 @@ const orderForm = Object.freeze({
                 elementConfig: {
                     type: 'text',
                     placeholder_key: 'LAST_NAME',
-                    errorMessage_key: 'REQUIRED_LAST_NAME'
+                    errormessage_key: 'REQUIRED_LAST_NAME'
                 },
                 value: '',
                 validation: {
@@ -35,7 +35,7 @@ const orderForm = Object.freeze({
                 elementConfig: {
                     type: 'text',
                     placeholder_key: 'ADDRESS',
-                    errorMessage_key: 'REQUIRED_ADDRESS'
+                    errormessage_key: 'REQUIRED_ADDRESS'
                 },
                 value: '',
                 validation: {
@@ -64,7 +64,7 @@ const orderForm = Object.freeze({
                 elementConfig: {
                     type: 'text',
                     placeholder_key: 'CITY',
-                    errorMessage_key: 'REQUIRED_CITY'
+                    errormessage_key: 'REQUIRED_CITY'
                 },
                 value: '',
                 validation: {
@@ -78,7 +78,7 @@ const orderForm = Object.freeze({
                 elementType: 'select',
                 elementConfig: {
                     placeholder_key: 'STATE',
-                    errorMessage_key: 'REQUIRED_STATE',
+                    errormessage_key: 'REQUIRED_STATE',
                     options: [
                     ]
                 },
@@ -92,7 +92,7 @@ const orderForm = Object.freeze({
                 elementConfig: {
                     type: 'text',
                     placeholder_key: 'ZIP',
-                    errorMessage_key: 'REQUIRED_ZIP'
+                    errormessage_key: 'REQUIRED_ZIP'
                 },
                 value: '',
                 validation: {
@@ -106,7 +106,7 @@ const orderForm = Object.freeze({
                 elementType: 'select',
                 elementConfig: {
                     placeholder_key: 'COUNTRY',
-                    errorMessage_key: 'REQUIRED_COUNTRY',
+                    errormessage_key: 'REQUIRED_COUNTRY',
                     options: [
                     ]
                 },
@@ -123,7 +123,7 @@ const orderForm = Object.freeze({
                 elementConfig: {
                     type: 'email',
                     placeholder_key: 'EMAIL',
-                    errorMessage_key: 'REQUIRED_EMAIL'
+                    errormessage_key: 'REQUIRED_EMAIL'
                 },
                 value: '',
                 validation: {
@@ -139,7 +139,7 @@ const orderForm = Object.freeze({
                 elementConfig: {
                     type: 'text',
                     placeholder_key: 'PHONE',
-                    errorMessage_key: null
+                    errormessage_key: null
                 },
                 value: '',
                 validation: {
@@ -154,7 +154,7 @@ const orderForm = Object.freeze({
                 elementConfig: {
                     type: 'text',
                     placeholder_key: 'SERIAL',
-                    errorMessage_key: 'REQUIRED_PREFIX'
+                    errormessage_key: 'REQUIRED_PREFIX'
                 },
                 value: '',
                 validation: {
@@ -170,7 +170,7 @@ const orderForm = Object.freeze({
                 elementConfig: {
                     type: 'text',
                     placeholder_key: '',
-                    errorMessage_key: 'REQUIRED_SUFFIX'
+                    errormessage_key: 'REQUIRED_SUFFIX'
                 },
                 value: '',
                 validation: {
@@ -185,7 +185,7 @@ const orderForm = Object.freeze({
                 elementConfig: {
                 	type: 'text',
                 	placeholder_key: 'PURCHASE_DATE',
-                    errorMessage_key: 'REQUIRED_PURCHASE_DATE'
+                    errormessage_key: 'REQUIRED_PURCHASE_DATE'
                 },
                 value: null,
                 validation: {
@@ -199,7 +199,7 @@ const orderForm = Object.freeze({
                 elementType: 'select',
                 elementConfig: {
                 	placeholder_key: 'PURCHASE_PLACE',
-                    errorMessage_key: 'REQUIRED_PURCHASE_PLACE',
+                    errormessage_key: 'REQUIRED_PURCHASE_PLACE',
                     options: [
                     ]
                 },
@@ -242,7 +242,7 @@ const orderForm = Object.freeze({
                 elementConfig: {
                     type: 'text',
                     placeholder_key: '',
-                    errorMessage_key: 'REQUIRED_CAPTCHA'
+                    errormessage_key: 'REQUIRED_CAPTCHA'
                 },
                 value: '',
                 validation: {

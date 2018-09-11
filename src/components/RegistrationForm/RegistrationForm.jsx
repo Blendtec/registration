@@ -70,6 +70,7 @@ class RegistrationForm extends Component {
 	    	});
 	    }
     }
+
    componentDidMount() {
     axios.get(infoFiles.statesFile)
       .then(res => {
@@ -218,8 +219,8 @@ class RegistrationForm extends Component {
     			return false;
     		}
     	}).map(errored => {
-    		if (formElement[errored].elementConfig.errorMessage) {
-    			return formElement[errored].elementConfig.errorMessage;
+    		if (formElement[errored].elementConfig.errormessage) {
+    			return formElement[errored].elementConfig.errormessage;
     		}
     		return null;
     	});
@@ -259,8 +260,8 @@ class RegistrationForm extends Component {
     		if (formElement[el].elementConfig && formElement[el].elementConfig.placeholder_key) {
     			formElement[el].elementConfig.placeholder = this.props.t(formElement[el].elementConfig.placeholder_key);
     		}
-    		if (formElement[el].elementConfig && formElement[el].elementConfig.errorMessage_key) {
-    			formElement[el].elementConfig.errorMessage = this.props.t(formElement[el].elementConfig.errorMessage_key);
+    		if (formElement[el].elementConfig && formElement[el].elementConfig.errormessage_key) {
+    			formElement[el].elementConfig.errormessage = this.props.t(formElement[el].elementConfig.errormessage_key);
     		}
     		return el;
     	});
