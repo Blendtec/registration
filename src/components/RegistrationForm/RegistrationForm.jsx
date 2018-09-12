@@ -322,7 +322,7 @@ class RegistrationForm extends Component {
 		                    changed={(event) => this.inputChangedHandler(event, 'serialSuffix')} 
 		                    classesInput={formElement['serialSuffix'].classes}/>
 		                    <div className="grid__item large--one-sixth medium--one-sixth small--one-sixth" style={{marginTop:'10px'}}>
-		                    	<i onClick={this.showPopUpHandler} aria-hidden="true" className="fa fa-question-circle clickable">s</i>
+		                    	<i onClick={this.showPopUpHandler} aria-hidden="true" className="fa fa-question-circle clickable"></i>
 		                    </div>
 		            {secondSection.map(section => (
 		                <Input 
