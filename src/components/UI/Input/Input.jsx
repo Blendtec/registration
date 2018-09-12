@@ -1,9 +1,7 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import moment from 'moment';
 import Recaptcha from '../../Recaptcha/recaptcha';
-import { translate, Trans } from "react-i18next";
 
 const input = (props) => {
     let inputElement = null;

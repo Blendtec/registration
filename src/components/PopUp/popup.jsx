@@ -12,11 +12,11 @@ const popup = (props) => {
 	      <h2 className="exit-intent-header">{props.t('SERIAL_WHERE')}</h2>
 	      <h3>{props.t('ALL_EXCEPT_725')}</h3>
 	      <p>{props.t('SERIAL_LOCATION_ALL')}</p>
-	      <img id="helper_image" src="//s3.amazonaws.com/blendtec.com/images/Support/blender-serial-location.jpg" />
+	      <img alt={props.t('ALL_EXCEPT_725')} id="helper_image" src="//s3.amazonaws.com/blendtec.com/images/Support/blender-serial-location.jpg" />
 	      <hr />
 	      <h3>{props.t('DESIGNER_725')}</h3>
 	      <p>{props.t('SERIAL_LOCATION_725')}</p>
-	      <img src="//s3.amazonaws.com/blendtec.com/images/Support/blender-serial-location-725.jpg" />
+	      <img alt={props.t('SERIAL_LOCATION_725')} src="//s3.amazonaws.com/blendtec.com/images/Support/blender-serial-location-725.jpg" />
 	      <button onClick={props.hide} className="btn one-whole">{props.t('OK')}</button>
 	    </div>
 	  </section>
