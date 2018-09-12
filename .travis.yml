@@ -23,11 +23,11 @@ before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 script:
-- npm run test:ci
+- npm run lint
+- npm run test
 - echo $TRAVIS_BRANCH
-- if [ $TRAVIS_BRANCH = 'master' ]; then npm run env && ng build --aot --prod --base-href /pages/$APP_NAME --deploy-url $S3_REGION/$S3_BUCKET/$APP_NAME/; fi
-- if [ $TRAVIS_BRANCH = 'stage' ]; then npm run env && ng build --aot --environment=stage --base-href /pages/$APP_NAME --deploy-url $S3_REGION/$S3_STAGE_BUCKET/$APP_NAME/; fi
-- if [ $TRAVIS_BRANCH = 'develop' ]; then npm run env && ng build --aot --environment=develop --base-href /pages/$APP_NAME --deploy-url $S3_REGION/$S3_DEV_BUCKET/$APP_NAME/; fi
+- if [ $TRAVIS_BRANCH = 'master' ]; then PUBLIC_URL=https://s3.us-west-1.amazonaws.com/apps.blendtec.com/product-registration npm run build --deploy-url $S3_REGION/$S3_BUCKET/$APP_NAME/; fi
+- if [ $TRAVIS_BRANCH = 'stage' ]; then PUBLIC_URL=https://s3.us-west-1.amazonaws.com/apps.stage.blendtec.com/product-registration npm run build --deploy-url $S3_REGION/$S3_STAGE_BUCKET/$APP_NAME/; fi
 after_success:
 - "./node_modules/.bin/codecov"
 notifications:

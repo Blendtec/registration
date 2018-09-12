@@ -269,9 +269,9 @@ class RegistrationForm extends Component {
     		errors = (
 	    		<div className="errors">
 		    		<ul>
-		    		{errorMessages.map(message => {
+		    		{errorMessages.map((message, index) => {
 		    			return (
-		    				<li>{message}</li>
+		    				<li key={index}>{message}</li>
 		    			);
 		    		})}
 		    		</ul>
@@ -280,7 +280,7 @@ class RegistrationForm extends Component {
     	}
 	    let form = (
 	    	<Aux>
-	    	<Popup show={this.state.showPopup} hide={this.hidePopUpHandler}/>
+	    	<Popup show={this.state.showPopup} hide={this.hidePopUpHandler} t={this.props.t}/>
 	        <form onSubmit={this.orderHandler}>
 	        	<div className="grid">
 		    	<div className="grid__item">
@@ -322,7 +322,7 @@ class RegistrationForm extends Component {
 		                    changed={(event) => this.inputChangedHandler(event, 'serialSuffix')} 
 		                    classesInput={formElement['serialSuffix'].classes}/>
 		                    <div className="grid__item large--one-sixth medium--one-sixth small--one-sixth" style={{marginTop:'10px'}}>
-		                    	<i onClick={this.showPopUpHandler} aria-hidden="true" className="fa fa-question-circle clickable"></i>
+		                    	<i onClick={this.showPopUpHandler} aria-hidden="true" className="fa fa-question-circle clickable">s</i>
 		                    </div>
 		            {secondSection.map(section => (
 		                <Input 
@@ -339,7 +339,7 @@ class RegistrationForm extends Component {
 		            ))}
 					<div className="grid__item large--one-half">
 		              <span onClick={this.submitIt} className="step__footer__continue-btn btn" id="registration-submit--btn" name="button" type="submit">
-		                Register Product
+		                {this.props.t('REGISTER_PRODUCT')}
 		              </span>
 		            </div>
 	        		</div>

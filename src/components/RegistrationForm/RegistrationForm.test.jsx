@@ -88,5 +88,18 @@ describe('<RegistrationForm />', () => {
 		expect(wrapper.find(Input)).toHaveLength(firstSectionLength + secondSectionLength + serialPrefixAndSuffix);
 	});
 
+	it('should show errors when submit button is clicked', () => {
+		expect(wrapper.find('.errors')).toHaveLength(0);
+		wrapper.instance().submitIt();
+		wrapper.update();
+		expect(wrapper.find('.errors')).toHaveLength(1);
+	});
+
+	it('should submit when valid', () => {
+		wrapper.instance().setState({formIsValid: true});
+		wrapper.instance().submitIt();
+		expect(mockT).toHaveBeenCalled();
+	});
+
 });
 

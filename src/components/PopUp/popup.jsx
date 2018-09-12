@@ -9,15 +9,15 @@ const popup = (props) => {
 	<div className={showclassNamees.join(" ")}  onClick={props.hide}>
 	  <section className="exit-intent inline-subscribe registration-margin-top">
 	    <div className="display-table-cell exit-intent__content">
-	      <h2 className="exit-intent-header">Where is my Serial Number</h2>
-	      <h3>All Blenders Except the Designer 725</h3>
-	      <p>You can find the serial number on the bottom of your blender base.</p>
+	      <h2 className="exit-intent-header">{props.t('SERIAL_WHERE')}</h2>
+	      <h3>{props.t('ALL_EXCEPT_725')}</h3>
+	      <p>{props.t('SERIAL_LOCATION_ALL')}</p>
 	      <img id="helper_image" src="//s3.amazonaws.com/blendtec.com/images/Support/blender-serial-location.jpg" />
 	      <hr />
-	      <h3>Designer 725</h3>
-	      <p>Hold down the red ‘X’ on your blender, then select ‘Rewards.’ This will display the serial number along with your last reward code.</p>
+	      <h3>{props.t('DESIGNER_725')}</h3>
+	      <p>{props.t('SERIAL_LOCATION_725')}</p>
 	      <img src="//s3.amazonaws.com/blendtec.com/images/Support/blender-serial-location-725.jpg" />
-	      <button onClick={props.hide} className="btn one-whole">OK</button>
+	      <button onClick={props.hide} className="btn one-whole">{props.t('OK')}</button>
 	    </div>
 	  </section>
 	</div>
