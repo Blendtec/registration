@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Input from '../UI/Input/Input';
-import Button from '../UI/Button/Button';
-import Spinner from '../UI/Spinner/Spinner';
 import './RegistrationForm.css';
 import axios from '../../axios-data';
 import axiosTransit from '../../axios-transit';
@@ -9,7 +7,6 @@ import Aux from '../../hoc/Aux/Aux';
 import Popup from '../PopUp/popup';
 import orderForm from '../../enum/orderForm';
 import infoFiles from '../../enum/info-files';
-import { translate } from 'react-i18next';
 
 class RegistrationForm extends Component {
     state = {
@@ -26,7 +23,7 @@ class RegistrationForm extends Component {
     	if (this.state.states || states) {
 	    	let currCountry = 'US';
 	    	let availStates = states || this.state.states;
-	    	let statesRequired = true;
+
 	    	const updatedOrderForm = {
 			            ...this.state.orderForm
 			        };
@@ -41,7 +38,7 @@ class RegistrationForm extends Component {
 	    		return {value: state.name, displayValue: state.name};
 	    	});
 	    	if (currStates.length === 0) {
-	    		statesRequired = false;
+
 	    	} else {
 	    		currStates.unshift({value: '', displayValue: 'Select State'});
 	    	}
@@ -54,7 +51,6 @@ class RegistrationForm extends Component {
     setCountries() {
     	if (this.state.countries) {
 	    	let availCountries = this.state.countries;
-	    	let statesRequired = true;
 	    	const updatedOrderForm = {
 	            ...this.state.orderForm
 	        };
@@ -243,6 +239,7 @@ class RegistrationForm extends Component {
     	} else {
     		Object.keys(formElement).map(key => {
 		        formElement[key].touched = true;
+		        return formElement[key];
     		});
     		this.setState({orderForm: formElement});
     	}
@@ -250,7 +247,6 @@ class RegistrationForm extends Component {
 
 
     render() {
-    	const t = this.props.t;
     	let formElement = {...this.state.orderForm};
     	const firstSection = [...orderForm.firstSection];
     	const secondSection = [...orderForm.secondSection];

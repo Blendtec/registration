@@ -28,6 +28,7 @@ script:
 - echo $TRAVIS_BRANCH
 - if [ $TRAVIS_BRANCH = 'master' ]; then PUBLIC_URL=https://s3.us-west-1.amazonaws.com/apps.blendtec.com/product-registration npm run build --deploy-url $S3_REGION/$S3_BUCKET/$APP_NAME/; fi
 - if [ $TRAVIS_BRANCH = 'stage' ]; then PUBLIC_URL=https://s3.us-west-1.amazonaws.com/apps.stage.blendtec.com/product-registration npm run build --deploy-url $S3_REGION/$S3_STAGE_BUCKET/$APP_NAME/; fi
+- if [ $TRAVIS_BRANCH = 'develop' ]; then PUBLIC_URL=https://s3.us-west-1.amazonaws.com/apps.develop.blendtec.com/product-registration npm run build --deploy-url $S3_REGION/$S3_DEV_BUCKET/$APP_NAME/; fi
 after_success:
 - "./node_modules/.bin/codecov"
 notifications:
